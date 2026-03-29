@@ -1,0 +1,4 @@
+# Onshape API 어셈블리 스크립트 + hylion_cad.py
+# Python 3.11.9 필요 (CadQuery가 3.12+ 미지원)
+requests
+cadquery

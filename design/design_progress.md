@@ -41,4 +41,6 @@
 
 - BHL GitHub: `github.com/HybridRobotics/Berkeley-Humanoid-Lite`
 - BHL Docs: `berkeley-humanoid-lite.gitbook.io/docs`
+- BHL onshape: https://cad.onshape.com/documents/fc6443b1d89dcba950e85b60/w/94a26479973a4098a5884426/e/be3fe37849edbeadc95b9bf8
 - SO-ARM101: `github.com/TheRobotStudio/SO-ARM100`
+- SO-ARM101 sonshape: https://cad.onshape.com/documents/7715cc284bb430fe6dab4ffd/w/4fd0791b683777b02f8d975a/e/826c553ede3b7592eb9ca800
