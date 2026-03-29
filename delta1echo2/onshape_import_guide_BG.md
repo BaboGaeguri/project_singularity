@@ -77,28 +77,47 @@ ONSHAPE_SECRET_KEY=발급받은_시크릿키
 
 ## Step 4. Python 환경 세팅
 
+> ⚠️ **OS 참고:** Onshape API 설계 작업은 Windows/Ubuntu 모두 동일하게 동작.
+> 로봇 구동(IsaacLab, ROS2) 작업은 Ubuntu 권장.
+
 ### 4-1. Python 3.11.9 설치
 
-`python.org` → Python 3.11.9 Windows installer (64-bit) 다운로드
-- 설치 시 **"Add python.exe to PATH"** 반드시 체크
+`python.org` → Python 3.11.9 → **Windows installer (64-bit)** 다운로드
+- 설치 첫 화면에서 **"Add python.exe to PATH"** 반드시 체크 후 **Install Now**
+
+> **Add python.exe to PATH란?**
+> 터미널에서 `python` 명령어를 어디서든 인식하게 해주는 설정.
+> 체크 안 하면 `'python'은 인식되지 않는 명령어` 오류 발생.
+
+> **여러 Python 버전이 설치된 경우:**
+> Windows py 런처로 버전 지정 가능: `py -3.11`, `py -3.10` 등
+> 가상환경 생성 시 버전이 환경에 고정되므로 혼용 걱정 없음.
 
 설치 확인:
 ```bash
 py -3.11 --version  # Python 3.11.9
 ```
 
+> CadQuery가 Python 3.12+ 미지원이라 3.11 필수.
+> Onshape API 스크립트 자체는 3.8+ 아무거나 가능하나 3.11로 통일.
+
 ### 4-2. 가상환경 생성 및 패키지 설치
 
+**Windows:**
 ```bash
-# 설계용 가상환경 생성
 py -3.11 -m venv .venv_design
-
-# 활성화 (Windows)
 .venv_design\Scripts\activate
-
-# 의존성 설치
 pip install -r requirements.txt -r requirements_design.txt
 ```
+
+**Ubuntu:**
+```bash
+python3.11 -m venv .venv_design
+source .venv_design/bin/activate
+pip install -r requirements.txt -r requirements_design.txt
+```
+
+활성화되면 터미널 앞에 `(.venv_design)` 표시됨.
 
 ---
 
