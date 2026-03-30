@@ -7,7 +7,7 @@ ACCESS_KEY = os.environ['ONSHAPE_ACCESS_KEY']
 SECRET_KEY = os.environ['ONSHAPE_SECRET_KEY']
 BASE_URL = "https://cad.onshape.com"
 
-HYLION = ("a741aa6d15d9e384d9ffa4d9", "2105b756950a92f6be143e8a", "bff9221de0592d13a616f0f2")
+HYLION = ("a741aa6d15d9e384d9ffa4d9", "2105b756950a92f6be143e8a", "0f1a46cb91bfc8ad1a11b7ea")
 BHL    = ("f0fecca5eed67c8c3b107deb", "5986bd9b41326a2034f55e3a", "8a738ee5d00bb7ca5f8b3bc0")
 SOARM  = ("32d468d3a6994ea4b9d0cfa1", "4702c8115f56790e62e507c5", "61ca4b83d9996a40877b20fc")
 
@@ -27,20 +27,51 @@ def auth_headers(method, path, body="", ctype="application/json"):
 def post(path, body):
     b = json.dumps(body)
     r = requests.post(BASE_URL + path, headers=auth_headers("post", path, b), data=b)
+    print(f"  POST {path} → {r.status_code} | {r.text[:300]}")
     r.raise_for_status()
+    if not r.text:
+        return {}
+    return r.json()
+
+def get_or_create_version(did, wid):
+    """유효한 버전 ID를 가져오거나 새로 생성 (metadataWorkspaceId가 null인 버전 제외)"""
+    r = requests.get(BASE_URL + f"/api/documents/{did}/versions",
+                     headers=auth_headers("get", f"/api/documents/{did}/versions"))
+    versions = r.json()
+    for v in versions:
+        if v.get("metadataWorkspaceId"):
+            print(f"  version ID: {v['id']} (existing)")
+            return v["id"]
+    # 유효한 버전 없으면 새로 생성
+    res = post(f"/api/documents/{did}/versions",
+               {"documentId": did, "workspaceId": wid, "name": "v1", "description": "initial"})
+    print(f"  version ID: {res['id']} (new)")
+    return res["id"]
+
+def get_assembly(did, wid, eid):
+    path = f"/api/v9/assemblies/d/{did}/w/{wid}/e/{eid}"
+    r = requests.get(BASE_URL + path, headers=auth_headers("get", path))
     return r.json()
 
 def insert(t_did, t_wid, t_eid, s_did, s_wid, s_eid):
-    path = f"/api/assemblies/{t_did}/w/{t_wid}/e/{t_eid}/instances"
-    res  = post(path, {"type":"Assembly","documentId":s_did,"workspaceId":s_wid,"elementId":s_eid})
-    return res["id"]
+    vid = get_or_create_version(s_did, s_wid)
+    path = f"/api/v9/assemblies/d/{t_did}/w/{t_wid}/e/{t_eid}/instances"
+    time.sleep(2)
+    post(path, {"documentId": s_did, "elementId": s_eid, "isAssembly": True, "versionId": vid})
+    # createInstance는 {}를 반환하므로 getAssemblyDefinition으로 instance ID 조회
+    asm = get_assembly(t_did, t_wid, t_eid)
+    instances = asm.get("rootAssembly", {}).get("instances", [])
+    for inst in reversed(instances):
+        if inst.get("documentId") == s_did and inst.get("elementId") == s_eid:
+            return inst["id"]
+    raise ValueError(f"삽입된 instance를 찾을 수 없음: {s_did}/{s_eid}")
 
 def set_transform(did, wid, eid, instance_id, tx=0, ty=0, tz=0):
-    path = f"/api/assemblies/{did}/w/{wid}/e/{eid}/occurrences/transforms"
+    path = f"/api/v9/assemblies/d/{did}/w/{wid}/e/{eid}/occurrencetransforms"
     post(path, {
+        "isRelative": False,
         "occurrences": [{"path": [instance_id]}],
-        "transform": [1,0,0,0, 0,1,0,0, 0,0,1,0, tx,ty,tz,1],
-        "isRelative": False
+        "transform": [1,0,0,tx, 0,1,0,ty, 0,0,1,tz, 0,0,0,1]
     })
 
 if __name__ == "__main__":
@@ -48,7 +79,7 @@ if __name__ == "__main__":
 
     print("BHL 삽입...")
     bhl_id = insert(did, wid, eid, *BHL)
-    set_transform(did, wid, eid, bhl_id, tz=0.0)  # BHL 원점 기준, 이후 보정
+    set_transform(did, wid, eid, bhl_id, tz=0.0)
     print(f"BHL: {bhl_id}")
 
     print("SO-ARM 좌측 삽입...")
