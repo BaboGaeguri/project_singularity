@@ -178,6 +178,39 @@ def auth_headers(method, path, body="", ctype="application/json"):
 
 ---
 
+## 간섭 체크 (Interference Detection)
+
+**POST** `/api/v9/assemblies/d/{did}/w/{wid}/e/{eid}/interference`
+
+배치 완료 후 부품끼리 겹치는지 자동 확인.
+응답: 간섭이 발생한 파트 쌍 목록 + 간섭 볼륨
+
+---
+
+## 파트 치수 조회 (Mass Properties)
+
+**GET** `/api/parts/{did}/{wid}/{eid}/{partid}/massproperties`
+
+응답의 `periphery` 필드에서 bounding box 추출 → x/y/z 최대·최소값 → 내부 가용 공간 계산
+
+| 조회 항목 | 용도 |
+|-----------|------|
+| 토르소 bounding box (x, y, z) | 내부 부품 배치 가능 영역 |
+| 골반 bounding box | 배터리 A 슬롯 공간 확인 |
+| base link 원점 위치 | 전체 Z 기준점 보정 |
+
+---
+
+## 인스턴스 삭제 (deleteInstance)
+
+**DELETE** `/api/assemblies/d/{did}/w/{wid}/e/{eid}/instance/nodeid/{instanceId}`
+
+중복 삽입된 instance 정리 시 사용. Body 불필요.
+
+> ⚠️ 버전 prefix 없음 (`/api/v9/`가 아니라 `/api/`). 경로는 `instance/nodeid`.
+
+---
+
 ## 트러블슈팅
 
 | 증상 | 원인 | 해결 |
