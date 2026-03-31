@@ -11,11 +11,13 @@
 ### 서명 문자열 형식
 
 ```
-{method}\n{nonce}\n{date}\n{content-type}\n{path}\n\n
+{method}\n{nonce}\n{date}\n{content-type}\n{path}\n{query}\n
 ```
 
 - 전체 소문자로 변환 후 HMAC-SHA256 서명
-- `path`에는 query string 미포함 (끝에 `\n\n` 두 개)
+- `path`와 `query`를 분리: path에는 query string 미포함, query는 별도 필드
+- query string이 없으면 빈 문자열 (결과적으로 `\n\n`이 됨)
+- query string이 있으면 `key=value&key=value` 형태로 포함
 - GET 요청도 Content-Type을 `application/json`으로 고정
 
 ### Authorization 헤더
@@ -138,6 +140,17 @@ def auth_headers(method, path, body="", ctype="application/json"):
 ```
 
 > createInstance 후 instance ID 조회에 사용 (createInstance가 ID를 반환하지 않으므로)
+
+**Query Parameters (선택):**
+
+| 파라미터 | 타입 | 기본값 | 설명 |
+|----------|------|--------|------|
+| `includeMateFeatures` | boolean | false | mate 정보 포함 |
+| `includeMateConnectors` | boolean | false | mate connector 좌표 포함 |
+| `includeNonSolids` | boolean | false | 비고체 포함 |
+| `excludeSuppressed` | boolean | false | suppress된 항목 제외 |
+
+> ⚠️ query parameter 사용 시 HMAC 서명의 query 필드에 포함 필요 (path와 분리)
 
 ---
 

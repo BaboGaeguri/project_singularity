@@ -10,10 +10,10 @@ BASE_URL = "https://cad.onshape.com"
 
 HYLION = ("a741aa6d15d9e384d9ffa4d9", "2105b756950a92f6be143e8a", "0f1a46cb91bfc8ad1a11b7ea")
 
-def auth_headers(method, path, ctype="application/json"):
+def auth_headers(method, path, query="", ctype="application/json"):
     nonce = uuid.uuid4().hex
     date  = time.strftime("%a, %d %b %Y %H:%M:%S GMT", time.gmtime())
-    msg   = f"{method}\n{nonce}\n{date}\n{ctype}\n{path}\n\n".lower()
+    msg   = f"{method}\n{nonce}\n{date}\n{ctype}\n{path}\n{query}\n".lower()
     sig   = base64.b64encode(
         hmac.new(SECRET_KEY.encode(), msg.encode(), hashlib.sha256).digest()
     ).decode()
@@ -23,9 +23,15 @@ def auth_headers(method, path, ctype="application/json"):
         "Content-Type": ctype, "Accept": "application/json"
     }
 
-def get_assembly(did, wid, eid):
+def get_assembly(did, wid, eid, include_mates=False):
     path = f"/api/v9/assemblies/d/{did}/w/{wid}/e/{eid}"
-    r = requests.get(BASE_URL + path, headers=auth_headers("get", path))
+    params = {}
+    if include_mates:
+        params["includeMateFeatures"] = "true"
+        params["includeMateConnectors"] = "true"
+    query = "&".join(f"{k}={v}" for k, v in sorted(params.items()))
+    url = BASE_URL + path + ("?" + query if query else "")
+    r = requests.get(url, headers=auth_headers("get", path, query))
     r.raise_for_status()
     return r.json()
 
@@ -56,7 +62,8 @@ if __name__ == "__main__":
     print(f"대상: {target_name}")
     print(f"어셈블리 조회 중: did={did}\n")
 
-    asm = get_assembly(did, wid, eid)
+    include_mates = "--mates" in sys.argv
+    asm = get_assembly(did, wid, eid, include_mates=include_mates)
 
     # 전체 JSON을 파일로 저장 (상세 분석용)
     out_path = os.path.join(os.path.dirname(__file__), "onshape", f"{target_name}_dump.json")
