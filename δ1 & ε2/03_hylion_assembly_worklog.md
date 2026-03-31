@@ -1,14 +1,14 @@
 # Hylion 어셈블리 작업 기록
 
 > BHL(하체) + SO-ARM(팔)을 조합하여 Hylion 로봇을 구성하는 작업 기록
-> 환경 세팅 → `onshape_setup_guide.md` | API 레퍼런스 → `onshape_api_guide.md`
+> 환경 세팅 → `01_onshape_setup_guide.md` | API 레퍼런스 → `02_onshape_api_guide.md`
 
 ---
 
 ## 전체 플로우
 
 ```
-[1] 환경 세팅 (문서 확보, API key, venv)                 ✅ 완료 → onshape_setup_guide.md
+[1] 환경 세팅 (문서 확보, API key, venv)                 ✅ 완료 → 01_onshape_setup_guide.md
 [2] Onshape 어셈블리 배치 스크립트                       ✅ 완료 (중복 삽입 해결됨)
 [3] Assembly 상태 조회 + 정리                            ✅ 완료 (2026-03-31)
 [4] URDF vs Onshape 일치 검증                            ✅ 완료 — 둘 다 일치 확인

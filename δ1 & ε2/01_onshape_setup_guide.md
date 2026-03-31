@@ -1,7 +1,7 @@
 # Onshape 어셈블리 환경 세팅 가이드
 
 > 새 팀원이 Onshape API 기반 어셈블리 작업을 시작하기 위한 초기 세팅 문서
-> API 레퍼런스 → `onshape_api_guide.md` | 작업 기록 → `hylion_assembly_worklog.md`
+> API 레퍼런스 → `02_onshape_api_guide.md` | 작업 기록 → `03_hylion_assembly_worklog.md`
 
 ---
 
@@ -66,7 +66,7 @@ https://cad.onshape.com/documents/{did}/w/{wid}/e/{eid}
 
 **Element ID 확인 방법:** Onshape 하단 탭 우클릭 → "Copy tab URL" → URL 끝 `e/` 이후 문자열
 
-현재 프로젝트 Document ID는 `hylion_assembly_worklog.md` 참조.
+현재 프로젝트 Document ID는 `03_hylion_assembly_worklog.md` 참조.
 
 ---
 
