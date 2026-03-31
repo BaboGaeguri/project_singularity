@@ -24,9 +24,11 @@
 | 파일 | 용도 |
 |------|------|
 | `assembly_hylion.py` | Onshape 어셈블리에 BHL/SO-ARM 삽입 + Transform 배치 |
-| `inspect_assembly.py` | 현재 어셈블리 상태 조회 → `onshape/assembly_dump.json` 저장 |
+| `inspect_assembly.py` | 어셈블리 상태 조회 → `onshape/{대상}_dump.json` 저장 (`--mates` 옵션으로 mate 포함) |
+| `visualize_urdf.py` | URDF 3D 시각화 (yourdfpy) |
 | `hylion_cad.py` | CadQuery 기반 커스텀 파트 생성 |
 | `test_onshape.py` | Onshape API 연결 테스트 |
+| `components/convert_step_to_stl.py` | STEP → STL 변환 |
 
 ---
 

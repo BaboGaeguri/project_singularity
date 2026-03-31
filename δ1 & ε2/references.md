@@ -8,7 +8,7 @@
 
 | 문서 | 링크 | 비고 |
 |------|------|------|
-| BHL 원본 | https://cad.onshape.com/documents/fc6443b1d89dcba950e85b60 | Copy workspace로 복사 가능 |
+| BHL 원본 | https://cad.onshape.com/documents/fc6443b1d89dcba950e85b60/w/94a26479973a4098a5884426/e/be3fe37849edbeadc95b9bf8 | Copy workspace로 복사 가능 |
 | SO-ARM 원본 | https://cad.onshape.com/documents/7715cc284bb430fe6dab4ffd/w/4fd0791b683777b02f8d975a/e/826c553ede3b7592eb9ca800 | view only (소유자: Pepijn) |
 | Hylion Assembly (작업 문서) | https://cad.onshape.com/documents/a741aa6d15d9e384d9ffa4d9/w/2105b756950a92f6be143e8a/e/0f1a46cb91bfc8ad1a11b7ea | 우리 어셈블리 |
 | BHL 복사본 | https://cad.onshape.com/documents/f0fecca5eed67c8c3b107deb/w/5986bd9b41326a2034f55e3a/e/8a738ee5d00bb7ca5f8b3bc0 | |
@@ -33,6 +33,16 @@
 | Feetech 공식 (STS3215) | https://www.feetechrc.com | 모터 스펙, 데이터시트 |
 | GrabCAD | https://grabcad.com | 3D 모델 검색 (STS3215 STL 등) |
 | SO-ARM 3D 프린팅 파일 | https://github.com/huggingface/lerobot → docs 내 README 링크 | 3D 프린팅용 STL |
+
+---
+
+## 프로젝트 / 문서
+
+| 리소스 | 링크 | 용도 |
+|--------|------|------|
+| BHL GitHub | https://github.com/HybridRobotics/Berkeley-Humanoid-Lite | BHL 소스, URDF, 문서 |
+| BHL Docs | https://berkeley-humanoid-lite.gitbook.io/docs | BHL 공식 문서 |
+| SO-ARM101 GitHub | https://github.com/TheRobotStudio/SO-ARM100 | SO-ARM 원본 프로젝트 |
 
 ---
 

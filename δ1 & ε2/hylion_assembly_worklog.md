@@ -155,3 +155,9 @@ Copy workspace 불가 → STEP import 시 **mate 정보 소실** → 어셈블�
 - [ ] 배치 확정 후 Export
 
 조회 스크립트: `inspect_assembly.py` → 결과 JSON: `onshape/hylion_dump.json`, `soarm_dump.json`, `bhl_dump.json`
+
+---
+
+## 내가 따로 봐봐야 할 것 같은 거
+- 용어 정리(mesh, stl, urdf, step etc..)
+- CAD와 URDF가 정확이 어떤 다른 역할을 하는 건지 짚고 넘어가야 함(일단은 그냥 CAD는 어떻게 연결되어 있고 간섭하는지까지 정보를 담고 있고, URDF는 joint랑 link만 있는 시뮬레이션용 파일)
