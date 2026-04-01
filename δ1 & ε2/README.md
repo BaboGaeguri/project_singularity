@@ -15,6 +15,7 @@
 | 05 | `05_hyrion_parts_weight.md` | 파트별 무게 정리 | 설계 참조 |
 | 06 | `06_hyrion_internal_parts_final.md` | 내부 부품 종합 정리 | 설계 참조 |
 | 07 | `07_references.md` | 외부 링크 모음 (Onshape, API, 부품, 도구, 관련 인물) | 전체 참조 |
+| 08 | `08_coordinate_transform.md` | Onshape Export ↔ URDF STL 좌표 변환 규칙 | 설계 참조 |
 | 99 | `99_onshape_import_guide.md` | STEP → Onshape 업로드 가이드 (레거시) | 참고용 |
 
 **처음 참여한다면:** `01` → `02` → `03` 순서로 읽으세요.

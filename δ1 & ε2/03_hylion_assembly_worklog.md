@@ -12,9 +12,9 @@
 [2] Onshape 어셈블리 배치 스크립트                       ✅ 완료 (중복 삽입 해결됨)
 [3] Assembly 상태 조회 + 정리                            ✅ 완료 (2026-03-31)
 [4] URDF vs Onshape 일치 검증                            ✅ 완료 — 둘 다 일치 확인
-[5] URDF 기반 Hylion 합치기                              ✅ v1~v4 진행 (v3가 현재 가장 나은 상태)
+[5] URDF 기반 Hylion 합치기                              ✅ v1~v4 진행 (v4가 현재 가장 나은 상태)
 [6] Mesh 파일 확보                                       ✅ 완료
-[7] BHL base mesh에서 어깨 모터 제거                     ⚠️ 시도 중 — 좌표계 불일치 문제
+[7] BHL base mesh에서 어깨 모터 제거                     ❌ 포기 — 원본 mesh 그대로 사용으로 전환
 [8] URDF 시각화 검증                                     ⚠️ 반복 수정 중
 [9] 간섭 체크 + 배치 확정                                🔲 미수행
 [10] Export (STEP / URDF)                                🔲 미수행
@@ -114,14 +114,17 @@ Copy workspace 불가 → STEP import 시 **mate 정보 소실** → 어셈블�
 - 위치: `(0, ±0.10, 0.544)` — 토르소 외벽 바깥
 - **문제**: BHL 어깨 모터(Chest)와 SO-ARM base가 여전히 겹침
 
-### v4 — BHL base mesh에서 어깨 모터 제거 시도
-- Onshape에서 `base_no_actuator_BG` 탭 생성 → Chest 삭제 → export
-- **문제**: `onshape-to-robot` STL과 Onshape 직접 export STL의 좌표계가 다름 (축 뒤바뀜)
-- `onshape-to-robot`으로 개별 파트 추출 → merge 시도 → 역시 좌표 불일치
+### v4 — 원본 base mesh + SO-ARM 충돌 회피 배치 (2026-04-01)
+- **방향 전환**: Chest 제거를 포기하고, 원본 `base_visual.stl` 그대로 사용
+- **SO-ARM 배치**: 토르소 상단 양 옆, collision box 밖에 배치
+  - 좌: `(0, +0.12, 0.82)`, `rpy=(pi, 0, pi/2)` — 뒤집어서 팔이 아래로, 옆으로 뻗음
+  - 우: `(0, -0.12, 0.82)`, `rpy=(pi, 0, -pi/2)` — 좌우 대칭
+- **총 DOF**: 24 (다리 12 + 팔 12)
+- **상태**: 시각화 검증 필요
 
 ### 핵심 미해결 문제
-1. **BHL base mesh에서 어깨 모터(Chest)를 제거한 STL**을 원본과 같은 좌표계로 만드는 방법
-2. **SO-ARM 마운트 위치/방향 최적화** — 겹침 없이 사람처럼 팔이 달린 형태
+1. **URDF 시각화 검증** — v4가 실제로 겹침 없이 올바르게 보이는지 확인
+2. **SO-ARM 마운트 위치 미세 조정** — 시각화 결과에 따라 xy/z 조정
 3. **연결 브래킷 설계** — 실제 체결을 위한 추가 구조물
 
 ---
@@ -146,8 +149,9 @@ Copy workspace 불가 → STEP import 시 **mate 정보 소실** → 어셈블�
 - [x] SO-ARM mesh 파일 확보 (onshape-to-robot) ✅ 2026-03-31
 - [x] 모터 STL 확보 (GrabCAD + STEP→STL 변환) ✅ 2026-03-31
 - [x] BHL Onshape mate 데이터 조회 ✅ 2026-03-31
-- [ ] **BHL base mesh 어깨 모터 제거 (좌표계 문제 해결 필요)**
-- [ ] SO-ARM 마운트 위치/방향 최종 확정
+- [x] ~~BHL base mesh 어깨 모터 제거~~ → 포기, 원본 mesh 사용으로 전환 ✅ 2026-04-01
+- [x] SO-ARM 마운트 위치/방향 설정 (v4: 토르소 상단 외벽 배치) ✅ 2026-04-01
+- [ ] **URDF v4 시각화 검증 — 충돌 여부 확인**
 - [ ] 연결 브래킷 설계
 - [ ] URDF 시각화 검증 통과
 - [ ] SO-ARM 원본 Onshape 권한 요청 (병렬)
@@ -157,7 +161,3 @@ Copy workspace 불가 → STEP import 시 **mate 정보 소실** → 어셈블�
 조회 스크립트: `inspect_assembly.py` → 결과 JSON: `onshape/hylion_dump.json`, `soarm_dump.json`, `bhl_dump.json`
 
 ---
-
-## 내가 따로 봐봐야 할 것 같은 거
-- 용어 정리(mesh, stl, urdf, step etc..)
-- CAD와 URDF가 정확이 어떤 다른 역할을 하는 건지 짚고 넘어가야 함(일단은 그냥 CAD는 어떻게 연결되어 있고 간섭하는지까지 정보를 담고 있고, URDF는 joint랑 link만 있는 시뮬레이션용 파일)

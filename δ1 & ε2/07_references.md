@@ -40,7 +40,8 @@
 
 | 리소스 | 링크 | 용도 |
 |--------|------|------|
-| BHL GitHub | https://github.com/HybridRobotics/Berkeley-Humanoid-Lite | BHL 소스, URDF, 문서 |
+| BHL GitHub | https://github.com/HybridRobotics/Berkeley-Humanoid-Lite | BHL 소스, 문서 |
+| BHL Assets (서브모듈) | https://github.com/HybridRobotics/berkeley-humanoid-lite-assets | URDF, mesh(STL), MJCF — `base_visual.stl` 등 원본 출처 |
 | BHL Docs | https://berkeley-humanoid-lite.gitbook.io/docs | BHL 공식 문서 |
 | SO-ARM101 GitHub | https://github.com/TheRobotStudio/SO-ARM100 | SO-ARM 원본 프로젝트 |
 

@@ -50,7 +50,7 @@
 
 ---
 
-## hylion_v4.urdf ← 실패
+## hylion_v4.urdf (이전 시도 — 실패)
 
 **날짜:** 2026-03-31
 
@@ -61,20 +61,45 @@
 2. 원본 `base_visual.stl` 대신 이 STL 사용
 3. **실패 원인:** `onshape-to-robot`이 생성한 STL과 Onshape 직접 export STL의 좌표계가 다름 (x/y축 뒤바뀜)
 
-**추가 시도:**
-1. `onshape-to-robot`으로 `base_no_actuator_BG` 탭 추출 → 개별 파트 STL 생성
-2. 개별 STL을 trimesh로 merge → 좌표 불일치 지속
-
 **교훈:**
 - Onshape 직접 export STL ≠ `onshape-to-robot` STL (좌표계가 다름)
 - base mesh 교체 시 동일한 도구(`onshape-to-robot`)로 추출해야 함
-- 개별 파트 merge는 원점 문제 해결이 안 됨
+
+---
+
+## hylion_v4.urdf (재작성) ← 현재
+
+**날짜:** 2026-04-01
+
+**내용:** 방향 전환 — Chest 제거를 포기하고, 원본 `base_visual.stl`을 그대로 사용. SO-ARM을 토르소 상단 양 옆에 충돌 없이 배치.
+
+**전략:**
+- BHL base mesh: `base_visual.stl` 원본 그대로 (Chest 포함)
+- BHL base collision box: x=±0.075, y=±0.07, z=0.595~0.825
+- SO-ARM을 collision box **밖**에 배치
+
+**SO-ARM 연결 (좌):**
+- 위치: `(0, +0.12, 0.82)` — y=0.12는 box 외벽(0.07)에서 0.05m 여유
+- 방향: `rpy=(pi, 0, pi/2)` — 뒤집어서 팔이 아래로, 90도 회전하여 팔이 옆으로 뻗음
+
+**SO-ARM 연결 (우):**
+- 위치: `(0, -0.12, 0.82)` — 좌우 대칭
+- 방향: `rpy=(pi, 0, -pi/2)` — 좌우 미러
+
+**구성:**
+- BHL 다리: 12 DOF (좌6 + 우6) — 원본 그대로
+- SO-ARM 팔: 12 DOF (좌6 + 우6) — shoulder_pan, shoulder_lift, elbow_flex, wrist_flex, wrist_roll, gripper
+- IMU: 원본 그대로
+- 총 DOF: 24 (능동 관절)
+
+**link/joint 이름 규칙:**
+- 좌: `soarm_left_` prefix
+- 우: `soarm_right_` prefix
 
 ---
 
 ## 다음 단계
 
-v3 기반으로 이어서 작업. 핵심 과제:
-1. BHL 어깨 모터(Chest) 제거된 mesh를 **원본과 동일한 좌표계**로 만드는 방법 확보
-2. SO-ARM 위치를 겹침 없는 최종 위치로 확정
+1. URDF 시각화 검증 — 충돌 여부 확인
+2. SO-ARM 마운트 위치 미세 조정 (시각화 결과에 따라)
 3. 연결 브래킷 설계
