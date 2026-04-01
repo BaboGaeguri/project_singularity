@@ -129,14 +129,120 @@ Copy workspace 불가 → STEP import 시 **mate 정보 소실** → 어셈블�
 
 ---
 
+## 소재 조사 (2026-04-01)
+
+`inspect_parts.py --mass`로 Onshape API에서 파트별 소재/질량/밀도 조회.
+
+### BHL — 소재 확인됨
+
+| 소재 | 밀도 (kg/m³) | 용도 |
+|------|-------------|------|
+| **PLA** | 1,250 | 3D프린팅 구조 부품 (Housing, Mount, Foot 등 대부분) |
+| **Aluminum** | 2,700 | 2020 알루미늄 프로파일 (골격) |
+| **ABS** | 1,052 | IMU link, 일부 소형 부품 |
+
+> 주의: `Geometry Stud Base`는 밀도 설정 오류 (999,999,999 kg/m³ → mass 785kg). Onshape 설정 실수로 보임.
+
+### SO-ARM (SO-101) — 소재 전부 미지정
+
+모든 파트: `material: "미지정"`, `mass: 0`, `density: 0`
+→ SO-101 URDF의 질량은 `onshape-to-robot` config에서 수동 지정된 것으로 추정
+
+---
+
+## SO-ARM Onshape 권한 조사 (2026-04-01)
+
+### SO-ARM100 GitHub Issue #147 확인
+
+- 다른 사용자가 동일한 Copy 권한 요청을 한 상태
+- **TheRobotStudio(Pepijn) 답변** (2026-02-06):
+  - Copy 권한은 열지 않음
+  - 대신 SO-100 파일을 별도 공유: `did: 8c3443ad2476530f652d160f`
+  - **SO-101은 HuggingFace가 SO-100을 수정한 버전**임을 밝힘 (케이블 배치 변경 + 하단 pitch 제거)
+
+### SO-100 Copy 후 조사
+
+- SO-100 문서를 Copy하여 `inspect_assembly.py --mates` + `inspect_parts.py --mass` 실행
+- **결과**: 소재 전부 미지정, Mate 없음 — 원본에 처음부터 없었음
+
+### SO-100 vs SO-101 체적 비교
+
+| 파트 | 차이 |
+|------|------|
+| 모터 (STS3215) | 동일 |
+| 어깨 회전, 마운팅 플레이트 | ~0.5% 이내 (동일) |
+| 상완, 하완, 손목, 그리퍼 | **5~7% 차이** (형상 다름) |
+| 베이스 | **파트 분할 방식 자체가 다름** (5배 차이) |
+
+**결론: SO-100을 SO-101 대용으로 사용할 수 없음**
+
+### 방향 재정립
+
+SO-ARM 내부 Mate/소재 정보는 **Onshape 어셈블리에 불필요**함을 확인:
+- SO-ARM은 **완제품**으로 구매 → 내부 관절의 Mate 재현 불필요
+- 실제 제작에 필요한 것은 **SO-ARM base 외형(STL)** + **BHL 체결 포인트** + **브래킷 설계**
+- SO-ARM 외형 STL은 이미 확보됨 (`components/so-arm/assets/`)
+- **SO-101 Onshape Copy 권한 요청은 불필요**
+
+---
+
+## Hylion v4 스펙 (2026-04-01)
+
+상세 내용 → `09_hylion_v4_specs.md`
+
+| 항목 | 값 |
+|------|-----|
+| 총 무게 | 13.89 kg (BHL 공식 16kg보다 2.1kg 가벼움 — 팔 교체 때문) |
+| 총 DOF | 24 (다리 12 + 팔 12) |
+| 전체 높이 | ~0.82m (발바닥~어깨) |
+| 최대 폭 | ~0.24m (어깨 기준) |
+| 팔 길이 | ~0.52m (쭉 폈을 때) |
+
+---
+
+## Onshape 어셈블리 배치 시도 (2026-04-01)
+
+### `assembly_hylion.py` — API로 자동 배치
+
+**방법**: Onshape API로 BHL + SO-ARM을 Hylion Assembly에 삽입 + transform 적용
+
+**스크립트 구조**:
+1. 기존 instance 전부 삭제
+2. BHL 삽입 (원점, 팔 suppress된 복사본 사용)
+3. SO-ARM 좌/우 삽입 + 위치/회전 적용
+
+**BHL 팔 suppress**:
+- BHL 원본 복사본에서는 suppress 불가 (외부 참조 제한)
+- **새 복사본 생성** → Arm L(6), Arm R(6) suppress → 버전 `v2_no_arms` 생성
+- BHL 복사본 (팔 suppress): `did: bf0b8ec39be1c3ca659f6306`
+
+**버전 관리 이슈**:
+- `get_or_create_version`이 오래된 버전(suppress 전)을 반환하는 문제 발생
+- Onshape는 버전을 **오래된순**으로 반환함 (최신이 마지막)
+- `get_latest_version`으로 수정 — `metadataWorkspaceId`가 유효한 마지막 버전 사용
+
+**좌표계 차이 문제 (미해결)**:
+- URDF 좌표 `(0, ±0.12, 0.82)` + `rpy=(pi, 0, ±pi/2)`를 그대로 Onshape에 적용하면 배치가 어긋남
+- **원인**: URDF 좌표계 ≠ Onshape 좌표계 (축 매핑이 다름)
+- Onshape Front 뷰 기준: Z=위, X=오른쪽
+- 위치를 `tx=±0.12` (X축=좌우)로 수정 → 좌우 배치는 맞음
+- **회전이 아직 안 맞음** — SO-ARM이 위로 솟아있고 아래로 안 내려옴
+- `roll=PI`, `pitch=PI`, `roll=PI+pitch=PI` 등 시도했으나 미해결
+- **다음 단계**: SO-ARM 원본의 Onshape 내부 방향을 정확히 파악한 후 회전 행렬 보정
+
+---
+
 ## Document ID
 
 | 문서 | did | wid | eid |
 |------|-----|-----|-----|
-| **Hylion Assembly** (작업 문서) | `a741aa6d15d9e384d9ffa4d9` | `2105b756950a92f6be143e8a` | `bff9221de0592d13a616f0f2` |
-| **BHL 복사본** | `f0fecca5eed67c8c3b107deb` | `5986bd9b41326a2034f55e3a` | `8a738ee5d00bb7ca5f8b3bc0` |
-| **SO-ARM 복사본** | `32d468d3a6994ea4b9d0cfa1` | `4702c8115f56790e62e507c5` | `61ca4b83d9996a40877b20fc` |
+| **Hylion Assembly** (작업 문서) | `a741aa6d15d9e384d9ffa4d9` | `2105b756950a92f6be143e8a` | `0f1a46cb91bfc8ad1a11b7ea` |
+| **BHL 복사본 (원본)** | `f0fecca5eed67c8c3b107deb` | `5986bd9b41326a2034f55e3a` | `8a738ee5d00bb7ca5f8b3bc0` |
+| **BHL 복사본 (팔 suppress)** | `bf0b8ec39be1c3ca659f6306` | `560942befdcb6930ea4b7a28` | `f015812d38473d4933b28001` |
+| **SO-ARM 복사본** (SO-101, STEP import) | `32d468d3a6994ea4b9d0cfa1` | `4702c8115f56790e62e507c5` | `61ca4b83d9996a40877b20fc` |
 | **BHL base (모터 제거)** | `f0fecca5eed67c8c3b107deb` | `5986bd9b41326a2034f55e3a` | `719459ab4fd197d947f11217` |
+| **SO-100 원본** (TheRobotStudio 공유) | `8c3443ad2476530f652d160f` | `cbfc0795034ec0eb76266c9e` | `8b1be6bb4110bea74c27dbdc` |
+| **SO-100 Copy** (우리 복사본) | `777450bd9cf2ea12995524af` | `21332a10decdb024c210faae` | `4a47bf70b89df2ec8aa69f12` |
 
 ---
 
@@ -151,13 +257,26 @@ Copy workspace 불가 → STEP import 시 **mate 정보 소실** → 어셈블�
 - [x] BHL Onshape mate 데이터 조회 ✅ 2026-03-31
 - [x] ~~BHL base mesh 어깨 모터 제거~~ → 포기, 원본 mesh 사용으로 전환 ✅ 2026-04-01
 - [x] SO-ARM 마운트 위치/방향 설정 (v4: 토르소 상단 외벽 배치) ✅ 2026-04-01
+- [x] Onshape 파트별 소재/질량 조사 (BHL: PLA+AL, SO-ARM: 미지정) ✅ 2026-04-01
+- [x] SO-ARM Onshape 권한 조사 → SO-100 Copy + 비교 → **내부 Mate 불필요 확인** ✅ 2026-04-01
+- [x] Hylion v4 스펙 정리 → `09_hylion_v4_specs.md` ✅ 2026-04-01
+- [x] BHL 팔 suppress + 새 복사본 생성 ✅ 2026-04-01
+- [x] `assembly_hylion.py` v4 기준 업데이트 (회전 행렬 추가) ✅ 2026-04-01
+- [ ] **Onshape SO-ARM 회전 보정** — URDF↔Onshape 좌표계 차이 해결
 - [ ] **URDF v4 시각화 검증 — 충돌 여부 확인**
-- [ ] 연결 브래킷 설계
-- [ ] URDF 시각화 검증 통과
-- [ ] SO-ARM 원본 Onshape 권한 요청 (병렬)
-- [ ] 간섭 체크
+- [ ] **연결 브래킷 설계** — SO-ARM base 외형 + BHL 체결 포인트 기반
+- [ ] 머리/목 파트 설계 및 추가
+- [ ] 간섭 체크 (시뮬레이터에서)
 - [ ] 배치 확정 후 Export
 
-조회 스크립트: `inspect_assembly.py` → 결과 JSON: `onshape/hylion_dump.json`, `soarm_dump.json`, `bhl_dump.json`
+조회/배치 스크립트:
+- `inspect_assembly.py` → `onshape/{target}_dump.json`
+- `inspect_parts.py` → `onshape/{target}_parts.json`, `{target}_mass.json`
+- `check_versions.py` → 문서별 버전 목록 확인
+- `assembly_hylion.py` → Hylion Assembly에 BHL + SO-ARM 자동 배치
 
 ---
+
+## 해볼 것
+- onshape에 so-arm이 제대로 그려지지 않는 원인이 뭘까
+- SO-ARM의 Onshape 내부 좌표축 방향을 inspect로 확인 필요

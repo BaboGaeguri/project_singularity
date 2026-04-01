@@ -1,0 +1,164 @@
+[
+  {
+    "name": "WaveShare_Mounting_Plate_01d",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 9.097225479793912e-06,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Rotation_Pitch_08i",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFH",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 6.860452023771414e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "SO_ARM100_08k",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFL",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 1.3825627956441299e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Passive_Horn_01",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFP",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 5.789955260565991e-07,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "STS3215_03a",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFT",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 3.621703880270216e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "SO_ARM100_08k",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFX",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 0.00012619354840793764,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Wrist_Roll_Pitch_08i",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFb",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 3.0474035854326537e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Wrist_Roll_08c",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFf",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 5.694783729945891e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Moving_Jaw_08d",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFj",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 2.0214315763819704e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "STS3215_03a",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFn",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 3.5657913850179524e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Trigger_04e",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFr",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 1.117698788731287e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Base_08q",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFv",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 2.380302411187802e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Base_08q",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JFz",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 0.00012068315582542445,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Base_08q",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JF3",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 3.369525168991234e-06,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "SO_ARM100_08k",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JF7",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 9.792518162187728e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "SO_ARM100_08k",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "JF/",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 1.3825627956441297e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Wrist_Roll_05m_Leader_02ba",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "KFDB",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 3.9815055869667654e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Wrist_Roll_05m_Leader_02ba",
+    "elementId": "b1063ee765d85758f67d5bd6",
+    "partId": "KFHB",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 6.966423798719548e-05,
+    "density_kg_m3": 0.0
+  }
+]

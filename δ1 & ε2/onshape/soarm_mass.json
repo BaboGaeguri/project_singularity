@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Base_SO101 v2",
+    "elementId": "04967ea03b4d400d0a518746",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 0.00012270663904523292,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Moving_Jaw_SO101 v1",
+    "elementId": "0358fe1862065b5e7d10133d",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 2.069270530430109e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Motor_holder_SO101_Wrist v1",
+    "elementId": "1b34a6f5f39e5e6a11c21216",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 1.3880232361241218e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Under_arm_SO101 v1",
+    "elementId": "62dc18614190b1319a933cf2",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 9.29646153149584e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Wrist_Roll_Follower_SO101 v1",
+    "elementId": "5998e5a2fe05f34bc38e55ed",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 5.663984068436246e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Wrist_Roll_Pitch_SO101 v2",
+    "elementId": "45b50e1ef2ff05db8a21ca57",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 3.231378996618077e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "STS3215_03a_no_horn v1",
+    "elementId": "4b610f55c8d5e943ed1488da",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 3.5657878081477654e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "STS3215_03a v1",
+    "elementId": "d236e53ff93840fdf30ad71f",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 3.6217003034000286e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "WaveShare_Mounting_Plate_SO101 v2",
+    "elementId": "a5f4ffb246008c4ea23a3942",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 9.09330620773979e-06,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Motor_holder_SO101_Base v1",
+    "elementId": "4bdb25d8c16d8dd2a42e6036",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 1.3314129881318762e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Base_motor_holder_SO101 v1",
+    "elementId": "1f71fd4dbee3c7454e76fac8",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 2.37167702029038e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Rotation_Pitch_SO101 v1",
+    "elementId": "3fdf4e0c489fe3882d74691c",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 6.881168185252464e-05,
+    "density_kg_m3": 0.0
+  },
+  {
+    "name": "Upper_arm_SO101 v1",
+    "elementId": "51b68dce809f63b8c53adf1f",
+    "partId": "JFD",
+    "material": "미지정",
+    "mass_kg": 0.0,
+    "volume_m3": 0.00011741629980145214,
+    "density_kg_m3": 0.0
+  }
+]

@@ -1,0 +1,632 @@
+[
+  {
+    "name": "WaveShare_Mounting_Plate_01d",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFD",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD4617Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "66b8e457b6aa473835573702",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_0",
+    "ordinal": 0,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Rotation_Pitch_08i",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFH",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD6207Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "4d8f9d14178f49857cc6ab86",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_1",
+    "ordinal": 1,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "SO_ARM100_08k",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFL",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD7062Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "8baf12a51cbcc652b83fd1e7",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_2",
+    "ordinal": 2,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Passive_Horn_01",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFP",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD7075Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "004ac4f75c1e8825538372c8",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_3",
+    "ordinal": 3,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "STS3215_03a",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFT",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD7857Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "75f8cd0528c68c00ec482c8c",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_4",
+    "ordinal": 4,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "SO_ARM100_08k",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFX",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD9693Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "192517f2ea3ce7ac39dfc6c0",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_5",
+    "ordinal": 5,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Wrist_Roll_Pitch_08i",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFb",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD13502Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "e3da0d1a555731cf6d48f4e9",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_6",
+    "ordinal": 6,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Wrist_Roll_08c",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFf",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD14906Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "e8731d9bcc1e516774daf153",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_7",
+    "ordinal": 7,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Moving_Jaw_08d",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFj",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD15860Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "66cfee176281df50acb82c4c",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_8",
+    "ordinal": 8,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "STS3215_03a",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFn",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD16622Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "74e3cd2d24acae93227728ed",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_9",
+    "ordinal": 9,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Trigger_04e",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFr",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD18108Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "83cb7d205d289d915a3fbc5e",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_10",
+    "ordinal": 10,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Base_08q",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFv",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD633Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "d2a15caea94c757af0f42fb8",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_11",
+    "ordinal": 11,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Base_08q",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JFz",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD4292Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "fb7b221b7bad9a01fed7dfa9",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_12",
+    "ordinal": 12,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Base_08q",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JF3",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD4429Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "c72f81514388a781bc4a02bd",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_13",
+    "ordinal": 13,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "SO_ARM100_08k",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JF7",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD11145Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "99a0ffddd75e6d9131e437d7",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_14",
+    "ordinal": 14,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "SO_ARM100_08k",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "JF/",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD12000Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "48fb0c61b3a88b40e1014e5f",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_15",
+    "ordinal": 15,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Wrist_Roll_05m_Leader_02ba",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "KFDB",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD17582Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "b62a844f85c1735d867bb1b8",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_16",
+    "ordinal": 16,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  },
+  {
+    "name": "Wrist_Roll_05m_Leader_02ba",
+    "state": "IN_PROGRESS",
+    "isMesh": false,
+    "description": null,
+    "revision": null,
+    "partNumber": null,
+    "elementId": "e71c792f19cf5afaab18eeac",
+    "partId": "KFHB",
+    "bodyType": "solid",
+    "microversionId": "89ee6177af3835a3c088dc35",
+    "partQuery": "query=qCompressed(1.0,\"%B5$QueryM5Sa$entityTypeBa$EntityTypeS4$BODYSb$historyTypeS8$CREATIONS9$importTagD17752Sb$operationIdB2$IdA1Sf.8$FxOxvW3eHk2hQZcimportOpS9$queryTypeS6$IMPORT\",id);",
+    "isFlattenedBody": false,
+    "partIdentity": "f981e2b43eb6e3d5de5285a7",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 9,
+      "57f3fb8efa3416c06701d60c": 9
+    },
+    "metadataMicroversion": "f98d9e1eb6a498b234e02f94",
+    "defaultColorHash": "FxOxvW3eHk2hQZc_17",
+    "ordinal": 17,
+    "appearance": {
+      "color": {
+        "red": 203,
+        "green": 210,
+        "blue": 239
+      },
+      "isGenerated": false,
+      "opacity": 255
+    }
+  }
+]

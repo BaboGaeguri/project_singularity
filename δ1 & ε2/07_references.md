@@ -11,8 +11,11 @@
 | BHL 원본 | https://cad.onshape.com/documents/fc6443b1d89dcba950e85b60/w/94a26479973a4098a5884426/e/be3fe37849edbeadc95b9bf8 | Copy workspace로 복사 가능 |
 | SO-ARM 원본 | https://cad.onshape.com/documents/7715cc284bb430fe6dab4ffd/w/4fd0791b683777b02f8d975a/e/826c553ede3b7592eb9ca800 | view only (소유자: Pepijn) |
 | Hylion Assembly (작업 문서) | https://cad.onshape.com/documents/a741aa6d15d9e384d9ffa4d9/w/2105b756950a92f6be143e8a/e/0f1a46cb91bfc8ad1a11b7ea | 우리 어셈블리 |
-| BHL 복사본 | https://cad.onshape.com/documents/f0fecca5eed67c8c3b107deb/w/5986bd9b41326a2034f55e3a/e/8a738ee5d00bb7ca5f8b3bc0 | |
-| SO-ARM 복사본 | https://cad.onshape.com/documents/32d468d3a6994ea4b9d0cfa1/w/4702c8115f56790e62e507c5/e/61ca4b83d9996a40877b20fc | mate 정보 없음 (STEP import) |
+| BHL 복사본 (원본) | https://cad.onshape.com/documents/f0fecca5eed67c8c3b107deb/w/5986bd9b41326a2034f55e3a/e/8a738ee5d00bb7ca5f8b3bc0 | |
+| BHL 복사본 (팔 suppress) | https://cad.onshape.com/documents/bf0b8ec39be1c3ca659f6306/w/560942befdcb6930ea4b7a28/e/f015812d38473d4933b28001 | assembly_hylion.py에서 사용 |
+| SO-ARM 복사본 (SO-101) | https://cad.onshape.com/documents/32d468d3a6994ea4b9d0cfa1/w/4702c8115f56790e62e507c5/e/61ca4b83d9996a40877b20fc | mate 정보 없음 (STEP import) |
+| SO-100 원본 (TheRobotStudio 공유) | https://cad.onshape.com/documents/8c3443ad2476530f652d160f/w/cbfc0795034ec0eb76266c9e/e/8b1be6bb4110bea74c27dbdc | Issue #147에서 공유됨 |
+| SO-100 Copy (우리 복사본) | https://cad.onshape.com/documents/777450bd9cf2ea12995524af/w/21332a10decdb024c210faae/e/4a47bf70b89df2ec8aa69f12 | 편집 가능, 소재/Mate 없음 |
 
 ---
 

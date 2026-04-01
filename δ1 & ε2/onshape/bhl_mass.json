@@ -1,0 +1,686 @@
+[
+  {
+    "name": "IMU Arduino Mount",
+    "elementId": "41e5bd1b9309c5c480cb8eb3",
+    "partId": "JHD",
+    "material": "PLA",
+    "mass_kg": 0.003647778907506771,
+    "volume_m3": 2.918223126005417e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Feet Mount L",
+    "elementId": "7ccec0a1932396f0a594e717",
+    "partId": "J8D",
+    "material": "PLA",
+    "mass_kg": 0.07928462735257075,
+    "volume_m3": 6.34277018820566e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Feet Mount 2 L",
+    "elementId": "7ccec0a1932396f0a594e717",
+    "partId": "J8H",
+    "material": "PLA",
+    "mass_kg": 0.019335570381979784,
+    "volume_m3": 1.5468456305583828e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Flat Foot",
+    "elementId": "b0d3cf3ae7fc69684835c5fc",
+    "partId": "JJD",
+    "material": "PLA",
+    "mass_kg": 0.4169557728442614,
+    "volume_m3": 0.0003335646182754091,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "UpperArm X Housing Middle",
+    "elementId": "124551f5d34f5942db7cc9f2",
+    "partId": "JUD",
+    "material": "PLA",
+    "mass_kg": 0.0474322834898261,
+    "volume_m3": 3.794582679186088e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Base Housing Front",
+    "elementId": "909b6854eae057761bebadd3",
+    "partId": "JND",
+    "material": "PLA",
+    "mass_kg": 0.03480172079894616,
+    "volume_m3": 2.784137663915693e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Base Housing Middle",
+    "elementId": "909b6854eae057761bebadd3",
+    "partId": "RBBD",
+    "material": "PLA",
+    "mass_kg": 0.07566947610110832,
+    "volume_m3": 6.053558088088665e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Base Housing Front",
+    "elementId": "89b8048232a598db23ce19a7",
+    "partId": "JRD",
+    "material": "PLA",
+    "mass_kg": 0.03470266441908306,
+    "volume_m3": 2.776213153526645e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Base Housing Middle",
+    "elementId": "89b8048232a598db23ce19a7",
+    "partId": "RFBD",
+    "material": "PLA",
+    "mass_kg": 0.07551045300381101,
+    "volume_m3": 6.040836240304881e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Meter Mount",
+    "elementId": "082032771b7d5b06401e234b",
+    "partId": "JHD",
+    "material": "PLA",
+    "mass_kg": 0.03319037106099647,
+    "volume_m3": 2.6552296848797177e-05,
+    "density_kg_m3": 1249.9999999999998
+  },
+  {
+    "name": "Rear Struct",
+    "elementId": "e35ecf8370bfa5e6ec29de36",
+    "partId": "JVD",
+    "material": "PLA",
+    "mass_kg": 0.019972405208590043,
+    "volume_m3": 1.5977924166872034e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "UpperArm X Housing Middle",
+    "elementId": "7bc2213955010482a2eceb15",
+    "partId": "JUD",
+    "material": "PLA",
+    "mass_kg": 0.06108860799656035,
+    "volume_m3": 4.887088639724828e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "UpperArm X Housing Middle",
+    "elementId": "1fea988555c66a1f239cac35",
+    "partId": "JQD",
+    "material": "PLA",
+    "mass_kg": 0.04753887555207937,
+    "volume_m3": 3.803110044166349e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Geometry Stud UpperLeg",
+    "elementId": "da1ab261ca5dc15e81b8c1b3",
+    "partId": "JHD",
+    "material": "Null",
+    "mass_kg": 7.853981633974484e-06,
+    "volume_m3": 7.853981633974485e-07,
+    "density_kg_m3": 9.999999999999998
+  },
+  {
+    "name": "Geometry Stud LowerLeg",
+    "elementId": "da1ab261ca5dc15e81b8c1b3",
+    "partId": "JID",
+    "material": "Null",
+    "mass_kg": 7.853981633974484e-06,
+    "volume_m3": 7.853981633974485e-07,
+    "density_kg_m3": 9.999999999999998
+  },
+  {
+    "name": "Geometry Stud UpperArm",
+    "elementId": "da1ab261ca5dc15e81b8c1b3",
+    "partId": "JJD",
+    "material": "Null",
+    "mass_kg": 7.853981633974484e-06,
+    "volume_m3": 7.853981633974485e-07,
+    "density_kg_m3": 9.999999999999998
+  },
+  {
+    "name": "Geometry Stud LowerArm",
+    "elementId": "da1ab261ca5dc15e81b8c1b3",
+    "partId": "JKD",
+    "material": "ABS",
+    "mass_kg": 0.0008262388678941159,
+    "volume_m3": 7.853981633974485e-07,
+    "density_kg_m3": 1052.0
+  },
+  {
+    "name": "Geometry Stud Base",
+    "elementId": "da1ab261ca5dc15e81b8c1b3",
+    "partId": "JLD",
+    "material": "Null",
+    "mass_kg": 785.3981633974483,
+    "volume_m3": 7.853981633974485e-07,
+    "density_kg_m3": 999999999.9999998
+  },
+  {
+    "name": "Housing Front Ankle",
+    "elementId": "3749466a3c894c577faf0551",
+    "partId": "J6D",
+    "material": "PLA",
+    "mass_kg": 0.009492147373728135,
+    "volume_m3": 7.593717898982508e-06,
+    "density_kg_m3": 1249.9999999999998
+  },
+  {
+    "name": "Rear Struct",
+    "elementId": "fff8d3d44228e68911ced0e7",
+    "partId": "JRD",
+    "material": "PLA",
+    "mass_kg": 0.037075603748309795,
+    "volume_m3": 2.9660482998647836e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Housing Front Ankle",
+    "elementId": "bd28989577db35172012cbdf",
+    "partId": "J2D",
+    "material": "PLA",
+    "mass_kg": 0.009555052226584605,
+    "volume_m3": 7.644041781267683e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Rear Struct",
+    "elementId": "2408dc0d38802622785ae0e4",
+    "partId": "JRD",
+    "material": "PLA",
+    "mass_kg": 0.019999546502762824,
+    "volume_m3": 1.599963720221026e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Housing Middle",
+    "elementId": "f46098e687fdfae76213d56b",
+    "partId": "J/D",
+    "material": "PLA",
+    "mass_kg": 0.41616996949624546,
+    "volume_m3": 0.0003329359755969964,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Ankle Mount",
+    "elementId": "37a57c17d0c44665165766ff",
+    "partId": "JQD",
+    "material": "PLA",
+    "mass_kg": 0.28094549107725847,
+    "volume_m3": 0.00022475639286180678,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Ankle Mount 2",
+    "elementId": "37a57c17d0c44665165766ff",
+    "partId": "RLBD",
+    "material": "PLA",
+    "mass_kg": 0.08121687254989345,
+    "volume_m3": 6.497349803991476e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Elbow Mount",
+    "elementId": "b1cbcb8bf891f077277c0b8f",
+    "partId": "JPD",
+    "material": "PLA",
+    "mass_kg": 0.12284296987035753,
+    "volume_m3": 9.827437589628602e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Elbow Mount 2",
+    "elementId": "b1cbcb8bf891f077277c0b8f",
+    "partId": "JWD",
+    "material": "PLA",
+    "mass_kg": 0.03158226123106789,
+    "volume_m3": 2.5265808984854308e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Housing Middle R",
+    "elementId": "1e247c1ceaf422edf44ec316",
+    "partId": "JQD",
+    "material": "PLA",
+    "mass_kg": 0.21785188798580504,
+    "volume_m3": 0.00017428151038864403,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Rear Struct R",
+    "elementId": "1e247c1ceaf422edf44ec316",
+    "partId": "RGBD",
+    "material": "PLA",
+    "mass_kg": 0.2009907758433145,
+    "volume_m3": 0.0001607926206746516,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Stopper U R",
+    "elementId": "1e247c1ceaf422edf44ec316",
+    "partId": "RKCD",
+    "material": "PLA",
+    "mass_kg": 0.004001257804151728,
+    "volume_m3": 3.2010062433213823e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Housing Middle L",
+    "elementId": "1e247c1ceaf422edf44ec316",
+    "partId": "RVCD",
+    "material": "PLA",
+    "mass_kg": 0.21785191284371103,
+    "volume_m3": 0.00017428153027496883,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Rear Struct L",
+    "elementId": "1e247c1ceaf422edf44ec316",
+    "partId": "RVCH",
+    "material": "PLA",
+    "mass_kg": 0.20099074599308922,
+    "volume_m3": 0.0001607925967944714,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Stopper U L",
+    "elementId": "1e247c1ceaf422edf44ec316",
+    "partId": "RVCL",
+    "material": "PLA",
+    "mass_kg": 0.004001311345916628,
+    "volume_m3": 3.2010490767333028e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "NUC Mount",
+    "elementId": "68e8053e3be022e81a60ea8e",
+    "partId": "JHD",
+    "material": "PLA",
+    "mass_kg": 0.034534174179708464,
+    "volume_m3": 2.7627339343766772e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "UpperLeg X Housing Middle",
+    "elementId": "78e0b55e5145a03941be2726",
+    "partId": "JUD",
+    "material": "Alumina Oxide",
+    "mass_kg": 0.2667753786646566,
+    "volume_m3": 6.93283208587985e-05,
+    "density_kg_m3": 3848.0
+  },
+  {
+    "name": "Stopper Y L",
+    "elementId": "78e0b55e5145a03941be2726",
+    "partId": "RPBD",
+    "material": "PLA",
+    "mass_kg": 0.0033868173537775405,
+    "volume_m3": 2.7094538830220323e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Stopper Z",
+    "elementId": "78e0b55e5145a03941be2726",
+    "partId": "RQBD",
+    "material": "PLA",
+    "mass_kg": 0.00417777959297406,
+    "volume_m3": 3.342223674379248e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Stopper Y R",
+    "elementId": "78e0b55e5145a03941be2726",
+    "partId": "RWBD",
+    "material": "PLA",
+    "mass_kg": 0.003386828477291338,
+    "volume_m3": 2.7094627818330705e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Housing Middle R",
+    "elementId": "efe4db83cb4cb988e02cc8c2",
+    "partId": "JUD",
+    "material": "PLA",
+    "mass_kg": 0.2178518879858051,
+    "volume_m3": 0.0001742815103886441,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Rear Struct R",
+    "elementId": "efe4db83cb4cb988e02cc8c2",
+    "partId": "RKBD",
+    "material": "PLA",
+    "mass_kg": 0.20099077584331448,
+    "volume_m3": 0.00016079262067465158,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Stopper U R",
+    "elementId": "efe4db83cb4cb988e02cc8c2",
+    "partId": "ROCD",
+    "material": "PLA",
+    "mass_kg": 0.004001257804151728,
+    "volume_m3": 3.2010062433213827e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Housing Middle L",
+    "elementId": "efe4db83cb4cb988e02cc8c2",
+    "partId": "RZCD",
+    "material": "PLA",
+    "mass_kg": 0.217646661043504,
+    "volume_m3": 0.0001741173288348032,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Rear Struct L",
+    "elementId": "efe4db83cb4cb988e02cc8c2",
+    "partId": "RZCH",
+    "material": "PLA",
+    "mass_kg": 0.2007693029809193,
+    "volume_m3": 0.00016061544238473544,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Stopper U L",
+    "elementId": "efe4db83cb4cb988e02cc8c2",
+    "partId": "RZCL",
+    "material": "PLA",
+    "mass_kg": 0.004001311345916629,
+    "volume_m3": 3.2010490767333036e-06,
+    "density_kg_m3": 1249.9999999999998
+  },
+  {
+    "name": "Flat Foot",
+    "elementId": "dfdae6b7fd162d93aa18a6ee",
+    "partId": "JND",
+    "material": "PLA",
+    "mass_kg": 0.41641546217949355,
+    "volume_m3": 0.0003331323697435948,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Wrist",
+    "elementId": "a4ae59e1774f0a498357455e",
+    "partId": "JHD",
+    "material": "PLA",
+    "mass_kg": 0.036240834297205364,
+    "volume_m3": 2.899266743776429e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Housing Middle",
+    "elementId": "589f86fc78ffbb3f176171c7",
+    "partId": "J7D",
+    "material": "PLA",
+    "mass_kg": 0.416714177236923,
+    "volume_m3": 0.0003333713417895384,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Shoulder Middle",
+    "elementId": "ad26bb4e962e2bae88773460",
+    "partId": "JHD",
+    "material": "PLA",
+    "mass_kg": 0.03175960052335533,
+    "volume_m3": 2.5407680418684265e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Aluminum Extrusion 150mm 1",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "JWD",
+    "material": "Aluminum",
+    "mass_kg": 0.06581058227812045,
+    "volume_m3": 2.4374289732637202e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 100mm Center",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "JYD",
+    "material": "Aluminum",
+    "mass_kg": 0.043873721518746994,
+    "volume_m3": 1.6249526488424814e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 150mm 2",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "JaD",
+    "material": "Aluminum",
+    "mass_kg": 0.06581058227812045,
+    "volume_m3": 2.4374289732637202e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 250mm 1",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "JoD",
+    "material": "Aluminum",
+    "mass_kg": 0.10968430379686736,
+    "volume_m3": 4.0623816221061985e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 100mm 3",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "JqD",
+    "material": "Aluminum",
+    "mass_kg": 0.0438737215187469,
+    "volume_m3": 1.6249526488424776e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 100mm 4",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "JsD",
+    "material": "Aluminum",
+    "mass_kg": 0.04387372151874693,
+    "volume_m3": 1.624952648842479e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 250mm 2",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "JuD",
+    "material": "Aluminum",
+    "mass_kg": 0.10968430379686737,
+    "volume_m3": 4.062381622106199e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 200mm 1",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "RABD",
+    "material": "Aluminum",
+    "mass_kg": 0.08774744303749402,
+    "volume_m3": 3.2499052976849634e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 200mm 2",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "RCBD",
+    "material": "Aluminum",
+    "mass_kg": 0.08774744303749404,
+    "volume_m3": 3.249905297684965e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 200mm 3",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "REBD",
+    "material": "Aluminum",
+    "mass_kg": 0.08774744303749403,
+    "volume_m3": 3.249905297684964e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Aluminum Extrusion 200mm 4",
+    "elementId": "9c04d042422940b5739ed99b",
+    "partId": "REBH",
+    "material": "Aluminum",
+    "mass_kg": 0.08774744303749404,
+    "volume_m3": 3.249905297684965e-05,
+    "density_kg_m3": 2700.0
+  },
+  {
+    "name": "Meter Mount",
+    "elementId": "1470f6ec0512fe0762ff5c2c",
+    "partId": "JLD",
+    "material": "PLA",
+    "mass_kg": 0.03287024606099646,
+    "volume_m3": 2.6296196848797168e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Rear Struct",
+    "elementId": "ab905ddf698513877edc3a6a",
+    "partId": "JVD",
+    "material": "PLA",
+    "mass_kg": 0.03704693828614211,
+    "volume_m3": 2.963755062891369e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "imu_link",
+    "elementId": "4ca71879d93e04c9b2b278c0",
+    "partId": "JHD",
+    "material": "ABS",
+    "mass_kg": 0.001977038501889529,
+    "volume_m3": 1.8793141652942292e-06,
+    "density_kg_m3": 1052.0
+  },
+  {
+    "name": "Ankle Mount",
+    "elementId": "5960b7957b206a71657c3ff6",
+    "partId": "JUD",
+    "material": "PLA",
+    "mass_kg": 0.28080809344387514,
+    "volume_m3": 0.00022464647475510012,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Ankle Mount 2",
+    "elementId": "5960b7957b206a71657c3ff6",
+    "partId": "RPBD",
+    "material": "PLA",
+    "mass_kg": 0.08120356005102382,
+    "volume_m3": 6.496284804081905e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Elbow Mount",
+    "elementId": "3a09da3b5f6f5e6d01aa3e0b",
+    "partId": "JTD",
+    "material": "PLA",
+    "mass_kg": 0.12284296987035749,
+    "volume_m3": 9.8274375896286e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Elbow Mount 2",
+    "elementId": "3a09da3b5f6f5e6d01aa3e0b",
+    "partId": "JaD",
+    "material": "PLA",
+    "mass_kg": 0.031595652269753804,
+    "volume_m3": 2.5276521815803044e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Feet Mount R",
+    "elementId": "185c10c264130b32522a52be",
+    "partId": "JKD",
+    "material": "PLA",
+    "mass_kg": 0.07928464072909747,
+    "volume_m3": 6.342771258327798e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Feet Mount 2 R",
+    "elementId": "185c10c264130b32522a52be",
+    "partId": "JnD",
+    "material": "PLA",
+    "mass_kg": 0.019348880241569295,
+    "volume_m3": 1.5479104193255436e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Feet Mount L",
+    "elementId": "185c10c264130b32522a52be",
+    "partId": "J4D",
+    "material": "PLA",
+    "mass_kg": 0.07928462735257075,
+    "volume_m3": 6.34277018820566e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Feet Mount 2 L",
+    "elementId": "185c10c264130b32522a52be",
+    "partId": "J4H",
+    "material": "PLA",
+    "mass_kg": 0.019348882880849367,
+    "volume_m3": 1.5479106304679495e-05,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Battery Mount",
+    "elementId": "48e7ac78d573812dca8ba6eb",
+    "partId": "JHD",
+    "material": "PLA",
+    "mass_kg": 0.06998972993652555,
+    "volume_m3": 5.599178394922045e-05,
+    "density_kg_m3": 1249.9999999999998
+  },
+  {
+    "name": "UpperLeg X Housing Middle",
+    "elementId": "b0a3212955720d871dd91321",
+    "partId": "JQD",
+    "material": "Alumina Oxide",
+    "mass_kg": 0.2674828202561058,
+    "volume_m3": 6.951216742622292e-05,
+    "density_kg_m3": 3848.0000000000005
+  },
+  {
+    "name": "Stopper Y L",
+    "elementId": "b0a3212955720d871dd91321",
+    "partId": "RLBD",
+    "material": "PLA",
+    "mass_kg": 0.003386817353777541,
+    "volume_m3": 2.7094538830220328e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Stopper Z",
+    "elementId": "b0a3212955720d871dd91321",
+    "partId": "RMBD",
+    "material": "PLA",
+    "mass_kg": 0.004177779592974061,
+    "volume_m3": 3.342223674379249e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "Stopper Y R",
+    "elementId": "b0a3212955720d871dd91321",
+    "partId": "RSBD",
+    "material": "PLA",
+    "mass_kg": 0.0033868284772913377,
+    "volume_m3": 2.70946278183307e-06,
+    "density_kg_m3": 1250.0
+  },
+  {
+    "name": "UpperArm X Housing Middle",
+    "elementId": "bf22730b4afe20c24530e119",
+    "partId": "JQD",
+    "material": "PLA",
+    "mass_kg": 0.06122318918281914,
+    "volume_m3": 4.897855134625531e-05,
+    "density_kg_m3": 1250.0
+  }
+]

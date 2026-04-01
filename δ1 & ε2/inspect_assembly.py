@@ -49,8 +49,10 @@ def format_transform(matrix):
 
 SOARM  = ("32d468d3a6994ea4b9d0cfa1", "4702c8115f56790e62e507c5", "61ca4b83d9996a40877b20fc")
 BHL    = ("f0fecca5eed67c8c3b107deb", "5986bd9b41326a2034f55e3a", "8a738ee5d00bb7ca5f8b3bc0")
+SO100  = ("8c3443ad2476530f652d160f", "cbfc0795034ec0eb76266c9e", "8b1be6bb4110bea74c27dbdc")
+SO100_COPY = ("777450bd9cf2ea12995524af", "21332a10decdb024c210faae", "4a47bf70b89df2ec8aa69f12")
 
-TARGETS = {"hylion": HYLION, "soarm": SOARM, "bhl": BHL}
+TARGETS = {"hylion": HYLION, "soarm": SOARM, "bhl": BHL, "so100": SO100, "so100copy": SO100_COPY}
 
 if __name__ == "__main__":
     import sys
