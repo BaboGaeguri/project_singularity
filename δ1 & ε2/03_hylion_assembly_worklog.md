@@ -262,9 +262,12 @@ SO-ARM 내부 Mate/소재 정보는 **Onshape 어셈블리에 불필요**함을 
 - [x] Hylion v4 스펙 정리 → `09_hylion_v4_specs.md` ✅ 2026-04-01
 - [x] BHL 팔 suppress + 새 복사본 생성 ✅ 2026-04-01
 - [x] `assembly_hylion.py` v4 기준 업데이트 (회전 행렬 추가) ✅ 2026-04-01
+- [x] v5: SO-ARM 위치 z=0.71 + 방향/초기포즈 조정 (차렷 자세) ✅ 2026-04-02
+- [x] revolute joint origin rpy 수정 규칙 정리 → `08_coordinate_transform.md` ✅ 2026-04-02
+- [x] v6: 어깨 구조물 box 추가 (3kg × 2) ✅ 2026-04-02
+- [ ] **URDF v6 시각화 검증**
 - [ ] **Onshape SO-ARM 회전 보정** — URDF↔Onshape 좌표계 차이 해결
-- [ ] **URDF v4 시각화 검증 — 충돌 여부 확인**
-- [ ] **연결 브래킷 설계** — SO-ARM base 외형 + BHL 체결 포인트 기반
+- [ ] 구조물 크기/무게 조정
 - [ ] 머리/목 파트 설계 및 추가
 - [ ] 간섭 체크 (시뮬레이터에서)
 - [ ] 배치 확정 후 Export

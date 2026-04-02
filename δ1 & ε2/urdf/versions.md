@@ -98,8 +98,50 @@
 
 ---
 
+## hylion_v5.urdf
+
+**날짜:** 2026-04-02
+
+**내용:** v4에서 SO-ARM 위치/방향 조정 + shoulder_lift 초기 포즈 변경
+
+**변경사항:**
+- SO-ARM z 위치: `0.82` → `0.71` (collision box 중심)
+- SO-ARM base_joint rpy: 시행착오를 거쳐 `(0, pi/2, ±pi/2)`로 설정
+- shoulder_lift 초기 포즈: `rpy=(-pi/2, -pi/2, 0)` → `rpy=(-pi/2, 0, 0)` — ㄱ자 꺾임을 차렷 자세로 변경
+
+**교훈:**
+- revolute joint의 origin rpy에서 axis에 해당하는 성분(yaw)만 바꾸면 모터 방향으로 초기 포즈 변경 가능
+- axis에 해당하지 않는 성분을 바꾸면 파트 분리 위험
+- fixed joint의 rpy는 자유롭게 변경 가능
+- 상세 규칙 → `08_coordinate_transform.md`
+
+---
+
+## hylion_v6.urdf ← 현재
+
+**날짜:** 2026-04-02
+
+**내용:** v5 + 어깨 구조물(3kg box) 양쪽 추가
+
+**변경사항:**
+- base와 SO-ARM base_link 사이에 구조물 box 추가 (좌/우 각 1개)
+- 구조물 사양: 0.08 × 0.05 × 0.15m, 3kg, 회색
+- 위치: `(0, ±0.095, 0.71)` — base 외벽(y=0.07)과 SO-ARM(y=0.12) 중간
+- fixed joint로 base에 고정
+
+**구성:**
+- BHL 다리: 12 DOF
+- SO-ARM 팔: 12 DOF
+- 어깨 구조물: 좌우 3kg × 2 = 6kg
+- IMU
+- 총 DOF: 24 (능동 관절)
+- 총 무게: 13.89 + 6.0 = **~19.89 kg**
+
+---
+
 ## 다음 단계
 
-1. URDF 시각화 검증 — 충돌 여부 확인
-2. SO-ARM 마운트 위치 미세 조정 (시각화 결과에 따라)
-3. 연결 브래킷 설계
+1. URDF v6 시각화 검증
+2. 구조물 크기/무게 조정
+3. 머리/목 파트 설계 및 추가
+4. 간섭 체크
