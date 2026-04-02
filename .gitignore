@@ -205,3 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# δ3 runtime artifacts
+δ3/logs/
+δ3/.hylion_guard.lock
+δ3/.hylion_guard_state

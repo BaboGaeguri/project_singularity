@@ -35,7 +35,7 @@ Berkeley Humanoid Lite(BHL) 로봇을 DGX Spark(NVIDIA GB10, aarch64)에서 강�
 
 ---
 
-## 완료 현황 (2026-03-30 기준)
+## 완료 현황 (2026-04-01 기준)
 
 - [x] Isaac Sim 6.0.0 + IsaacLab develop + Newton 설치
 - [x] BHL 환경 설치 및 IsaacLab develop API 호환 수정
@@ -43,6 +43,9 @@ Berkeley Humanoid Lite(BHL) 로봇을 DGX Spark(NVIDIA GB10, aarch64)에서 강�
 - [x] 파라메트릭 직립 테스트 완료 (24/24 pass → δ3 무게 예산 확정)
 - [x] Isaac Sim 5.1.0 + IsaacLab 2.3.2 + BHL + rsl-rl 5.0.1 설치
 - [x] DGX 모니터에서 학습된 BHL 로봇 걷는 것 시각화 성공 ✅
+- [x] Hylion v4 (BHL + SO-ARM, y=±0.12) USD 변환 완료 (6.0 학습용 + 5.1.0 시각화용)
+- [x] Hylion v4 걷기 학습 완료 (6000 iter, 1h 30m, Newton, `model_9900.pt`)
+- [ ] Hylion v4 시각화 확인 진행 중
 
 ---
 
@@ -56,6 +59,7 @@ Berkeley Humanoid Lite(BHL) 로봇을 DGX Spark(NVIDIA GB10, aarch64)에서 강�
 | [04_parametric_test.md](04_parametric_test.md) | 파라메트릭 직립 테스트 계획 및 결과 |
 | [05_hardware_specs.md](05_hardware_specs.md) | BHL 하드웨어 스펙 (모터, ESC, ROS2 토픽) |
 | [06_hylion_training.md](06_hylion_training.md) | Hylion v3 (BHL + SO-ARM) 걷기 학습 |
+| [07_hylion_v4_training.md](07_hylion_v4_training.md) | Hylion v4 학습 + 시각화 (2026-04-01) |
 
 ---
 

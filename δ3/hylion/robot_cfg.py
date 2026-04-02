@@ -1,18 +1,21 @@
-"""Hylion v3 robot configuration.
+"""Hylion v4 robot configuration.
 
 Hylion = BHL (legs + base) + SO-ARM101 × 2 (arms)
 - 다리 12 joints: BHL biped와 동일하게 제어
 - SO-ARM joints: stiff actuator로 기본 자세 유지 (policy에서 제외)
 
-USD 경로: /home/laba/project_singularity/δ1 & ε2/usd/hylion_v3.usd
-  → convert_urdf.sh 실행 후 생성됨
+v4 변경: SO-ARM mount y=±0.12 (torso 충돌 박스 밖), original base_visual.stl 사용
+USD 경로: δ3/usd/hylion_v4/hylion_v4/hylion_v4.usda
 """
+
+import os
 
 import isaaclab.sim as sim_utils
 from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 
-HYLION_V3_USD_PATH = "/home/laba/project_singularity/δ1 & ε2/usd/hylion_v3/hylion_v3.usda"
+HYLION_DEFAULT_USD_PATH = "/home/laba/project_singularity/δ3/usd/hylion_v4/hylion_v4/hylion_v4.usda"
+HYLION_V3_USD_PATH = os.environ.get("HYLION_USD_PATH", HYLION_DEFAULT_USD_PATH)
 
 # BHL biped와 동일한 다리 joint 목록
 HYLION_LEG_JOINTS = [
