@@ -55,6 +55,7 @@ Berkeley Humanoid Lite(BHL) 로봇을 DGX Spark(NVIDIA GB10, aarch64)에서 강�
 | [03_visualization.md](03_visualization.md) | Isaac Sim 5.1.0 시각화 구동 (에러 해결 포함) |
 | [04_parametric_test.md](04_parametric_test.md) | 파라메트릭 직립 테스트 계획 및 결과 |
 | [05_hardware_specs.md](05_hardware_specs.md) | BHL 하드웨어 스펙 (모터, ESC, ROS2 토픽) |
+| [06_hylion_training.md](06_hylion_training.md) | Hylion v3 (BHL + SO-ARM) 걷기 학습 |
 
 ---
 

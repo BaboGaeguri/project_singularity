@@ -1,0 +1,47 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.1.0"
+    }
+    defaultPrim = "hylion"
+    doc = """Generated from Composed Stage of root layer /tmp/tmpzuiwm40d/hylion.usdc
+
+
+Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/usdex/hylion.usdc
+
+
+Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/temp/hylion_v3.usd
+
+
+Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/hylion_v3/payloads/base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "hylion" (
+    prepend references = @./payloads/base.usda@
+    variants = {
+        string Physics = "physx"
+    }
+    append variantSets = "Physics"
+)
+{
+    variantSet "Physics" = {
+        "none" {
+
+        }
+        "physics" (
+            prepend payload = @./payloads/Physics/physics.usda@
+        ) {
+
+        }
+        "physx" (
+            prepend payload = @./payloads/Physics/physx.usda@
+        ) {
+
+        }
+    }
+}
+

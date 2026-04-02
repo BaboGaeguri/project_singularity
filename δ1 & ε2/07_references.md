@@ -1,0 +1,67 @@
+# δ1 & ε2 참조 링크 모음
+
+> Hylion 로봇 설계 작업에 필요한 외부 링크를 한 곳에 정리
+
+---
+
+## Onshape 문서
+
+| 문서 | 링크 | 비고 |
+|------|------|------|
+| BHL 원본 | https://cad.onshape.com/documents/fc6443b1d89dcba950e85b60/w/94a26479973a4098a5884426/e/be3fe37849edbeadc95b9bf8 | Copy workspace로 복사 가능 |
+| SO-ARM 원본 | https://cad.onshape.com/documents/7715cc284bb430fe6dab4ffd/w/4fd0791b683777b02f8d975a/e/826c553ede3b7592eb9ca800 | view only (소유자: Pepijn) |
+| Hylion Assembly (작업 문서) | https://cad.onshape.com/documents/a741aa6d15d9e384d9ffa4d9/w/2105b756950a92f6be143e8a/e/0f1a46cb91bfc8ad1a11b7ea | 우리 어셈블리 |
+| BHL 복사본 (원본) | https://cad.onshape.com/documents/f0fecca5eed67c8c3b107deb/w/5986bd9b41326a2034f55e3a/e/8a738ee5d00bb7ca5f8b3bc0 | |
+| BHL 복사본 (팔 suppress) | https://cad.onshape.com/documents/bf0b8ec39be1c3ca659f6306/w/560942befdcb6930ea4b7a28/e/f015812d38473d4933b28001 | assembly_hylion.py에서 사용 |
+| SO-ARM 복사본 (SO-101) | https://cad.onshape.com/documents/32d468d3a6994ea4b9d0cfa1/w/4702c8115f56790e62e507c5/e/61ca4b83d9996a40877b20fc | mate 정보 없음 (STEP import) |
+| SO-100 원본 (TheRobotStudio 공유) | https://cad.onshape.com/documents/8c3443ad2476530f652d160f/w/cbfc0795034ec0eb76266c9e/e/8b1be6bb4110bea74c27dbdc | Issue #147에서 공유됨 |
+| SO-100 Copy (우리 복사본) | https://cad.onshape.com/documents/777450bd9cf2ea12995524af/w/21332a10decdb024c210faae/e/4a47bf70b89df2ec8aa69f12 | 편집 가능, 소재/Mate 없음 |
+
+---
+
+## Onshape API
+
+| 리소스 | 링크 |
+|--------|------|
+| 공식 문서 (Assemblies) | https://onshape-public.github.io/docs/api-adv/assemblies/ |
+| API Explorer | https://cad.onshape.com/glassworks/explorer |
+| API key 관리 | https://cad.onshape.com → My account → Developer |
+
+---
+
+## 부품 / 3D 모델
+
+| 리소스 | 링크 | 용도 |
+|--------|------|------|
+| Feetech 공식 (STS3215) | https://www.feetechrc.com | 모터 스펙, 데이터시트 |
+| GrabCAD | https://grabcad.com | 3D 모델 검색 (STS3215 STL 등) |
+| SO-ARM 3D 프린팅 파일 | https://github.com/huggingface/lerobot → docs 내 README 링크 | 3D 프린팅용 STL |
+
+---
+
+## 프로젝트 / 문서
+
+| 리소스 | 링크 | 용도 |
+|--------|------|------|
+| BHL GitHub | https://github.com/HybridRobotics/Berkeley-Humanoid-Lite | BHL 소스, 문서 |
+| BHL Assets (서브모듈) | https://github.com/HybridRobotics/berkeley-humanoid-lite-assets | URDF, mesh(STL), MJCF — `base_visual.stl` 등 원본 출처 |
+| BHL Docs | https://berkeley-humanoid-lite.gitbook.io/docs | BHL 공식 문서 |
+| SO-ARM101 GitHub | https://github.com/TheRobotStudio/SO-ARM100 | SO-ARM 원본 프로젝트 |
+
+---
+
+## 소프트웨어 / 도구
+
+| 리소스 | 링크 | 용도 |
+|--------|------|------|
+| onshape-to-robot | https://github.com/Rhoban/onshape-to-robot | Onshape → URDF 변환 |
+| LeRobot | https://github.com/huggingface/lerobot | SO-ARM 로봇 제어 프레임워크 |
+| Python 3.11.9 | https://www.python.org/downloads/release/python-3119/ | CadQuery 호환 Python |
+
+---
+
+## 프로젝트 관련 인물
+
+| 이름 | 소속 | 연락처 | 관련 |
+|------|------|--------|------|
+| Pepijn Kooijmans | HuggingFace | GitHub: `pkooij` / X: `@pepijn2233` / HF: `pepijn223` | SO-ARM Onshape 원본 소유자 |
