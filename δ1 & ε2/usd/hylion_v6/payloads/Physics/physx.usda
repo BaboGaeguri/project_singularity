@@ -4,16 +4,16 @@
         string creator = "URDF USD Converter v0.1.0"
     }
     defaultPrim = "hylion"
-    doc = """Generated from Composed Stage of root layer /tmp/tmp5udvdz66/hylion.usdc
+    doc = """Generated from Composed Stage of root layer /tmp/tmp621bvtcu/hylion.usdc
 
 
-Generated from Composed Stage of root layer /home/laba/project_singularity/δ3/usd/hylion_v6/usdex/hylion.usdc
+Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/usdex/hylion.usdc
 
 
-Generated from Composed Stage of root layer /home/laba/project_singularity/δ3/usd/hylion_v6/temp/hylion_v6.usd
+Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/temp/hylion_v6.usd
 
 
-Generated from Composed Stage of root layer /home/laba/project_singularity/δ3/usd/hylion_v6/hylion_v6/payloads/base.usd
+Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/hylion_v6/payloads/base.usd
 """
     kilogramsPerUnit = 1
     metersPerUnit = 1
@@ -32,7 +32,7 @@ over "hylion"
             prepend apiSchemas = ["PhysxArticulationAPI"]
         )
         {
-            bool physxArticulation:enabledSelfCollisions = 0
+            bool physxArticulation:enabledSelfCollisions = 1
 
             over "leg_left_hip_roll"
             {
@@ -522,8 +522,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -533,8 +531,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -544,8 +540,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -555,8 +549,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -566,8 +558,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -577,8 +567,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -588,8 +576,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -599,8 +585,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -610,8 +594,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -621,8 +603,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -632,8 +612,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -643,8 +621,6 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 859.4367
-
             over "joint_properties"
             {
             }
@@ -654,84 +630,72 @@ over "hylion"
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_left_shoulder_lift" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_left_elbow_flex" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_left_wrist_flex" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_left_wrist_roll" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_left_gripper" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_right_shoulder_pan" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_right_shoulder_lift" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_right_elbow_flex" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_right_wrist_flex" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_right_wrist_roll" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "soarm_right_gripper" (
             prepend apiSchemas = ["PhysxJointAPI"]
         )
         {
-            float physxJoint:maxJointVelocity = 572.9578
         }
 
         over "root_joint"
@@ -776,73 +740,13 @@ over "hylion"
 
     over "Materials"
     {
-        over "base_parts_material"
-        {
-        }
-
-        over "imu_2_parts_material"
-        {
-        }
-
-        over "leg_left_hip_roll_parts_material"
-        {
-        }
-
-        over "leg_left_hip_yaw_parts_material"
-        {
-        }
-
-        over "leg_left_hip_pitch_parts_material"
-        {
-        }
-
-        over "leg_left_knee_pitch_parts_material"
-        {
-        }
-
-        over "leg_left_ankle_pitch_parts_material"
-        {
-        }
-
-        over "leg_left_ankle_roll_parts_material"
-        {
-        }
-
-        over "leg_right_hip_roll_parts_material"
-        {
-        }
-
-        over "leg_right_hip_yaw_parts_material"
-        {
-        }
-
-        over "leg_right_hip_pitch_parts_material"
-        {
-        }
-
-        over "leg_right_knee_pitch_parts_material"
-        {
-        }
-
-        over "leg_right_ankle_pitch_parts_material"
-        {
-        }
-
-        over "leg_right_ankle_roll_parts_material"
-        {
-        }
-
         over "structure_material"
         {
         }
+    }
 
-        over "soarm_3d_printed"
-        {
-        }
-
-        over "soarm_sts3215"
-        {
-        }
+    over "VisualMaterials"
+    {
     }
 }
 

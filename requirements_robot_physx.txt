@@ -1,0 +1,6 @@
+# Robot training profile: PhysX (external desktop)
+# Usage:
+#   pip install -r requirements_robot_physx.txt --extra-index-url https://pypi.nvidia.com
+
+-r requirements_robot.txt
+# Newton is not required for PhysX-only training.
