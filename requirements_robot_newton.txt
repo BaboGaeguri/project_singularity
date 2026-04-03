@@ -1,0 +1,6 @@
+# Robot training profile: Newton (this DGX machine)
+# Usage:
+#   pip install -r requirements_robot_newton.txt --extra-index-url https://pypi.nvidia.com
+
+-r requirements_robot.txt
+isaaclab-newton==0.5.9

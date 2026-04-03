@@ -1,4 +1,43 @@
 # 로봇 구동 / 학습 파이프라인
-# Python 3.10-3.11 권장
-lerobot
+# 권장: Python 3.12 (Isaac Sim 6.0.0 기준)
+#
+# 설치 예시 (DGX/리눅스):
+#   pip install -r requirements_robot.txt --extra-index-url https://pypi.nvidia.com
+#
+# 주의:
+# - IsaacLab / Berkeley-Humanoid-Lite는 editable install(-e) 경로 의존이라
+#   아래 "manual editable installs" 섹션을 별도로 실행해야 한다.
+
+# Core runtime
 torch
+numpy
+gymnasium
+pyyaml
+
+# RL stack
+rsl-rl-lib==5.0.1
+
+# Logging / utility
+tensorboard
+psutil
+
+# Optional robot stack
+lerobot
+
+# Simulator (required for PhysX/Newton training)
+isaacsim==6.0.0
+
+# Newton plugin (not required for PhysX-only training)
+isaaclab-newton==0.5.9
+
+# ------------------------------------------------------------
+# Manual editable installs (run separately, do not keep hardcoded paths here)
+#   pip install -e /path/to/IsaacLab/source/isaaclab
+#   pip install -e /path/to/IsaacLab/source/isaaclab_assets
+#   pip install -e /path/to/IsaacLab/source/isaaclab_tasks
+#   pip install -e /path/to/IsaacLab/source/isaaclab_rl
+#   pip install -e /path/to/IsaacLab/source/isaaclab_physx
+#   # Newton-only:
+#   pip install -e /path/to/IsaacLab/source/isaaclab_newton
+#   # BHL task package:
+#   pip install -e /path/to/Berkeley-Humanoid-Lite/source/berkeley_humanoid_lite

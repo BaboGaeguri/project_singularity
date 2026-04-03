@@ -3,37 +3,250 @@
     customLayerData = {
         string creator = "URDF USD Converter v0.1.0"
     }
-    defaultPrim = "hylion"
-    doc = """Generated from Composed Stage of root layer /tmp/tmp5udvdz66/hylion.usdc
+    doc = """Generated from Composed Stage of root layer /tmp/tmp621bvtcu/hylion.usdc
 
 
-Generated from Composed Stage of root layer /home/laba/project_singularity/δ3/usd/hylion_v6/usdex/hylion.usdc
+Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/usdex/hylion.usdc
 
 
-Generated from Composed Stage of root layer /home/laba/project_singularity/δ3/usd/hylion_v6/temp/hylion_v6.usd
+Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/temp/hylion_v6.usd
 
 
-Generated from Composed Stage of root layer /home/laba/project_singularity/δ3/usd/hylion_v6/hylion_v6/payloads/base.usd
+Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/hylion_v6/payloads/base.usd
 """
     kilogramsPerUnit = 1
     metersPerUnit = 1
-    subLayers = [
-        @./physics.usda@
-    ]
     upAxis = "Z"
 )
 
 over "hylion"
 {
-    over "Geometry"
+    over "Physics"
     {
-        over "base" (
-            delete apiSchemas = ["NewtonArticulationRootAPI"]
-            prepend apiSchemas = ["PhysxArticulationAPI"]
+        over "leg_left_hip_roll_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
         )
         {
-            bool physxArticulation:enabledSelfCollisions = 0
+            over "joint_properties"
+            {
+            }
+        }
 
+        over "leg_right_hip_roll_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "root_joint"
+        {
+        }
+
+        over "imu"
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "structure_left_joint"
+        {
+        }
+
+        over "structure_right_joint"
+        {
+        }
+
+        over "soarm_left_base_joint"
+        {
+        }
+
+        over "soarm_right_base_joint"
+        {
+        }
+
+        over "leg_left_hip_yaw_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "leg_right_hip_yaw_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "imu_frame"
+        {
+        }
+
+        over "soarm_left_shoulder_pan" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "soarm_right_shoulder_pan" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "leg_left_hip_pitch_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "leg_right_hip_pitch_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "soarm_left_shoulder_lift" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "soarm_right_shoulder_lift" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "leg_left_knee_pitch_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "leg_right_knee_pitch_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "soarm_left_elbow_flex" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "soarm_right_elbow_flex" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "leg_left_ankle_pitch_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "leg_right_ankle_pitch_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "soarm_left_wrist_flex" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "soarm_right_wrist_flex" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "leg_left_ankle_roll_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "leg_right_ankle_roll_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            over "joint_properties"
+            {
+            }
+        }
+
+        over "soarm_left_wrist_roll" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "soarm_right_wrist_roll" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "soarm_left_gripper" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "soarm_left_gripper_frame_joint"
+        {
+        }
+
+        over "soarm_right_gripper" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "soarm_right_gripper_frame_joint"
+        {
+        }
+    }
+
+    over "Geometry"
+    {
+        over "base"
+        {
             over "leg_left_hip_roll"
             {
                 over "leg_left_hip_yaw"
@@ -44,11 +257,8 @@ over "hylion"
                         {
                             over "leg_left_ankle_pitch"
                             {
-                                over "leg_left_ankle_roll" (
-                                    prepend apiSchemas = ["PhysxContactReportAPI"]
-                                )
+                                over "leg_left_ankle_roll"
                                 {
-                                    float physxContactReport:threshold = 0.0
                                     over "leg_left_ankle_roll_visual"
                                     {
                                     }
@@ -101,11 +311,8 @@ over "hylion"
                         {
                             over "leg_right_ankle_pitch"
                             {
-                                over "leg_right_ankle_roll" (
-                                    prepend apiSchemas = ["PhysxContactReportAPI"]
-                                )
+                                over "leg_right_ankle_roll"
                                 {
-                                    float physxContactReport:threshold = 0.0
                                     over "leg_right_ankle_roll_visual"
                                     {
                                     }
@@ -516,333 +723,15 @@ over "hylion"
         }
     }
 
-    over "Physics"
+    over "Materials"
     {
-        over "leg_left_ankle_roll_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_left_ankle_pitch_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_left_knee_pitch_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_left_hip_pitch_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_left_hip_yaw_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_left_hip_roll_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_right_ankle_roll_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_right_ankle_pitch_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_right_knee_pitch_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_right_hip_pitch_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_right_hip_yaw_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "leg_right_hip_roll_joint" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 859.4367
-
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "soarm_left_shoulder_pan" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_left_shoulder_lift" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_left_elbow_flex" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_left_wrist_flex" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_left_wrist_roll" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_left_gripper" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_right_shoulder_pan" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_right_shoulder_lift" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_right_elbow_flex" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_right_wrist_flex" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_right_wrist_roll" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "soarm_right_gripper" (
-            prepend apiSchemas = ["PhysxJointAPI"]
-        )
-        {
-            float physxJoint:maxJointVelocity = 572.9578
-        }
-
-        over "root_joint"
-        {
-        }
-
-        over "imu"
-        {
-            over "joint_properties"
-            {
-            }
-        }
-
-        over "structure_left_joint"
-        {
-        }
-
-        over "structure_right_joint"
-        {
-        }
-
-        over "soarm_left_base_joint"
-        {
-        }
-
-        over "soarm_right_base_joint"
-        {
-        }
-
-        over "imu_frame"
-        {
-        }
-
-        over "soarm_left_gripper_frame_joint"
-        {
-        }
-
-        over "soarm_right_gripper_frame_joint"
+        over "structure_material"
         {
         }
     }
 
-    over "Materials"
+    over "VisualMaterials"
     {
-        over "base_parts_material"
-        {
-        }
-
-        over "imu_2_parts_material"
-        {
-        }
-
-        over "leg_left_hip_roll_parts_material"
-        {
-        }
-
-        over "leg_left_hip_yaw_parts_material"
-        {
-        }
-
-        over "leg_left_hip_pitch_parts_material"
-        {
-        }
-
-        over "leg_left_knee_pitch_parts_material"
-        {
-        }
-
-        over "leg_left_ankle_pitch_parts_material"
-        {
-        }
-
-        over "leg_left_ankle_roll_parts_material"
-        {
-        }
-
-        over "leg_right_hip_roll_parts_material"
-        {
-        }
-
-        over "leg_right_hip_yaw_parts_material"
-        {
-        }
-
-        over "leg_right_hip_pitch_parts_material"
-        {
-        }
-
-        over "leg_right_knee_pitch_parts_material"
-        {
-        }
-
-        over "leg_right_ankle_pitch_parts_material"
-        {
-        }
-
-        over "leg_right_ankle_roll_parts_material"
-        {
-        }
-
-        over "structure_material"
-        {
-        }
-
-        over "soarm_3d_printed"
-        {
-        }
-
-        over "soarm_sts3215"
-        {
-        }
     }
 }
 
