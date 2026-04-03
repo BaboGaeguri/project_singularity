@@ -81,7 +81,7 @@ from isaaclab_tasks.utils.hydra import hydra_task_config
 import berkeley_humanoid_lite.tasks  # noqa: F401
 
 # Velocity-Hylion-BG-v0 등록
-sys.path.insert(0, "/home/laba/project_singularity/δ3")
+sys.path.insert(0, "/mnt/c/Users/admin/Desktop/project_singularity/δ3")
 from hylion import agents
 from hylion.env_cfg_BG import HylionEnvCfg_BG
 

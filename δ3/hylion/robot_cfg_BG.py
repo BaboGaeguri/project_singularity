@@ -11,7 +11,7 @@ from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 
 # Keep default under δ3 to match BG training assets and avoid path ambiguity.
-HYLION_DEFAULT_USD_PATH = "/home/laba/project_singularity/δ3/usd/hylion_v6/hylion_v6/hylion_v6.usda"
+HYLION_DEFAULT_USD_PATH = "/mnt/c/Users/admin/Desktop/project_singularity/δ3/usd/hylion_v6/hylion_v6/hylion_v6.usda"
 HYLION_USD_PATH = os.environ.get("HYLION_USD_PATH", HYLION_DEFAULT_USD_PATH)
 
 # BHL biped와 동일한 다리 joint 목록
