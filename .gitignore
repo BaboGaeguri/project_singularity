@@ -48,6 +48,9 @@ coverage.xml
 *.cover
 *.py.cover
 .hypothesis/
+
+# Local environment files (API keys, secrets)
+ε1/Hylion/.bashrc.local
 .pytest_cache/
 cover/
 

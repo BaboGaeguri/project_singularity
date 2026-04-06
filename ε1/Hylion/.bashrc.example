@@ -1,0 +1,7 @@
+# Example .bashrc.local configuration
+# Copy this file to .bashrc.local and update with your actual API keys
+
+# Groq API Key - Get yours from https://console.groq.com/keys
+export GROQ_API_KEY="your_groq_api_key_here"
+
+# Add other environment variables below as needed

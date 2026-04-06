@@ -117,3 +117,8 @@ if ! shopt -oq posix; then
 fi
 source /opt/ros/humble/setup.bash
 source ~/hylion_ws/install/setup.bash
+
+# Load local configuration (e.g., API keys) not tracked by git
+if [ -f ~/.bashrc.local ]; then
+    source ~/.bashrc.local
+fi
