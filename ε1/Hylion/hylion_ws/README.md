@@ -1,16 +1,33 @@
 # hylion_ws 파일 구조
 
+## ε1 디렉토리 역할
+
+`ε1`(epsilon 1)은 **프로젝트 싱귤래리티의 상체(소프트웨어) 트랙 Week 1 작업 디렉토리**입니다.
+
+프로젝트는 두 개의 병렬 트랙으로 개발됩니다:
+
+| 트랙 | 심볼 | 담당 | 내용 |
+|------|------|------|------|
+| 하체(HW) 트랙 | δ (delta) | 하드웨어/시뮬레이션 | URDF 설계, IsaacLab 학습, BHL 파이프라인 |
+| 상체(SW) 트랙 | ε (epsilon) | 소프트웨어/AI | ROS2 노드, LLM 오케스트레이션, 인식·제어 |
+
+`ε1`은 상체 트랙의 **첫 번째 마일스톤** 결과물로, HYlion 로봇의 두뇌(Brain)·지각(Perception)·팔 제어(SO-ARM) ROS2 노드 및 관련 모듈이 포함되어 있습니다.
+
+---
+
 ```
 hylion_ws/
 │
-├── FILE_STRUCTURE.md                        ← 이 문서
+├── README.md                               ← 이 문서
 │
 ├── 📄 문서
-│   ├── 하이리온 Physical AI 로봇 기획서.md  ← 전체 프로젝트 기획서 (v12)
-│   ├── LEROBOT_ACT_JSON_MAPPING.md          ← LeRobot ACT ↔ HYlion JSON 매핑 가이드
-│   ├── hylion_action_schema_v1.0.md         ← (비어 있음 — 작성 예정)
-│   ├── HYlio_JSON_Action_Schema (v1.0).json ← JSON 액션 스키마 정의 (v1.0)
-│   └── HYlion_JSON_액션_스키마_v1.0.docx   ← JSON 액션 스키마 정의 Word 버전
+│   ├── 01_하이리온_Physical_AI_로봇_기획서.md  ← 전체 프로젝트 기획서 (v12)
+│   ├── 02_hylion_sw_dev_plan.md               ← 소프트웨어 개발 계획
+│   ├── 03_scenario.md                         ← 시연 시나리오 (총 4분)
+│   ├── 04_LEROBOT_ACT_JSON_MAPPING.md         ← LeRobot ACT ↔ HYlion JSON 매핑 가이드
+│   ├── 05_hylion_action_schema_v1.0.md        ← (비어 있음 — 작성 예정)
+│   ├── HYlio_JSON_Action_Schema (v1.0).json   ← JSON 액션 스키마 정의 (v1.0)
+│   └── HYlion_JSON_액션_스키마_v1.0.docx     ← JSON 액션 스키마 정의 Word 버전
 │
 ├── 🤖 ROS2 노드 (실행 파일)
 │   ├── brain_node.py       ← LLM 오케스트레이션 노드 (Groq API, JSON 생성)
@@ -66,26 +83,11 @@ hylion_ws/
 
 | 파일 | 내용 |
 |------|------|
-| `하이리온 Physical AI 로봇 기획서.md` | 시연 시나리오, 상태 머신, 시스템 아키텍처, HW 구성, 팀 역할, 13주 일정 |
-| `LEROBOT_ACT_JSON_MAPPING.md` | LeRobot ACT 데이터셋 구조, SO-ARM 관절 순서, ACT→JSON 매핑, 구현 타임라인 |
+| `01_하이리온_Physical_AI_로봇_기획서.md` | 시연 시나리오, 상태 머신, 시스템 아키텍처, HW 구성, 팀 역할, 13주 일정 |
+| `02_hylion_sw_dev_plan.md` | 소프트웨어 개발 계획 (기준일: 2026.04) |
+| `03_scenario.md` | 시연 시나리오 상세 (등장→인사→대화+집기→보행→마무리, 약 4분) |
+| `04_LEROBOT_ACT_JSON_MAPPING.md` | LeRobot ACT 데이터셋 구조, SO-ARM 관절 순서, ACT→JSON 매핑, 구현 타임라인 |
+| `05_hylion_action_schema_v1.0.md` | JSON 액션 스키마 문서 (작성 예정) |
 | `HYlio_JSON_Action_Schema (v1.0).json` | JSON 액션 스키마 공식 정의 |
 
 ---
-
-## 실행 방법
-
-```bash
-# ROS2 노드 실행 (터미널 3개)
-ros2 run hylion brain_node
-ros2 run hylion perception_node
-ros2 run hylion soarm_node
-
-# 사용자 입력 테스트
-ros2 topic pub /hylion/user_input std_msgs/String "data: 'Pick up the cup'"
-
-# 통합 테스트 (카메라 없이)
-python3 test_nodes.py
-
-# standalone CLI 테스트 (ROS2 없이)
-python3 hylion_brain_v2.py
-```
