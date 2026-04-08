@@ -1,7 +1,7 @@
 # 하이리온 Brain 아키텍처 및 토픽 연결 맵
 
 기준: 2026-04-08
-목적: 텍스트 입력부터 JSON 생성, 실행 노드 트리거까지를 파일 단위로 명확히 정리
+목적: 텍스트 입력부터 JSON 생성, 실행 노드 동작까지를 파일 단위로 명확히 정리
 
 ---
 
@@ -23,27 +23,21 @@ hylion_ws/
 │   │   ├── brain_main.py
 │   │   ├── cli_input.py
 │   │   ├── network_probe.py
-│   │   ├── groq_client.py
-│   │   ├── intent_normalizer.py
-│   │   ├── reply_planner.py
-│   │   ├── action_json_builder.py
+│   │   ├── llm_runtime.py
+│   │   ├── llm_pipeline.py
 │   │   └── action_router.py
 │   │
 │   └── executors/
 │       ├── smolvla/
-│       │   ├── smolvla_node.py
-│       │   └── smolvla_trigger.py
+│       │   └── smolvla_node.py
 │       ├── bhl/
-│       │   ├── bhl_node.py
-│       │   └── bhl_trigger.py
+│       │   └── bhl_node.py
 │       └── camera/
-│           ├── camera_node.py
-│           └── camera_trigger.py
+│           └── camera_node.py
 │
 ├── shared/
 │   ├── schemas/
-│   │   ├── action.schema.json
-│   │   └── reply.schema.json
+│   │   └── action.schema.json
 │   ├── contracts/
 │   │   └── topic_contract.md
 │   ├── config/
@@ -69,8 +63,8 @@ hylion_ws/
 ├── tests/
 │   ├── unit/
 │   │   ├── test_network_probe.py
-│   │   ├── test_intent_normalizer.py
-│   │   └── test_action_json_builder.py
+│   │   ├── test_llm_runtime.py
+│   │   └── test_llm_pipeline.py
 │   └── integration/
 │       └── test_brain_to_executor_flow.py
 │
@@ -88,19 +82,13 @@ hylion_ws/
 | apps/brain/brain_main.py | Brain 진입점, 입력 루프 실행 | 항상 | 오케스트레이션 중심 파일이므로 brain |
 | apps/brain/cli_input.py | 터미널 텍스트 입력 수신 | 항상 | 사용자 입력 채널이 brain 책임 |
 | apps/brain/network_probe.py | 인터넷 연결 확인 | 매 요청 전 | Groq 호출 전 조건 판단 로직 |
-| apps/brain/groq_client.py | Groq 요청/응답 처리 | 온라인 시 | LLM 어댑터 책임 |
-| apps/brain/intent_normalizer.py | LLM 응답을 intent 표준으로 정규화 | 온라인 시 | JSON 계약 준수 위해 정규화 필요 |
-| apps/brain/reply_planner.py | 사용자 답장 텍스트 생성 | 모든 요청 | 대화 상호작용 품질 책임 |
-| apps/brain/action_json_builder.py | 최종 Action JSON 생성 | 모든 요청 | Brain의 핵심 산출물 생성 |
+| apps/brain/llm_runtime.py | LLM 클라이언트/모델 1회 초기화 및 핸들 보관 | 부팅 시 1회 | 온라인 Groq + 오프라인 온디바이스 전환 대비 초기화 계층 |
+| apps/brain/llm_pipeline.py | LLM 호출, 의도 정규화, reply_text 생성, 최종 JSON 조립 | 매 요청 | 요청 단위 비즈니스 로직을 한 파일로 통합 |
 | apps/brain/action_router.py | JSON을 토픽으로 발행 | 온라인/오프라인 | 통신 계층 연결 경계 |
-| apps/executors/smolvla/smolvla_node.py | pick_place 실행 노드 | 조건 충족 시 | 실행 책임 분리 |
-| apps/executors/smolvla/smolvla_trigger.py | pick_place 조건 판별 | JSON 수신 시 | 실행 조건 정책 분리 |
-| apps/executors/bhl/bhl_node.py | gait 명령 실행 노드 | 조건 충족 시 | 하체 실행 분리 |
-| apps/executors/bhl/bhl_trigger.py | 보행 조건 판별 | JSON 수신 시 | 실행 조건 정책 분리 |
-| apps/executors/camera/camera_node.py | 카메라 캡처/제공 노드 | 필요 시 | 센서 자원 관리 분리 |
-| apps/executors/camera/camera_trigger.py | 카메라 활성 조건 판별 | JSON 수신 시 | 불필요한 상시 실행 방지 |
+| apps/executors/smolvla/smolvla_node.py | pick_place 조건 판별 + 실행 | JSON 수신 시 | 단일 노드로 단순화 |
+| apps/executors/bhl/bhl_node.py | gait 조건 판별 + 실행 | JSON 수신 시 | 단일 노드로 단순화 |
+| apps/executors/camera/camera_node.py | 카메라 활성 조건 판별 + 캡처/제공 | JSON 수신 시 | 단일 노드로 단순화 |
 | shared/schemas/action.schema.json | Action JSON 검증 스키마 | 빌드/런타임 | 노드 간 메시지 계약 표준 |
-| shared/schemas/reply.schema.json | reply 블록 검증 | 빌드/런타임 | 대화 응답 형식 보장 |
 | shared/contracts/topic_contract.md | 토픽 방향/타입 명세 | 개발 전/중 | 팀 간 인터페이스 충돌 방지 |
 | shared/config/topics.yaml | 토픽명 중앙 관리 | 부팅 시 | 하드코딩 제거 |
 | transport/ros2/*.py | ROS2 pub/sub 실제 구현 | ROS2 모드 | 통신 기술 분리 |
@@ -114,10 +102,8 @@ hylion_ws/
 
 1. cli_input.py가 사용자 텍스트 수신
 2. network_probe.py가 인터넷 연결 확인
-3. groq_client.py가 텍스트 분석 요청
-4. intent_normalizer.py가 의도/객체 정규화
-5. reply_planner.py가 답장 생성
-6. action_json_builder.py가 최종 JSON 생성
+3. llm_pipeline.py가 llm_runtime.py 핸들을 사용해 텍스트 분석 요청
+4. llm_pipeline.py가 의도/객체 정규화 + reply_text 생성 + 최종 JSON 생성
 7. action_router.py가 액션 토픽 발행
 8. 각 executor 노드가 JSON을 수신하여 조건부 실행
 
@@ -125,43 +111,83 @@ hylion_ws/
 
 1. cli_input.py가 사용자 텍스트 수신
 2. network_probe.py에서 offline 판정
-3. Brain이 터미널에 인터넷 미연결 메시지 출력
-4. 필요 시 fallback JSON만 생성하고 실행 명령은 비활성
+3. llm_pipeline.py가 llm_runtime.py의 온디바이스 LLM(또는 fallback 규칙) 경로 실행
+4. reply_text를 포함한 최소 JSON 생성 후 실행 명령은 안전 규칙에 따라 비활성
+
+### 4.3 LLM 초기화/요청 처리 분리 기준
+
+1. llm_runtime.py
+- 앱 시작 시 1회 실행
+- 온라인(Groq) 클라이언트와 오프라인(on-device) 엔진 로딩 담당
+- 모델/클라이언트 핸들 반환
+
+2. llm_pipeline.py
+- 요청마다 실행
+- llm_runtime.py에서 받은 핸들로 추론
+- intent, reply_text, 실행 플래그를 한 번에 생성
+- 최종 JSON 스키마로 정규화
 
 ---
 
 ## 5. 파일-토픽 연결 시각화
 
-### 5.1 전체 연결 다이어그램 (파일 기준)
+### 5.1 노드 내부 구성 + 노드 간 연결 다이어그램
 
 ```mermaid
-flowchart LR
-  U[apps/brain/cli_input.py] --> B[apps/brain/brain_main.py]
-  B --> N[apps/brain/network_probe.py]
-  N -->|online| G[apps/brain/groq_client.py]
-  N -->|offline| O[offline message print]
+flowchart TB
+  %% Brain Node (internal files)
+  subgraph BN[ROS2 Node: brain_node]
+    B_MAIN[brain_main.py]
+    B_INPUT[cli_input.py]
+    B_NET[network_probe.py]
+    B_RT[llm_runtime.py]
+    B_PIPE[llm_pipeline.py]
+    B_ROUTER[action_router.py]
+  end
 
-  G --> I[apps/brain/intent_normalizer.py]
-  I --> R[apps/brain/reply_planner.py]
-  R --> J[apps/brain/action_json_builder.py]
-  J --> AR[apps/brain/action_router.py]
+  %% SmolVLA Node (internal files)
+  subgraph SN[ROS2 Node: smolvla_node]
+    S_NODE[smolvla_node.py]
+  end
 
-  AR --> T1[/topic: /hylion/action_json/]
+  %% BHL Node (internal files)
+  subgraph GN[ROS2 Node: bhl_node]
+    G_NODE[bhl_node.py]
+  end
 
-  T1 --> S1[apps/executors/smolvla/smolvla_node.py]
-  T1 --> B1[apps/executors/bhl/bhl_node.py]
-  T1 --> C1[apps/executors/camera/camera_node.py]
+  %% Camera Node (internal files)
+  subgraph CN[ROS2 Node: camera_node]
+    C_NODE[camera_node.py]
+  end
 
-  C1 --> T2[/topic: /hylion/perception/]
-  T2 --> AR
+  %% Brain node internal pipeline
+  B_INPUT --> B_MAIN
+  B_MAIN --> B_NET
+  B_MAIN --> B_RT
+  B_NET --> B_PIPE
+  B_RT --> B_PIPE
+  B_PIPE --> B_ROUTER
 
-  S1 --> T3[/topic: /hylion/soarm_status/]
-  B1 --> T4[/topic: /hylion/gait_status/]
-  T3 --> AR
-  T4 --> AR
+  %% Node-to-node topic connections
+  B_ROUTER -- publish /hylion/action_json --> S_NODE
+  B_ROUTER -- publish /hylion/action_json --> G_NODE
+  B_ROUTER -- publish /hylion/action_json --> C_NODE
+
+  C_NODE -- publish /hylion/perception --> B_ROUTER
+  S_NODE -- publish /hylion/soarm_status --> B_ROUTER
+  G_NODE -- publish /hylion/gait_status --> B_ROUTER
 ```
 
-### 5.2 발행/구독 표 (한눈에 보기)
+### 5.2 노드 관점 해석
+
+- brain_node 내부 파일: `brain_main.py`, `cli_input.py`, `network_probe.py`, `llm_runtime.py`, `llm_pipeline.py`, `action_router.py`
+- smolvla_node 내부 파일: `smolvla_node.py`
+- bhl_node 내부 파일: `bhl_node.py`
+- camera_node 내부 파일: `camera_node.py`
+- Brain은 `/hylion/action_json` 발행자, 나머지 3개 노드는 해당 토픽 구독자
+- Camera/SmolVLA/BHL는 상태 토픽 발행자, Brain 라우터는 해당 토픽 구독자
+
+### 5.3 발행/구독 표 (한눈에 보기)
 
 | 파일 | 발행 토픽 | 구독 토픽 | 비고 |
 |---|---|---|---|
@@ -174,7 +200,7 @@ flowchart LR
 
 ## 6. JSON 스키마 제안 (답장 포함)
 
-핵심 목표: 텍스트 입력과 사용자 답장, 실행 트리거를 하나의 계약으로 통일
+핵심 목표: 텍스트 입력과 사용자 답장, 실행 판단/동작을 하나의 계약으로 통일
 
 필수 규칙:
 - `reply_text`는 항상 포함 (온라인/오프라인 공통)
@@ -226,7 +252,7 @@ flowchart LR
 |---|---|---|
 | action_id | 명령 추적 고유값 | 전 노드 |
 | network_online | 온라인/오프라인 판정 | Brain |
-| intent.type | 상위 의도 | Executor 트리거 |
+| intent.type | 상위 의도 | Executor 실행 판단 |
 | intent.target_object | 집기 대상 | SmolVLA |
 | reply_text | 사용자에게 보여줄 답장 | UI/터미널 |
 | execution.requires_smolvla | 팔 노드 실행 여부 | SmolVLA 노드 |
@@ -236,16 +262,16 @@ flowchart LR
 | fallback_policy | 실패 시 대응 규칙 | Brain/Executor |
 
 `reply_text` 운영 규칙:
-- 온라인: `groq_client.py`가 intent와 함께 `reply_text` 생성 (TTS는 동일 텍스트 사용)
-- 오프라인: Brain 로컬 fallback 템플릿으로 `reply_text` 생성
-- 검증 실패: executor 전달 전에 기본 안전 답장으로 교체
+- 온라인: `llm_pipeline.py`가 `llm_runtime.py`의 Groq 핸들로 intent와 `reply_text` 생성 (TTS는 동일 텍스트 사용)
+- 오프라인: `llm_pipeline.py`가 `llm_runtime.py`의 온디바이스 경로(또는 fallback 템플릿)로 `reply_text` 생성
+- 검증 실패: `action.schema.json` 기준으로 실패 처리 후 기본 안전 답장으로 교체
 
 ---
 
 ## 8. 구현 우선순위 (최소 동작 버전)
 
 1. Brain 단독: 입력, 네트워크 체크, Groq 호출, JSON 출력
-2. action.schema.json 검증 연결
+2. action.schema.json 단일 검증 연결 (reply_text 포함)
 3. ROS2 토픽으로 action_json 발행
 4. SmolVLA/BHL/Camera는 로그 기반 스텁 노드부터 연결
 5. 이후 실제 제어 로직 탑재
