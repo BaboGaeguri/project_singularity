@@ -168,7 +168,7 @@ flowchart LR
 | apps/brain/action_router.py | /hylion/action_json | /hylion/perception, /hylion/soarm_status, /hylion/gait_status | Brain 중심 라우터 |
 | apps/executors/smolvla/smolvla_node.py | /hylion/soarm_status | /hylion/action_json | pick_place일 때만 동작 |
 | apps/executors/bhl/bhl_node.py | /hylion/gait_status | /hylion/action_json | gait_cmd 존재 시 동작 |
-| apps/executors/camera/camera_node.py | /hylion/perception | /hylion/action_json | requires_camera=true 시 활성 |
+| apps/executors/camera/camera_node.py | /hylion/perception | /hylion/action_json | 팔 노드 실행과 함께 활성 |
 
 ---
 
@@ -176,58 +176,47 @@ flowchart LR
 
 핵심 목표: 텍스트 입력과 사용자 답장, 실행 트리거를 하나의 계약으로 통일
 
+필수 규칙:
+- `reply_text`는 항상 포함 (온라인/오프라인 공통)
+- `reply_text`는 빈 문자열 금지 (TTS도 동일 텍스트 사용)
+- 오프라인일 때도 사용자 안내 답장을 `reply_text`에 반드시 채움
+
 ```json
 {
   "action_id": "string",
   "timestamp": "ISO8601",
   "session_id": "string",
   "source": "terminal|mic",
-  "network": {
-    "online": true,
-    "llm_provider": "groq|none",
-    "reason": "string"
-  },
-  "user_input": {
-    "text": "string",
-    "language": "ko|en",
-    "normalized": "string"
-  },
+  "network_online": true,
   "intent": {
     "type": "chat|pick_place|walk|stop|unknown",
-    "target_object": "string",
-    "confidence": 0.0
+    "target_object": "string"
   },
-  "reply": {
-    "text": "string",
-    "tts_text": "string",
-    "style": "neutral|friendly|concise",
-    "should_ask_followup": false
-  },
+  "reply_text": "string",
   "execution": {
     "requires_smolvla": false,
-    "requires_bhl": false,
-    "requires_camera": false,
-    "priority": "low|normal|high"
+    "requires_bhl": false
   },
-  "motion": {
-    "pipeline": "act_imitation|precoded|none",
-    "task": "string"
-  },
-  "gait": {
-    "cmd": "walk_forward|turn_left|stop|none"
-  },
-  "state": {
-    "current": "IDLE|TALKING|MANIPULATING|WALKING|EMERGENCY"
-  },
+  "gait_cmd": "walk_forward|turn_left|stop|none",
+  "state_current": "IDLE|TALKING|MANIPULATING|WALKING|EMERGENCY",
   "safety": {
     "emergency_stop": false,
     "allowed": true
   },
-  "fallback": {
-    "policy": "string"
-  }
+  "fallback_policy": "string"
 }
 ```
+
+### 6.1 필수 항목(Required)
+
+- `action_id`
+- `timestamp`
+- `network_online`
+- `intent.type`
+- `reply_text`
+- `execution.requires_smolvla`
+- `execution.requires_bhl`
+- `state_current`
 
 ---
 
@@ -236,19 +225,20 @@ flowchart LR
 | 필드 | 의미 | 사용 주체 |
 |---|---|---|
 | action_id | 명령 추적 고유값 | 전 노드 |
-| network.online | 온라인/오프라인 판정 | Brain |
-| user_input.text | 사용자 원문 | Brain |
+| network_online | 온라인/오프라인 판정 | Brain |
 | intent.type | 상위 의도 | Executor 트리거 |
 | intent.target_object | 집기 대상 | SmolVLA |
-| reply.text | 사용자에게 보여줄 답장 | UI/터미널 |
-| reply.tts_text | 음성 합성용 답장 | TTS 노드 |
+| reply_text | 사용자에게 보여줄 답장 | UI/터미널 |
 | execution.requires_smolvla | 팔 노드 실행 여부 | SmolVLA 노드 |
 | execution.requires_bhl | 하체 노드 실행 여부 | BHL 노드 |
-| execution.requires_camera | 카메라 노드 활성 여부 | Camera 노드 |
-| motion.pipeline | 팔 제어 파이프라인 힌트 | SmolVLA 노드 |
-| gait.cmd | 보행 명령 | BHL 노드 |
+| gait_cmd | 보행 명령 | BHL 노드 |
 | safety.allowed | 현재 실행 허용 여부 | 전 노드 |
-| fallback.policy | 실패 시 대응 규칙 | Brain/Executor |
+| fallback_policy | 실패 시 대응 규칙 | Brain/Executor |
+
+`reply_text` 운영 규칙:
+- 온라인: `groq_client.py`가 intent와 함께 `reply_text` 생성 (TTS는 동일 텍스트 사용)
+- 오프라인: Brain 로컬 fallback 템플릿으로 `reply_text` 생성
+- 검증 실패: executor 전달 전에 기본 안전 답장으로 교체
 
 ---
 
