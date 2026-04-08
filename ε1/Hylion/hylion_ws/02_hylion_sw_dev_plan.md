@@ -1,6 +1,6 @@
 # 하이리온 소프트웨어 개발 계획
 
-> 기준일: 2026.04  
+> 기준일: 2026.04.08 
 > 대상: Orin Nano Super + NUC + SO-ARM101 ×2 + BHL 다리 + ESP32
 
 ---
@@ -10,6 +10,15 @@
 > **"작은 것부터 살아있음을 증명한다"**  
 > 전체를 한 번에 붙이고 테스트하지 않는다.  
 > 모터 1개 → 팔 전체 → SmolVLA 제어 → 상태 머신 트리거 → 풀 시나리오 순으로 올라간다.
+> 환경을 분리해서 작업한다.(docker, config, factory)
+
+---
+
+## 핵심 고려사항
+> bhl로 isaac으로 학습하여 걷는다.
+> so-arm으로 smolVLA를 통해 짚는다.
+> 입의 서보모터, 마이크, 스피커로 대화와 감정표현을 한다.
+> 네트워크 연결 해제, 낙상의 문제에 대비한다.
 
 ---
 
@@ -34,23 +43,144 @@
 ### 프로젝트 파일 구조
 
 ```
-hylion/
-├── main.py                   # 진입점. 부팅 후 여기서 전부 시작
-├── state_machine.py          # 상태 머신 (IDLE/TALKING/MANIPULATING/WALKING/EMERGENCY)
-├── config.py                 # 포트번호, 카메라 인덱스, 모델 경로 등 설정값
+robot_project/
 │
-├── pipeline/
-│   ├── speech.py             # 마이크 캡처 → Groq STT/LLM/TTS
-│   ├── smolvla_runner.py     # SmolVLA 추론 + SO-ARM 제어
-│   └── gait_controller.py   # ROS2 노드. NUC에 /gait/cmd 발행
+├── jetson/                               # Jetson에서 실행되는 코드
+│   ├── arm/                              # so-arm (팔)
+│   │   ├── policy/                       # SmolVLA runner (팔 제어 정책)
+│   │   │   ├── smolvla_runner.py         # 추론 실행
+│   │   │   └── async_inference.py        # 비동기 추론
+│   │   ├── so_arm.py                     # 실제 하드웨어 인터페이스
+│   │   ├── mock_arm.py                   # 개발용 Mock
+│   │   └── factory.py                    # Real/Mock 선택
+│   │
+│   ├── cloud/                            # Groq 클라우드 연동
+│   │   └── groq_client.py               # STT / LLM / TTS API
+│   │
+│   ├── perception/                       # 인식 모듈
+│   │   ├── camera.py                     # RGB 카메라 (Real)
+│   │   ├── mock_camera.py                # 개발용 Mock
+│   │   ├── mediapipe_tracker.py          # MediaPipe 시선 추적 (CPU)
+│   │   ├── imu.py                        # IMU (Real, 낙상 감지용)
+│   │   ├── mock_imu.py                   # 개발용 Mock
+│   │   └── factory.py                    # Real/Mock 선택
+│   │
+│   ├── expression/                       # 감정표현 모듈
+│   │   ├── mouth_servo.py                # 입 서보모터 제어 (Real)
+│   │   ├── mock_mouth_servo.py           # 개발용 Mock
+│   │   ├── speaker.py                    # 스피커 출력
+│   │   ├── microphone.py                 # 마이크 입력
+│   │   └── factory.py                    # Real/Mock 선택
+│   │
+│   ├── safety/                           # 안전 모듈
+│   │   ├── emergency_stop.py             # 비상정지 통합 관리
+│   │   ├── watchdog.py                   # 통신 상태 감시
+│   │   └── fault_detector.py             # 이상 상태 감지
+│   │
+│   ├── state_machine/                    # 상태 머신
+│   │   └── fsm.py                        # IDLE / TALKING / MANIPULATING / EMERGENCY
+│   │
+│   ├── core/                             # 통합 조율 로직
+│   │   └── coordinator.py               # 상태 보고 각 모듈 실행 판단
+│   │
+│   └── scenarios/                        # 시연 시나리오
+│       ├── base_scenario.py              # 시나리오 베이스 클래스
+│       └── serve_cup.py                  # "컵 가져다줘" 시연 예시
 │
-└── hardware/
-    ├── arm.py                # Waveshare 보드 + LeRobot API 래퍼
-    ├── mouth_servo.py        # 입 서보 PWM 제어 (GPIO)
-    └── safety.py             # 비상정지 로직
+├── nuc/                                  # NUC에서 실행되는 코드
+│   └── bhl/                             # BHL git submodule (보행)
+│       ├── csrc/                         # C/C++ 실시간 보행 제어 + ONNX 실행
+│       │                                 # IMU (보행 균형용) 내장
+│       │                                 # C++ 수준 비상정지 내장
+│       ├── robot/                        # 보행 하드웨어 인터페이스
+│       ├── mock_biped.py                 # 개발용 Mock
+│       └── factory.py                    # Real/Mock 선택
+│
+├── ros2_ws/                              # Jetson ↔ NUC 통신 (양쪽 모두 설치)
+│   └── src/
+│       └── robot_bridge_pkg/
+│           ├── package.xml
+│           ├── setup.py
+│           └── robot_bridge_pkg/
+│               ├── jetson_pub.py         # Jetson → NUC 명령 전송
+│               ├── jetson_sub.py         # NUC → Jetson 상태 수신
+│               ├── nuc_pub.py            # NUC → Jetson 상태 발신
+│               ├── nuc_sub.py            # Jetson → NUC 명령 수신
+│               └── launch/
+│                   ├── jetson.launch.py  # Jetson에서 실행
+│                   └── nuc.launch.py     # NUC에서 실행
+│
+├── sim/                                  # 개발 전용 (배포 제외)
+│   ├── isaaclab/                         # BHL 보행 RL 학습 환경
+│   │   └── tasks/
+│   │       ├── velocity_biped.py         # Velocity-BHL-Biped-v0
+│   │       └── velocity_humanoid.py      # Velocity-BHL-v0 (팔 포함)
+│   ├── mujoco/                           # BHL sim2sim 검증
+│   │   └── play_mujoco.py
+│   └── isaaclab_arena/                   # SmolVLA 정책 Isaac Sim 검증
+│       └── eval_smolvla.py
+│
+├── dgx/                                  # 개발 전용 (배포 제외)
+│   ├── train_biped.sh                    # BHL RL 학습 (Isaac Sim)
+│   ├── train_arm.sh                      # SmolVLA 파인튜닝 (LeRobot)
+│   └── requirements_dgx.txt             # DGX 전용 패키지
+│
+├── tests/                                # 개발 전용 (배포 제외)
+│   ├── 2_hw_connection/                  # 하드웨어 연결 검증
+│   │   ├── check_can.sh                  # CAN 버스 확인
+│   │   ├── check_camera.py              # 카메라 확인
+│   │   ├── check_imu.py                 # IMU 확인 (Jetson + NUC)
+│   │   ├── check_arm.py                 # SO-ARM 확인
+│   │   └── check_mouth_servo.py         # 입 서보모터 확인
+│   │
+│   ├── 3_interface/                      # 소프트웨어 인터페이스 확인
+│   │   ├── test_groq_api.py             # Groq STT/LLM/TTS 통신
+│   │   ├── test_ros2_bridge.py          # ROS2 토픽 end-to-end
+│   │   ├── test_smolvla_io.py           # SmolVLA 입출력
+│   │   ├── test_fsm.py                  # 상태머신 전환
+│   │   └── test_emergency_stop.py       # 비상정지 트리거 확인
+│   │
+│   ├── 4_unit/                           # 단위 테스트
+│   │   ├── test_mediapipe.py
+│   │   ├── test_arm_control.py
+│   │   ├── test_walking.py
+│   │   ├── test_expression.py
+│   │   ├── test_imu.py                  # IMU 낙상 감지
+│   │   ├── test_watchdog.py             # 통신 감시
+│   │   └── test_tts.py
+│   │
+│   └── 5_integration/                    # 풀 시나리오 통합 테스트
+│       ├── test_full_scenario.py         # 음성 → 팔 동작 전체
+│       ├── test_biped_arm.py            # 보행 + 팔 동시
+│       └── test_emergency_scenario.py   # 비상정지 풀 시나리오
+│
+├── checkpoints/                          # ✅ 배포 필요
+│   ├── biped/                            # ONNX (NUC에 배포)
+│   └── arm/                             # SmolVLA 모델 (Jetson에 배포)
+│
+├── data/                                 # 개발 전용 (배포 제외)
+│   └── episodes/                         # LeRobotDataset 형식
+│
+├── configs/                              # ✅ 배포 필요
+│   ├── dev.yaml                          # Mock 하드웨어 (개발용)
+│   ├── prod.yaml                         # 실제 하드웨어 (배포용)
+│   └── policy_latest.yaml               # 현재 사용 정책 설정
+│
+├── docker/                               # 선택적 배포
+│   ├── docker-compose.dev.yml
+│   ├── docker-compose.prod.yml
+│   └── docker-compose.dgx.yml
+│
+└── scripts/                              # 배포 스크립트
+    ├── deploy_jetson.sh                  # Jetson 배포 자동화
+    └── deploy_nuc.sh                     # NUC 배포 자동화
 ```
 
+
+
 ### 상태 머신 전환 규칙
+
+> WALKING 상태는 보행 기능 반영을 위해 추가. `fsm.py` 구현 시 5개 상태로 확장.
 
 | 현재 상태 | 이벤트 | 다음 상태 |
 |----------|--------|----------|
@@ -72,7 +202,7 @@ hylion/
 - [ ] 파일 구조 확정 및 팀 공유
 - [ ] ROS2 토픽 이름/타입 확정
 - [ ] 상태 머신 전환 규칙 확정
-- [ ] config.py 항목 초안 작성
+- [ ] `configs/dev.yaml` 항목 초안 작성
 
 ---
 
@@ -150,7 +280,7 @@ speaker-test -t wav
 ```
 
 **확인 항목**
-- [ ] 카메라 인덱스 확정 및 config.py에 기록
+- [ ] 카메라 인덱스 확정 및 `configs/dev.yaml`에 기록
 - [ ] 마이크 입력 레벨 정상
 - [ ] 스피커 출력 정상
 
@@ -162,38 +292,42 @@ speaker-test -t wav
 
 ### 3-1. STT → LLM → TTS 파이프라인
 
-```python
-# speech.py 단독 실행 테스트
+```bash
+# jetson/cloud/groq_client.py 단독 실행 테스트
 # 마이크 입력 → Groq STT → LLM → TTS 출력까지 왕복 시간 측정
-python pipeline/speech.py --test
+python jetson/cloud/groq_client.py --test
 ```
 
 **확인 항목**
 - [ ] Groq API 키 동작
 - [ ] STT 인식률 확인 (한국어)
 - [ ] LLM 물체 이름 추출 정확도 ("빨간 컵" → "starbucks_cup")
-- [ ] TTS → 스피커 출력
+- [ ] TTS → 스피커 출력 (`jetson/expression/speaker.py` 연동)
 - [ ] 전체 왕복 TTFT < 500ms (기획서 Phase 2 게이트 조건)
 
 ### 3-2. SmolVLA 추론 → SO-ARM 동작
 
-```python
-# smolvla_runner.py 단독 실행 테스트
+```bash
+# jetson/arm/policy/smolvla_runner.py 단독 실행 테스트
 # 카메라 입력 + 언어 지시 → SmolVLA → SO-ARM 액션
-python pipeline/smolvla_runner.py --task "starbucks_cup" --test
+python jetson/arm/policy/smolvla_runner.py --task "starbucks_cup" --test
 ```
 
 **확인 항목**
 - [ ] SmolVLA 모델 로드 시간 측정
 - [ ] 추론 → 액션 출력 Hz 확인 (TensorRT 적용 전/후 비교)
-- [ ] SO-ARM 실제 동작 확인
+- [ ] SO-ARM 실제 동작 확인 (`jetson/arm/so_arm.py` 연동)
 - [ ] Orin GPU 온도 모니터링 (써멀 스로틀링 확인)
 
 ### 3-3. Orin → NUC 보행 명령
 
-```python
-# gait_controller.py 단독 실행 테스트
-python pipeline/gait_controller.py --cmd walk_forward --test
+```bash
+# ros2_ws 기반 ROS2 토픽으로 테스트
+# Jetson 측 발행 (ros2_ws/src/robot_bridge_pkg/jetson_pub.py)
+ros2 topic pub /gait/cmd std_msgs/String "data: 'walk_forward'"
+
+# NUC 수신 및 상태 응답 확인
+ros2 topic echo /gait/status
 ```
 
 **확인 항목**
@@ -202,6 +336,11 @@ python pipeline/gait_controller.py --cmd walk_forward --test
 - [ ] 명령 지연시간 측정
 
 ### 3-4. 비상정지 end-to-end
+
+```bash
+# jetson/safety/emergency_stop.py 단독 트리거 테스트
+python jetson/safety/emergency_stop.py --simulate-fall
+```
 
 **확인 항목**
 - [ ] 낙상 시뮬레이션 → MOSFET 차단까지 시간 측정
@@ -233,7 +372,7 @@ python pipeline/gait_controller.py --cmd walk_forward --test
 - [ ] SmolVLA v1 pick-place 성공률 > 70%
 - [ ] SmolVLA v2 성공률 > 85% (시연 조건 기준)
 
-### 4-2. 상태 머신 (state_machine.py)
+### 4-2. 상태 머신 (`jetson/state_machine/fsm.py`)
 
 ```python
 class State(Enum):
@@ -253,12 +392,12 @@ class State(Enum):
 ### 4-3. Walking RL (NUC)
 
 **확인 항목**
-- [ ] IsaacLab 환경 로드
+- [ ] IsaacLab 환경 로드 (`sim/isaaclab/tasks/velocity_biped.py`)
 - [ ] 상체 더미 웨이트 반영
-- [ ] Sim-to-real 1차 비교
+- [ ] Sim-to-real 1차 비교 (`sim/mujoco/play_mujoco.py`)
 - [ ] 지면 보행 안정화
 
-### 4-4. 입 서보 PWM 제어 (mouth_servo.py)
+### 4-4. 입 서보 PWM 제어 (`jetson/expression/mouth_servo.py`)
 
 ```python
 # TTS 재생 중 입 서보 동기화
@@ -276,6 +415,9 @@ class State(Enum):
 
 ### 부팅 자동화 (systemd)
 
+> 진입점: `jetson/core/coordinator.py`  
+> 배포 시 `scripts/deploy_jetson.sh`로 경로 자동 설정.
+
 ```bash
 # /etc/systemd/system/hylion.service
 [Unit]
@@ -283,8 +425,8 @@ Description=Hylion Robot Main
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/hylion/main.py
-WorkingDirectory=/home/hylion
+ExecStart=/usr/bin/python3 /home/hylion/robot_project/jetson/core/coordinator.py
+WorkingDirectory=/home/hylion/robot_project
 Restart=on-failure
 
 [Install]
@@ -300,7 +442,7 @@ sudo journalctl -u hylion -f   # 실시간 로그 확인
 
 ```
 Orin 전원 ON
-  → systemd: main.py 자동 실행
+  → systemd: coordinator.py 자동 실행
   → 하드웨어 연결 확인 (약 5초)
   → 캘리브레이션 파일 로드 (약 1초)
   → SmolVLA 모델 로드 (약 30~60초)
@@ -321,8 +463,8 @@ Orin 전원 ON
 ### Fallback 확인
 
 - [ ] 네트워크 불량 시 오프라인 키워드 매칭 동작
-- [ ] SmolVLA 실패 시 precoded 동작으로 전환
-- [ ] 시나리오 B (받침대 고정) 독립 동작 확인
+- [ ] SmolVLA 실패 시 precoded 동작으로 전환 (`jetson/scenarios/base_scenario.py`)
+- [ ] 비상정지 풀 시나리오 독립 동작 확인 (`tests/5_integration/test_emergency_scenario.py`)
 
 ---
 
