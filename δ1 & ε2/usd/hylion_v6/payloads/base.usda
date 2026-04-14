@@ -4,7 +4,7 @@
         string creator = "URDF USD Converter v0.1.0"
     }
     defaultPrim = "hylion"
-    doc = """Generated from Composed Stage of root layer /tmp/tmp621bvtcu/hylion.usdc
+    doc = """Generated from Composed Stage of root layer /tmp/tmp0l76a8mn/hylion.usdc
 
 
 Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/usdex/hylion.usdc
@@ -49,7 +49,7 @@ def Xform "hylion" (
         {
             def Xform "base_visual" (
                 instanceable = true
-                prepend references = @./instances.usda@</Instances/base_visual>
+                prepend references = @./instances.usda@</Instances/base_visual_1>
             )
             {
                 quatd xformOp:orient = (1, 0, 0, 0)
@@ -67,7 +67,7 @@ def Xform "hylion" (
 
                 def Xform "imu_2_visual" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/imu_2_visual>
+                    prepend references = @./instances.usda@</Instances/imu_2_visual_1>
                 )
                 {
                     quatd xformOp:orient = (1, 0, 0, 0)
@@ -100,7 +100,7 @@ def Xform "hylion" (
 
                 def Xform "leg_left_hip_roll_visual" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/leg_left_hip_roll_visual>
+                    prepend references = @./instances.usda@</Instances/leg_left_hip_roll_visual_1>
                 )
                 {
                     quatd xformOp:orient = (0.9238795638, 0, -0.3826833665, 0)
@@ -118,7 +118,7 @@ def Xform "hylion" (
 
                     def Xform "leg_left_hip_yaw_visual" (
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/leg_left_hip_yaw_visual>
+                        prepend references = @./instances.usda@</Instances/leg_left_hip_yaw_visual_1>
                     )
                     {
                         quatd xformOp:orient = (0.2705976367, 0.6532806754, -0.6532823443, 0.270598352)
@@ -136,7 +136,7 @@ def Xform "hylion" (
 
                         def Xform "leg_left_hip_pitch_visual" (
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/leg_left_hip_pitch_visual>
+                            prepend references = @./instances.usda@</Instances/leg_left_hip_pitch_visual_1>
                         )
                         {
                             quatd xformOp:orient = (0.7071054578, 0.7071080804, 0, 0)
@@ -154,7 +154,7 @@ def Xform "hylion" (
 
                             def Xform "leg_left_knee_pitch_visual" (
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/leg_left_knee_pitch_visual>
+                                prepend references = @./instances.usda@</Instances/leg_left_knee_pitch_visual_1>
                             )
                             {
                                 quatd xformOp:orient = (9.381839732e-7, 9.381873838e-7, 0.7071080804, 0.7071054578)
@@ -172,7 +172,7 @@ def Xform "hylion" (
 
                                 def Xform "leg_left_ankle_pitch_visual" (
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/leg_left_ankle_pitch_visual>
+                                    prepend references = @./instances.usda@</Instances/leg_left_ankle_pitch_visual_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.7071054578, 0.7071080804, 0, 0)
@@ -190,7 +190,7 @@ def Xform "hylion" (
 
                                     def Xform "leg_left_ankle_roll_visual" (
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/leg_left_ankle_roll_visual>
+                                        prepend references = @./instances.usda@</Instances/leg_left_ankle_roll_visual_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.4999981523, 0.5, -0.5, 0.5000018477)
@@ -257,7 +257,7 @@ def Xform "hylion" (
 
                 def Xform "leg_right_hip_roll_visual" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/leg_right_hip_roll_visual>
+                    prepend references = @./instances.usda@</Instances/leg_right_hip_roll_visual_1>
                 )
                 {
                     quatd xformOp:orient = (0.000001225798655, -0.3826833665, -5.077422998e-7, -0.9238795638)
@@ -275,7 +275,7 @@ def Xform "hylion" (
 
                     def Xform "leg_right_hip_yaw_visual" (
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/leg_right_hip_yaw_visual>
+                        prepend references = @./instances.usda@</Instances/leg_right_hip_yaw_visual_1>
                     )
                     {
                         quatd xformOp:orient = (0.2705993652, 0.6532799602, -0.6532830596, 0.2705966234)
@@ -293,7 +293,7 @@ def Xform "hylion" (
 
                         def Xform "leg_right_hip_pitch_visual" (
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/leg_right_hip_pitch_visual>
+                            prepend references = @./instances.usda@</Instances/leg_right_hip_pitch_visual_1>
                         )
                         {
                             quatd xformOp:orient = (0.7071054578, 0.7071080804, 0, 0)
@@ -311,7 +311,7 @@ def Xform "hylion" (
 
                             def Xform "leg_right_knee_pitch_visual" (
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/leg_right_knee_pitch_visual>
+                                prepend references = @./instances.usda@</Instances/leg_right_knee_pitch_visual_1>
                             )
                             {
                                 quatd xformOp:orient = (0.7071054578, 0.7071080804, 0, 0)
@@ -329,7 +329,7 @@ def Xform "hylion" (
 
                                 def Xform "leg_right_ankle_pitch_visual" (
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/leg_right_ankle_pitch_visual>
+                                    prepend references = @./instances.usda@</Instances/leg_right_ankle_pitch_visual_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.7071054578, 0.7071080804, 0, 0)
@@ -347,7 +347,7 @@ def Xform "hylion" (
 
                                     def Xform "leg_right_ankle_roll_visual" (
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/leg_right_ankle_roll_visual>
+                                        prepend references = @./instances.usda@</Instances/leg_right_ankle_roll_visual_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.4999981523, 0.5, -0.5, 0.5000018477)
@@ -484,7 +484,7 @@ def Xform "hylion" (
 
                 def Xform "base_motor_holder_so101_v1" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/base_motor_holder_so101_v1>
+                    prepend references = @./instances.usda@</Instances/base_motor_holder_so101_v1_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -495,7 +495,7 @@ def Xform "hylion" (
 
                 def Xform "base_so101_v2" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/base_so101_v2>
+                    prepend references = @./instances.usda@</Instances/base_so101_v2_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -506,7 +506,7 @@ def Xform "hylion" (
 
                 def Xform "sts3215_03a_v1" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                    prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                 )
                 {
                     quatd xformOp:orient = (1, 0, 0, 0)
@@ -517,7 +517,7 @@ def Xform "hylion" (
 
                 def Xform "waveshare_mounting_plate_so101_v2" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/waveshare_mounting_plate_so101_v2>
+                    prepend references = @./instances.usda@</Instances/waveshare_mounting_plate_so101_v2_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -535,7 +535,7 @@ def Xform "hylion" (
 
                     def Xform "sts3215_03a_v1" (
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                     )
                     {
                         quatd xformOp:orient = (0.4999981523, 0.5, 0.5, -0.5000018477)
@@ -546,7 +546,7 @@ def Xform "hylion" (
 
                     def Xform "motor_holder_so101_base_v1" (
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/motor_holder_so101_base_v1>
+                        prepend references = @./instances.usda@</Instances/motor_holder_so101_base_v1_1>
                     )
                     {
                         quatd xformOp:orient = (0.4999981523, 0.5, -0.5, 0.5000018477)
@@ -557,7 +557,7 @@ def Xform "hylion" (
 
                     def Xform "rotation_pitch_so101_v1" (
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/rotation_pitch_so101_v1>
+                        prepend references = @./instances.usda@</Instances/rotation_pitch_so101_v1_1>
                     )
                     {
                         quatd xformOp:orient = (0.7071054578, -0.7071080804, 0, 0)
@@ -575,7 +575,7 @@ def Xform "hylion" (
 
                         def Xform "sts3215_03a_v1" (
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                            prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                         )
                         {
                             quatd xformOp:orient = (9.381839732e-7, -0.7071054578, 0.7071080804, -9.381873838e-7)
@@ -586,7 +586,7 @@ def Xform "hylion" (
 
                         def Xform "upper_arm_so101_v1" (
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/upper_arm_so101_v1>
+                            prepend references = @./instances.usda@</Instances/upper_arm_so101_v1_1>
                         )
                         {
                             quatd xformOp:orient = (0.000001326794859, 1, 0, 0)
@@ -604,7 +604,7 @@ def Xform "hylion" (
 
                             def Xform "under_arm_so101_v1" (
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/under_arm_so101_v1>
+                                prepend references = @./instances.usda@</Instances/under_arm_so101_v1_1>
                             )
                             {
                                 quatd xformOp:orient = (0.000001326794859, 1, 0, 0)
@@ -615,7 +615,7 @@ def Xform "hylion" (
 
                             def Xform "motor_holder_so101_wrist_v1" (
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/motor_holder_so101_wrist_v1>
+                                prepend references = @./instances.usda@</Instances/motor_holder_so101_wrist_v1_1>
                             )
                             {
                                 quatd xformOp:orient = (0.000001326794859, -1, 0, 0)
@@ -626,7 +626,7 @@ def Xform "hylion" (
 
                             def Xform "sts3215_03a_v1" (
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                                prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                             )
                             {
                                 quatd xformOp:orient = (0, 0.000001326794859, -1, 0.000001326794859)
@@ -644,7 +644,7 @@ def Xform "hylion" (
 
                                 def Xform "sts3215_03a_no_horn_v1" (
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/sts3215_03a_no_horn_v1>
+                                    prepend references = @./instances.usda@</Instances/sts3215_03a_no_horn_v1_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5, -0.5000018477)
@@ -655,7 +655,7 @@ def Xform "hylion" (
 
                                 def Xform "wrist_roll_pitch_so101_v2" (
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/wrist_roll_pitch_so101_v2>
+                                    prepend references = @./instances.usda@</Instances/wrist_roll_pitch_so101_v2_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.4999981523, -0.5, -0.5, -0.5000018477)
@@ -673,7 +673,7 @@ def Xform "hylion" (
 
                                     def Xform "sts3215_03a_v1" (
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.7071054578, -0.7071080804, 0, 0)
@@ -684,7 +684,7 @@ def Xform "hylion" (
 
                                     def Xform "wrist_roll_follower_so101_v1" (
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/wrist_roll_follower_so101_v1>
+                                        prepend references = @./instances.usda@</Instances/wrist_roll_follower_so101_v1_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.000001326794859, -1, 0, 0)
@@ -702,7 +702,7 @@ def Xform "hylion" (
 
                                         def Xform "moving_jaw_so101_v1" (
                                             instanceable = true
-                                            prepend references = @./instances.usda@</Instances/moving_jaw_so101_v1>
+                                            prepend references = @./instances.usda@</Instances/moving_jaw_so101_v1_1>
                                         )
                                         {
                                             quatd xformOp:orient = (1, 0, 0, 0)
@@ -714,7 +714,7 @@ def Xform "hylion" (
                                         def Xform "moving_jaw_so101_v1_1" (
                                             displayName = "moving_jaw_so101_v1"
                                             instanceable = true
-                                            prepend references = @./instances.usda@</Instances/moving_jaw_so101_v1_1>
+                                            prepend references = @./instances.usda@</Instances/moving_jaw_so101_v1_1_1>
                                         )
                                         {
                                             quatd xformOp:orient = (1, 0, 0, 0)
@@ -727,7 +727,7 @@ def Xform "hylion" (
                                     def Xform "sts3215_03a_v1_1" (
                                         displayName = "sts3215_03a_v1"
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.7071054578, -0.7071080804, 0, 0)
@@ -739,7 +739,7 @@ def Xform "hylion" (
                                     def Xform "wrist_roll_follower_so101_v1_1" (
                                         displayName = "wrist_roll_follower_so101_v1"
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/wrist_roll_follower_so101_v1_1>
+                                        prepend references = @./instances.usda@</Instances/wrist_roll_follower_so101_v1_1_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.000001326794859, -1, 0, 0)
@@ -760,7 +760,7 @@ def Xform "hylion" (
                                 def Xform "sts3215_03a_no_horn_v1_1" (
                                     displayName = "sts3215_03a_no_horn_v1"
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/sts3215_03a_no_horn_v1_1>
+                                    prepend references = @./instances.usda@</Instances/sts3215_03a_no_horn_v1_1_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5, -0.5000018477)
@@ -772,7 +772,7 @@ def Xform "hylion" (
                                 def Xform "wrist_roll_pitch_so101_v2_1" (
                                     displayName = "wrist_roll_pitch_so101_v2"
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/wrist_roll_pitch_so101_v2_1>
+                                    prepend references = @./instances.usda@</Instances/wrist_roll_pitch_so101_v2_1_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.4999981523, -0.5, -0.5, -0.5000018477)
@@ -785,7 +785,7 @@ def Xform "hylion" (
                             def Xform "under_arm_so101_v1_1" (
                                 displayName = "under_arm_so101_v1"
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/under_arm_so101_v1_1>
+                                prepend references = @./instances.usda@</Instances/under_arm_so101_v1_1_1>
                             )
                             {
                                 quatd xformOp:orient = (0.000001326794859, 1, 0, 0)
@@ -797,7 +797,7 @@ def Xform "hylion" (
                             def Xform "motor_holder_so101_wrist_v1_1" (
                                 displayName = "motor_holder_so101_wrist_v1"
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/motor_holder_so101_wrist_v1_1>
+                                prepend references = @./instances.usda@</Instances/motor_holder_so101_wrist_v1_1_1>
                             )
                             {
                                 quatd xformOp:orient = (0.000001326794859, -1, 0, 0)
@@ -809,7 +809,7 @@ def Xform "hylion" (
                             def Xform "sts3215_03a_v1_1" (
                                 displayName = "sts3215_03a_v1"
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                                prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                             )
                             {
                                 quatd xformOp:orient = (0, 0.000001326794859, -1, 0.000001326794859)
@@ -822,7 +822,7 @@ def Xform "hylion" (
                         def Xform "sts3215_03a_v1_1" (
                             displayName = "sts3215_03a_v1"
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                            prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                         )
                         {
                             quatd xformOp:orient = (9.381839732e-7, -0.7071054578, 0.7071080804, -9.381873838e-7)
@@ -834,7 +834,7 @@ def Xform "hylion" (
                         def Xform "upper_arm_so101_v1_1" (
                             displayName = "upper_arm_so101_v1"
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/upper_arm_so101_v1_1>
+                            prepend references = @./instances.usda@</Instances/upper_arm_so101_v1_1_1>
                         )
                         {
                             quatd xformOp:orient = (0.000001326794859, 1, 0, 0)
@@ -847,7 +847,7 @@ def Xform "hylion" (
                     def Xform "sts3215_03a_v1_1" (
                         displayName = "sts3215_03a_v1"
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                     )
                     {
                         quatd xformOp:orient = (0.4999981523, 0.5, 0.5, -0.5000018477)
@@ -859,7 +859,7 @@ def Xform "hylion" (
                     def Xform "motor_holder_so101_base_v1_1" (
                         displayName = "motor_holder_so101_base_v1"
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/motor_holder_so101_base_v1_1>
+                        prepend references = @./instances.usda@</Instances/motor_holder_so101_base_v1_1_1>
                     )
                     {
                         quatd xformOp:orient = (0.4999981523, 0.5, -0.5, 0.5000018477)
@@ -871,7 +871,7 @@ def Xform "hylion" (
                     def Xform "rotation_pitch_so101_v1_1" (
                         displayName = "rotation_pitch_so101_v1"
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/rotation_pitch_so101_v1_1>
+                        prepend references = @./instances.usda@</Instances/rotation_pitch_so101_v1_1_1>
                     )
                     {
                         quatd xformOp:orient = (0.7071054578, -0.7071080804, 0, 0)
@@ -884,7 +884,7 @@ def Xform "hylion" (
                 def Xform "base_motor_holder_so101_v1_1" (
                     displayName = "base_motor_holder_so101_v1"
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/base_motor_holder_so101_v1_1>
+                    prepend references = @./instances.usda@</Instances/base_motor_holder_so101_v1_1_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -896,7 +896,7 @@ def Xform "hylion" (
                 def Xform "base_so101_v2_1" (
                     displayName = "base_so101_v2"
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/base_so101_v2_1>
+                    prepend references = @./instances.usda@</Instances/base_so101_v2_1_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -908,7 +908,7 @@ def Xform "hylion" (
                 def Xform "sts3215_03a_v1_1" (
                     displayName = "sts3215_03a_v1"
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                    prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                 )
                 {
                     quatd xformOp:orient = (1, 0, 0, 0)
@@ -920,7 +920,7 @@ def Xform "hylion" (
                 def Xform "waveshare_mounting_plate_so101_v2_1" (
                     displayName = "waveshare_mounting_plate_so101_v2"
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/waveshare_mounting_plate_so101_v2_1>
+                    prepend references = @./instances.usda@</Instances/waveshare_mounting_plate_so101_v2_1_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -939,7 +939,7 @@ def Xform "hylion" (
 
                 def Xform "base_motor_holder_so101_v1" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/base_motor_holder_so101_v1>
+                    prepend references = @./instances.usda@</Instances/base_motor_holder_so101_v1_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -950,7 +950,7 @@ def Xform "hylion" (
 
                 def Xform "base_so101_v2" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/base_so101_v2>
+                    prepend references = @./instances.usda@</Instances/base_so101_v2_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -961,7 +961,7 @@ def Xform "hylion" (
 
                 def Xform "sts3215_03a_v1" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                    prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                 )
                 {
                     quatd xformOp:orient = (1, 0, 0, 0)
@@ -972,7 +972,7 @@ def Xform "hylion" (
 
                 def Xform "waveshare_mounting_plate_so101_v2" (
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/waveshare_mounting_plate_so101_v2>
+                    prepend references = @./instances.usda@</Instances/waveshare_mounting_plate_so101_v2_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -990,7 +990,7 @@ def Xform "hylion" (
 
                     def Xform "sts3215_03a_v1" (
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                     )
                     {
                         quatd xformOp:orient = (0.4999981523, 0.5, 0.5, -0.5000018477)
@@ -1001,7 +1001,7 @@ def Xform "hylion" (
 
                     def Xform "motor_holder_so101_base_v1" (
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/motor_holder_so101_base_v1>
+                        prepend references = @./instances.usda@</Instances/motor_holder_so101_base_v1_1>
                     )
                     {
                         quatd xformOp:orient = (0.4999981523, 0.5, -0.5, 0.5000018477)
@@ -1012,7 +1012,7 @@ def Xform "hylion" (
 
                     def Xform "rotation_pitch_so101_v1" (
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/rotation_pitch_so101_v1>
+                        prepend references = @./instances.usda@</Instances/rotation_pitch_so101_v1_1>
                     )
                     {
                         quatd xformOp:orient = (0.7071054578, -0.7071080804, 0, 0)
@@ -1030,7 +1030,7 @@ def Xform "hylion" (
 
                         def Xform "sts3215_03a_v1" (
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                            prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                         )
                         {
                             quatd xformOp:orient = (9.381839732e-7, -0.7071054578, 0.7071080804, -9.381873838e-7)
@@ -1041,7 +1041,7 @@ def Xform "hylion" (
 
                         def Xform "upper_arm_so101_v1" (
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/upper_arm_so101_v1>
+                            prepend references = @./instances.usda@</Instances/upper_arm_so101_v1_1>
                         )
                         {
                             quatd xformOp:orient = (0.000001326794859, 1, 0, 0)
@@ -1059,7 +1059,7 @@ def Xform "hylion" (
 
                             def Xform "under_arm_so101_v1" (
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/under_arm_so101_v1>
+                                prepend references = @./instances.usda@</Instances/under_arm_so101_v1_1>
                             )
                             {
                                 quatd xformOp:orient = (0.000001326794859, 1, 0, 0)
@@ -1070,7 +1070,7 @@ def Xform "hylion" (
 
                             def Xform "motor_holder_so101_wrist_v1" (
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/motor_holder_so101_wrist_v1>
+                                prepend references = @./instances.usda@</Instances/motor_holder_so101_wrist_v1_1>
                             )
                             {
                                 quatd xformOp:orient = (0.000001326794859, -1, 0, 0)
@@ -1081,7 +1081,7 @@ def Xform "hylion" (
 
                             def Xform "sts3215_03a_v1" (
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                                prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                             )
                             {
                                 quatd xformOp:orient = (0, 0.000001326794859, -1, 0.000001326794859)
@@ -1099,7 +1099,7 @@ def Xform "hylion" (
 
                                 def Xform "sts3215_03a_no_horn_v1" (
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/sts3215_03a_no_horn_v1>
+                                    prepend references = @./instances.usda@</Instances/sts3215_03a_no_horn_v1_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5, -0.5000018477)
@@ -1110,7 +1110,7 @@ def Xform "hylion" (
 
                                 def Xform "wrist_roll_pitch_so101_v2" (
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/wrist_roll_pitch_so101_v2>
+                                    prepend references = @./instances.usda@</Instances/wrist_roll_pitch_so101_v2_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.4999981523, -0.5, -0.5, -0.5000018477)
@@ -1128,7 +1128,7 @@ def Xform "hylion" (
 
                                     def Xform "sts3215_03a_v1" (
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1>
+                                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.7071054578, -0.7071080804, 0, 0)
@@ -1139,7 +1139,7 @@ def Xform "hylion" (
 
                                     def Xform "wrist_roll_follower_so101_v1" (
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/wrist_roll_follower_so101_v1>
+                                        prepend references = @./instances.usda@</Instances/wrist_roll_follower_so101_v1_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.000001326794859, -1, 0, 0)
@@ -1157,7 +1157,7 @@ def Xform "hylion" (
 
                                         def Xform "moving_jaw_so101_v1" (
                                             instanceable = true
-                                            prepend references = @./instances.usda@</Instances/moving_jaw_so101_v1>
+                                            prepend references = @./instances.usda@</Instances/moving_jaw_so101_v1_1>
                                         )
                                         {
                                             quatd xformOp:orient = (1, 0, 0, 0)
@@ -1169,7 +1169,7 @@ def Xform "hylion" (
                                         def Xform "moving_jaw_so101_v1_1" (
                                             displayName = "moving_jaw_so101_v1"
                                             instanceable = true
-                                            prepend references = @./instances.usda@</Instances/moving_jaw_so101_v1_1>
+                                            prepend references = @./instances.usda@</Instances/moving_jaw_so101_v1_1_1>
                                         )
                                         {
                                             quatd xformOp:orient = (1, 0, 0, 0)
@@ -1182,7 +1182,7 @@ def Xform "hylion" (
                                     def Xform "sts3215_03a_v1_1" (
                                         displayName = "sts3215_03a_v1"
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.7071054578, -0.7071080804, 0, 0)
@@ -1194,7 +1194,7 @@ def Xform "hylion" (
                                     def Xform "wrist_roll_follower_so101_v1_1" (
                                         displayName = "wrist_roll_follower_so101_v1"
                                         instanceable = true
-                                        prepend references = @./instances.usda@</Instances/wrist_roll_follower_so101_v1_1>
+                                        prepend references = @./instances.usda@</Instances/wrist_roll_follower_so101_v1_1_1>
                                     )
                                     {
                                         quatd xformOp:orient = (0.000001326794859, -1, 0, 0)
@@ -1215,7 +1215,7 @@ def Xform "hylion" (
                                 def Xform "sts3215_03a_no_horn_v1_1" (
                                     displayName = "sts3215_03a_no_horn_v1"
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/sts3215_03a_no_horn_v1_1>
+                                    prepend references = @./instances.usda@</Instances/sts3215_03a_no_horn_v1_1_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5, -0.5000018477)
@@ -1227,7 +1227,7 @@ def Xform "hylion" (
                                 def Xform "wrist_roll_pitch_so101_v2_1" (
                                     displayName = "wrist_roll_pitch_so101_v2"
                                     instanceable = true
-                                    prepend references = @./instances.usda@</Instances/wrist_roll_pitch_so101_v2_1>
+                                    prepend references = @./instances.usda@</Instances/wrist_roll_pitch_so101_v2_1_1>
                                 )
                                 {
                                     quatd xformOp:orient = (0.4999981523, -0.5, -0.5, -0.5000018477)
@@ -1240,7 +1240,7 @@ def Xform "hylion" (
                             def Xform "under_arm_so101_v1_1" (
                                 displayName = "under_arm_so101_v1"
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/under_arm_so101_v1_1>
+                                prepend references = @./instances.usda@</Instances/under_arm_so101_v1_1_1>
                             )
                             {
                                 quatd xformOp:orient = (0.000001326794859, 1, 0, 0)
@@ -1252,7 +1252,7 @@ def Xform "hylion" (
                             def Xform "motor_holder_so101_wrist_v1_1" (
                                 displayName = "motor_holder_so101_wrist_v1"
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/motor_holder_so101_wrist_v1_1>
+                                prepend references = @./instances.usda@</Instances/motor_holder_so101_wrist_v1_1_1>
                             )
                             {
                                 quatd xformOp:orient = (0.000001326794859, -1, 0, 0)
@@ -1264,7 +1264,7 @@ def Xform "hylion" (
                             def Xform "sts3215_03a_v1_1" (
                                 displayName = "sts3215_03a_v1"
                                 instanceable = true
-                                prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                                prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                             )
                             {
                                 quatd xformOp:orient = (0, 0.000001326794859, -1, 0.000001326794859)
@@ -1277,7 +1277,7 @@ def Xform "hylion" (
                         def Xform "sts3215_03a_v1_1" (
                             displayName = "sts3215_03a_v1"
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                            prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                         )
                         {
                             quatd xformOp:orient = (9.381839732e-7, -0.7071054578, 0.7071080804, -9.381873838e-7)
@@ -1289,7 +1289,7 @@ def Xform "hylion" (
                         def Xform "upper_arm_so101_v1_1" (
                             displayName = "upper_arm_so101_v1"
                             instanceable = true
-                            prepend references = @./instances.usda@</Instances/upper_arm_so101_v1_1>
+                            prepend references = @./instances.usda@</Instances/upper_arm_so101_v1_1_1>
                         )
                         {
                             quatd xformOp:orient = (0.000001326794859, 1, 0, 0)
@@ -1302,7 +1302,7 @@ def Xform "hylion" (
                     def Xform "sts3215_03a_v1_1" (
                         displayName = "sts3215_03a_v1"
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                        prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                     )
                     {
                         quatd xformOp:orient = (0.4999981523, 0.5, 0.5, -0.5000018477)
@@ -1314,7 +1314,7 @@ def Xform "hylion" (
                     def Xform "motor_holder_so101_base_v1_1" (
                         displayName = "motor_holder_so101_base_v1"
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/motor_holder_so101_base_v1_1>
+                        prepend references = @./instances.usda@</Instances/motor_holder_so101_base_v1_1_1>
                     )
                     {
                         quatd xformOp:orient = (0.4999981523, 0.5, -0.5, 0.5000018477)
@@ -1326,7 +1326,7 @@ def Xform "hylion" (
                     def Xform "rotation_pitch_so101_v1_1" (
                         displayName = "rotation_pitch_so101_v1"
                         instanceable = true
-                        prepend references = @./instances.usda@</Instances/rotation_pitch_so101_v1_1>
+                        prepend references = @./instances.usda@</Instances/rotation_pitch_so101_v1_1_1>
                     )
                     {
                         quatd xformOp:orient = (0.7071054578, -0.7071080804, 0, 0)
@@ -1339,7 +1339,7 @@ def Xform "hylion" (
                 def Xform "base_motor_holder_so101_v1_1" (
                     displayName = "base_motor_holder_so101_v1"
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/base_motor_holder_so101_v1_1>
+                    prepend references = @./instances.usda@</Instances/base_motor_holder_so101_v1_1_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -1351,7 +1351,7 @@ def Xform "hylion" (
                 def Xform "base_so101_v2_1" (
                     displayName = "base_so101_v2"
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/base_so101_v2_1>
+                    prepend references = @./instances.usda@</Instances/base_so101_v2_1_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)
@@ -1363,7 +1363,7 @@ def Xform "hylion" (
                 def Xform "sts3215_03a_v1_1" (
                     displayName = "sts3215_03a_v1"
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1>
+                    prepend references = @./instances.usda@</Instances/sts3215_03a_v1_1_1>
                 )
                 {
                     quatd xformOp:orient = (1, 0, 0, 0)
@@ -1375,7 +1375,7 @@ def Xform "hylion" (
                 def Xform "waveshare_mounting_plate_so101_v2_1" (
                     displayName = "waveshare_mounting_plate_so101_v2"
                     instanceable = true
-                    prepend references = @./instances.usda@</Instances/waveshare_mounting_plate_so101_v2_1>
+                    prepend references = @./instances.usda@</Instances/waveshare_mounting_plate_so101_v2_1_1>
                 )
                 {
                     quatd xformOp:orient = (0.4999981523, 0.5, 0.5000018477, 0.5)

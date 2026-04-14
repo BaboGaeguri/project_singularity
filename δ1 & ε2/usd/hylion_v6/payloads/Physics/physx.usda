@@ -48,7 +48,8 @@ over "hylion"
                                     prepend apiSchemas = ["PhysxContactReportAPI"]
                                 )
                                 {
-                                    float physxContactReport:threshold = 0.0
+                                    float physxContactReport:threshold = 0
+
                                     over "leg_left_ankle_roll_visual"
                                     {
                                     }
@@ -105,7 +106,8 @@ over "hylion"
                                     prepend apiSchemas = ["PhysxContactReportAPI"]
                                 )
                                 {
-                                    float physxContactReport:threshold = 0.0
+                                    float physxContactReport:threshold = 0
+
                                     over "leg_right_ankle_roll_visual"
                                     {
                                     }

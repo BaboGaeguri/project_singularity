@@ -29,6 +29,11 @@ def Xform "hylion" (
 )
 {
     variantSet "Physics" = {
+        "mujoco" (
+            prepend payload = @./payloads/Physics/mujoco.usda@
+        ) {
+
+        }
         "none" {
 
         }

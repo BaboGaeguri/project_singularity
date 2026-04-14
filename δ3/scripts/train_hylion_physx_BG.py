@@ -20,6 +20,8 @@ import argparse
 import os
 import sys
 
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
 sys.path.insert(0, "/home/laba/Berkeley-Humanoid-Lite/scripts/rsl_rl")
 
 from isaaclab.app import AppLauncher
@@ -34,6 +36,25 @@ parser.add_argument("--num_envs", type=int, default=None)
 parser.add_argument("--task", type=str, default="Velocity-Hylion-BG-v0")
 parser.add_argument("--seed", type=int, default=None)
 parser.add_argument("--max_iterations", type=int, default=None)
+parser.add_argument("--pretrained_checkpoint", type=str, default=None, help="Optional checkpoint path to warm-start from")
+parser.add_argument(
+    "--debug_obs_nan",
+    action="store_true",
+    default=False,
+    help="Print per-term NaN counts for policy observations before learning.",
+)
+parser.add_argument(
+    "--debug_step_nan",
+    action="store_true",
+    default=False,
+    help="Run one env step with zero actions and print per-term NaN counts before/after step.",
+)
+parser.add_argument(
+    "--disable_contact_sensor",
+    action="store_true",
+    default=False,
+    help="Disable contact sensor and related reward terms (fallback for nested USD matching issues).",
+)
 parser.add_argument(
     "--hylion_usd_path",
     type=str,
@@ -81,7 +102,7 @@ from isaaclab_tasks.utils.hydra import hydra_task_config
 import berkeley_humanoid_lite.tasks  # noqa: F401
 
 # Velocity-Hylion-BG-v0 등록
-sys.path.insert(0, "/mnt/c/Users/admin/Desktop/project_singularity/δ3")
+sys.path.insert(0, PROJECT_ROOT)
 from hylion import agents
 from hylion.env_cfg_BG import HylionEnvCfg_BG
 
@@ -122,6 +143,16 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     env_cfg.sim.device = args_cli.device if args_cli.device is not None else env_cfg.sim.device
     # PhysX 기본값 사용 (NewtonCfg 미적용)
 
+    if args_cli.disable_contact_sensor:
+        print("[INFO] Disabling contact sensor and contact-dependent rewards for fallback run.")
+        if hasattr(env_cfg, "scene"):
+            env_cfg.scene.contact_forces = None
+        if hasattr(env_cfg, "rewards"):
+            if hasattr(env_cfg.rewards, "feet_air_time"):
+                env_cfg.rewards.feet_air_time = None
+            if hasattr(env_cfg.rewards, "feet_slide"):
+                env_cfg.rewards.feet_slide = None
+
     log_root_path = os.path.join("logs", "rsl_rl", agent_cfg.experiment_name)
     log_root_path = os.path.abspath(log_root_path)
     print(f"[INFO] Logging experiment in directory: {log_root_path}")
@@ -137,6 +168,64 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     log_dir = os.path.join(log_root_path, log_dir)
 
     env = gym.make(args_cli.task, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
+
+    if args_cli.debug_obs_nan:
+        obs_manager = env.unwrapped.observation_manager
+        old_concat = obs_manager._group_obs_concatenate.get("policy", True)
+        obs_manager._group_obs_concatenate["policy"] = False
+        try:
+            policy_terms = obs_manager.compute_group("policy", update_history=False)
+            for term_name, term_tensor in policy_terms.items():
+                nan_count = int(torch.isnan(term_tensor).sum().item())
+                inf_count = int(torch.isinf(term_tensor).sum().item())
+                print(
+                    "[OBS_DEBUG] "
+                    f"term={term_name} "
+                    f"shape={tuple(term_tensor.shape)} "
+                    f"nan={nan_count} "
+                    f"inf={inf_count}"
+                )
+        finally:
+            obs_manager._group_obs_concatenate["policy"] = old_concat
+
+    if args_cli.debug_step_nan:
+        obs_manager = env.unwrapped.observation_manager
+        old_concat = obs_manager._group_obs_concatenate.get("policy", True)
+        obs_manager._group_obs_concatenate["policy"] = False
+        try:
+            env.reset()
+            before_terms = obs_manager.compute_group("policy", update_history=False)
+            for term_name, term_tensor in before_terms.items():
+                nan_count = int(torch.isnan(term_tensor).sum().item())
+                inf_count = int(torch.isinf(term_tensor).sum().item())
+                print(
+                    "[STEP_DEBUG][before] "
+                    f"term={term_name} "
+                    f"shape={tuple(term_tensor.shape)} "
+                    f"nan={nan_count} "
+                    f"inf={inf_count}"
+                )
+
+            action_dim = env.unwrapped.action_manager.total_action_dim
+            zero_action = torch.zeros((env.unwrapped.num_envs, action_dim), device=env.unwrapped.device)
+            env.step(zero_action)
+
+            after_terms = obs_manager.compute_group("policy", update_history=False)
+            for term_name, term_tensor in after_terms.items():
+                nan_count = int(torch.isnan(term_tensor).sum().item())
+                inf_count = int(torch.isinf(term_tensor).sum().item())
+                print(
+                    "[STEP_DEBUG][after] "
+                    f"term={term_name} "
+                    f"shape={tuple(term_tensor.shape)} "
+                    f"nan={nan_count} "
+                    f"inf={inf_count}"
+                )
+        finally:
+            obs_manager._group_obs_concatenate["policy"] = old_concat
+            env.close()
+        return
+
     if args_cli.video:
         video_kwargs = {
             "video_folder": os.path.join(log_dir, "videos", "train"),
@@ -162,6 +251,10 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         resume_path = get_checkpoint_path(log_root_path, agent_cfg.load_run, agent_cfg.load_checkpoint)
         print(f"[INFO]: Loading model checkpoint from: {resume_path}")
         runner.load(resume_path)
+
+    if args_cli.pretrained_checkpoint:
+        print(f"[INFO]: Loading pretrained checkpoint from: {args_cli.pretrained_checkpoint}")
+        runner.load(args_cli.pretrained_checkpoint)
 
     dump_yaml(os.path.join(log_dir, "params", "env.yaml"), env_cfg)
     dump_yaml(os.path.join(log_dir, "params", "agent.yaml"), agent_cfg)

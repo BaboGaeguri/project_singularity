@@ -45,10 +45,11 @@ over "hylion"
                             over "leg_left_ankle_pitch"
                             {
                                 over "leg_left_ankle_roll" (
-                                    prepend apiSchemas = ["PhysxContactReportAPI"]
+                                    prepend apiSchemas = ["PhysxContactReportAPI", "PhysxRigidBodyAPI"]
                                 )
                                 {
                                     float physxContactReport:threshold = 0.0
+                                    float physxRigidBody:sleepThreshold = 0.0
                                     over "leg_left_ankle_roll_visual"
                                     {
                                     }
@@ -102,10 +103,11 @@ over "hylion"
                             over "leg_right_ankle_pitch"
                             {
                                 over "leg_right_ankle_roll" (
-                                    prepend apiSchemas = ["PhysxContactReportAPI"]
+                                    prepend apiSchemas = ["PhysxContactReportAPI", "PhysxRigidBodyAPI"]
                                 )
                                 {
                                     float physxContactReport:threshold = 0.0
+                                    float physxRigidBody:sleepThreshold = 0.0
                                     over "leg_right_ankle_roll_visual"
                                     {
                                     }
