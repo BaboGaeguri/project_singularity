@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-LOG_FILE="${1:-/tmp/hylion_v6_physx_2048_stable.log}"
+LOG_FILE="${1:-/tmp/hylion_v6_physx_M4.log}"
 INTERVAL="${2:-2}"
 
 if [[ ! -f "$LOG_FILE" ]]; then
@@ -17,7 +17,7 @@ while true; do
 
   echo
   echo "=== Latest Metrics ==="
-  grep -nE "Learning iteration|Mean value loss:|Mean surrogate loss:|Mean reward:|Mean episode length:|Mean action std:" "$LOG_FILE" | tail -n 18 || true
+  grep -nE "Learning iteration|Mean value loss:|Mean surrogate loss:|Mean reward:|Mean episode length:|Mean action std:|feet_air_time" "$LOG_FILE" | tail -n 20 || true
 
   echo
   echo "=== Error Markers ==="

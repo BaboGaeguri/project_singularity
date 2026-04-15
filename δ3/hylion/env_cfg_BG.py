@@ -33,9 +33,17 @@ class HylionEnvCfg_BG(LocomotionVelocityEnvCfg):
         feet_air_threshold = float(os.environ.get("HYLION_FEET_AIR_THRESHOLD", "0.4"))
         leg_gain_scale = float(os.environ.get("HYLION_LEG_GAIN_SCALE", "1.0"))
         base_mass_add_kg = float(os.environ.get("HYLION_BASE_MASS_ADD_KG", "0.0"))
+        contact_body_regex = os.environ.get("HYLION_CONTACT_BODY_REGEX", ".*_ankle_roll")
 
         if hasattr(self, "rewards") and hasattr(self.rewards, "feet_air_time") and self.rewards.feet_air_time is not None:
             self.rewards.feet_air_time.params["threshold"] = feet_air_threshold
+            if "sensor_cfg" in self.rewards.feet_air_time.params:
+                self.rewards.feet_air_time.params["sensor_cfg"].body_names = contact_body_regex
+        if hasattr(self, "rewards") and hasattr(self.rewards, "feet_slide") and self.rewards.feet_slide is not None:
+            if "sensor_cfg" in self.rewards.feet_slide.params:
+                self.rewards.feet_slide.params["sensor_cfg"].body_names = contact_body_regex
+            if "asset_cfg" in self.rewards.feet_slide.params:
+                self.rewards.feet_slide.params["asset_cfg"].body_names = contact_body_regex
         # v6 안정화: 초기 디버그 단계에서는 공격적인 도메인 랜덤화/외력 주입 비활성화.
         if hasattr(self, "events"):
             if hasattr(self.events, "add_base_mass"):

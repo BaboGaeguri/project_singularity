@@ -3,7 +3,7 @@
     customLayerData = {
         string creator = "URDF USD Converter v0.1.0"
     }
-    doc = """Generated from Composed Stage of root layer /tmp/tmp0l76a8mn/hylion.usdc
+    doc = """Generated from Composed Stage of root layer /tmp/tmpqqoxk49d/hylion.usdc
 
 
 Generated from Composed Stage of root layer /home/laba/project_singularity/δ1 & ε2/usd/usdex/hylion.usdc
@@ -368,8 +368,8 @@ def Scope "Instances"
 
     def Xform "base_motor_holder_so101_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/base_motor_holder_so101_v1_1>,
-            @./geometries.usd@</Geometries/base_motor_holder_so101_v1>
+            @./geometries.usd@</Geometries/base_motor_holder_so101_v1>,
+            @./geometries.usd@</Geometries/base_motor_holder_so101_v1_1>
         ]
     )
     {
@@ -425,8 +425,8 @@ def Scope "Instances"
 
     def Xform "base_so101_v2_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/base_so101_v2_1>,
-            @./geometries.usd@</Geometries/base_so101_v2>
+            @./geometries.usd@</Geometries/base_so101_v2>,
+            @./geometries.usd@</Geometries/base_so101_v2_1>
         ]
     )
     {
@@ -482,8 +482,8 @@ def Scope "Instances"
 
     def Xform "sts3215_03a_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/sts3215_03a_v1_1>,
-            @./geometries.usd@</Geometries/sts3215_03a_v1>
+            @./geometries.usd@</Geometries/sts3215_03a_v1>,
+            @./geometries.usd@</Geometries/sts3215_03a_v1_1>
         ]
     )
     {
@@ -539,8 +539,8 @@ def Scope "Instances"
 
     def Xform "waveshare_mounting_plate_so101_v2_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/waveshare_mounting_plate_so101_v2_1>,
-            @./geometries.usd@</Geometries/waveshare_mounting_plate_so101_v2>
+            @./geometries.usd@</Geometries/waveshare_mounting_plate_so101_v2>,
+            @./geometries.usd@</Geometries/waveshare_mounting_plate_so101_v2_1>
         ]
     )
     {
@@ -596,8 +596,8 @@ def Scope "Instances"
 
     def Xform "motor_holder_so101_base_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/motor_holder_so101_base_v1_1>,
-            @./geometries.usd@</Geometries/motor_holder_so101_base_v1>
+            @./geometries.usd@</Geometries/motor_holder_so101_base_v1>,
+            @./geometries.usd@</Geometries/motor_holder_so101_base_v1_1>
         ]
     )
     {
@@ -653,8 +653,8 @@ def Scope "Instances"
 
     def Xform "rotation_pitch_so101_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/rotation_pitch_so101_v1_1>,
-            @./geometries.usd@</Geometries/rotation_pitch_so101_v1>
+            @./geometries.usd@</Geometries/rotation_pitch_so101_v1>,
+            @./geometries.usd@</Geometries/rotation_pitch_so101_v1_1>
         ]
     )
     {
@@ -710,8 +710,8 @@ def Scope "Instances"
 
     def Xform "upper_arm_so101_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/upper_arm_so101_v1_1>,
-            @./geometries.usd@</Geometries/upper_arm_so101_v1>
+            @./geometries.usd@</Geometries/upper_arm_so101_v1>,
+            @./geometries.usd@</Geometries/upper_arm_so101_v1_1>
         ]
     )
     {
@@ -767,8 +767,8 @@ def Scope "Instances"
 
     def Xform "under_arm_so101_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/under_arm_so101_v1_1>,
-            @./geometries.usd@</Geometries/under_arm_so101_v1>
+            @./geometries.usd@</Geometries/under_arm_so101_v1>,
+            @./geometries.usd@</Geometries/under_arm_so101_v1_1>
         ]
     )
     {
@@ -824,8 +824,8 @@ def Scope "Instances"
 
     def Xform "motor_holder_so101_wrist_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/motor_holder_so101_wrist_v1_1>,
-            @./geometries.usd@</Geometries/motor_holder_so101_wrist_v1>
+            @./geometries.usd@</Geometries/motor_holder_so101_wrist_v1>,
+            @./geometries.usd@</Geometries/motor_holder_so101_wrist_v1_1>
         ]
     )
     {
@@ -881,8 +881,8 @@ def Scope "Instances"
 
     def Xform "sts3215_03a_no_horn_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/sts3215_03a_no_horn_v1_1>,
-            @./geometries.usd@</Geometries/sts3215_03a_no_horn_v1>
+            @./geometries.usd@</Geometries/sts3215_03a_no_horn_v1>,
+            @./geometries.usd@</Geometries/sts3215_03a_no_horn_v1_1>
         ]
     )
     {
@@ -938,8 +938,8 @@ def Scope "Instances"
 
     def Xform "wrist_roll_pitch_so101_v2_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/wrist_roll_pitch_so101_v2_1>,
-            @./geometries.usd@</Geometries/wrist_roll_pitch_so101_v2>
+            @./geometries.usd@</Geometries/wrist_roll_pitch_so101_v2>,
+            @./geometries.usd@</Geometries/wrist_roll_pitch_so101_v2_1>
         ]
     )
     {
@@ -995,8 +995,8 @@ def Scope "Instances"
 
     def Xform "wrist_roll_follower_so101_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/wrist_roll_follower_so101_v1_1>,
-            @./geometries.usd@</Geometries/wrist_roll_follower_so101_v1>
+            @./geometries.usd@</Geometries/wrist_roll_follower_so101_v1>,
+            @./geometries.usd@</Geometries/wrist_roll_follower_so101_v1_1>
         ]
     )
     {
@@ -1052,8 +1052,8 @@ def Scope "Instances"
 
     def Xform "moving_jaw_so101_v1_1" (
         prepend references = [
-            @./geometries.usd@</Geometries/moving_jaw_so101_v1_1>,
-            @./geometries.usd@</Geometries/moving_jaw_so101_v1>
+            @./geometries.usd@</Geometries/moving_jaw_so101_v1>,
+            @./geometries.usd@</Geometries/moving_jaw_so101_v1_1>
         ]
     )
     {

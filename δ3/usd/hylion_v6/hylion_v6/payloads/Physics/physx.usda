@@ -846,5 +846,13 @@ over "hylion"
         {
         }
     }
+
+    over "Physics"
+    {
+        over "root_joint"
+        {
+            bool physics:jointEnabled = 0
+        }
+    }
 }
 

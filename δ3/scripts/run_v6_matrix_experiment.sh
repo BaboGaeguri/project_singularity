@@ -47,7 +47,7 @@ nohup /home/laba/env_isaaclab/bin/python /home/laba/project_singularity/δ3/scri
   --num_envs 1024 \
   --headless \
   --max_iterations 6250 \
-  --hylion_usd_path "/home/laba/project_singularity/δ3/usd/hylion_v6/hylion_v6/hylion_v6.usda" \
+  --hylion_usd_path "/home/laba/project_singularity/δ1 & ε2/usd/hylion_v6/hylion_v6.usda" \
   --pretrained_checkpoint /home/laba/Berkeley-Humanoid-Lite/scripts/rsl_rl/logs/rsl_rl/biped/2026-04-06_15-27-27/model_5999.pt \
   > "$LOG_FILE" 2>&1 &
 

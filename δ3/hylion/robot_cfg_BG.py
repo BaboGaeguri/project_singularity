@@ -10,8 +10,9 @@ import isaaclab.sim as sim_utils
 from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 
-# Keep default under δ3 to match BG training assets and avoid path ambiguity.
-HYLION_DEFAULT_USD_PATH = "/home/laba/project_singularity/δ3/usd/hylion_v6/hylion_v6/hylion_v6.usda"
+# Use the regenerated v6 asset under δ1 & ε2. This path was validated to produce
+# non-zero foot contact forces and non-zero feet_air_time in PhysX training.
+HYLION_DEFAULT_USD_PATH = "/home/laba/project_singularity/δ1 & ε2/usd/hylion_v6/hylion_v6.usda"
 HYLION_USD_PATH = os.environ.get("HYLION_USD_PATH", HYLION_DEFAULT_USD_PATH)
 
 # BHL biped와 동일한 다리 joint 목록
@@ -33,7 +34,7 @@ HYLION_LEG_JOINTS = [
 HYLION_CFG_BG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
         usd_path=HYLION_USD_PATH,
-        activate_contact_sensors=True,
+        activate_contact_sensors=False,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
             retain_accelerations=False,
@@ -47,6 +48,7 @@ HYLION_CFG_BG = ArticulationCfg(
             enabled_self_collisions=False,
             solver_position_iteration_count=8,
             solver_velocity_iteration_count=4,
+            fix_root_link=False,
         ),
     ),
     init_state=ArticulationCfg.InitialStateCfg(

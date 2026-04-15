@@ -702,6 +702,7 @@ over "hylion"
 
         over "root_joint"
         {
+            bool physics:jointEnabled = 0
         }
 
         over "imu"

@@ -1,1 +1,0 @@
-from isaacsim.asset.importer.urdf._urdf import acquire_urdf_interface; urdf_interface = acquire_urdf_interface(); print(hasattr(urdf_interface, "parse")); print(hasattr(urdf_interface, "import_robot"))
