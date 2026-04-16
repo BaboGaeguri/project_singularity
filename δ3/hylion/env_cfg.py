@@ -133,7 +133,7 @@ class RewardsCfg:
             "sensor_cfg": SceneEntityCfg("contact_forces", body_names=".*_ankle_roll"),
             "threshold": 0.4,
         },
-        weight=3.0,  # 발 드는 행동 더 강하게 유도
+        weight=1.5,  # Walk These Ways: 0.5~1.0, BHL: 1.0, 3.0은 과도해 perturbation 시 불안정
     )
     feet_slide = RewTerm(
         func=mdp.feet_slide,
@@ -237,10 +237,11 @@ class EventsCfg:
         func=mdp.apply_external_force_torque,
         params={
             "asset_cfg": SceneEntityCfg("robot", body_names="base"),
-            "force_range": (-2.0, 2.0),
-            "torque_range": (-2.0, 2.0),
+            "force_range": (-10.0, 10.0),
+            "torque_range": (-3.0, 3.0),
         },
-        mode="reset",
+        mode="interval",
+        interval_range_s=(1.5, 3.0),  # 1.5~3초마다 한 번 충격 (reset 직후 아님)
     )
 
 
