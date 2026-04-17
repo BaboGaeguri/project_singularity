@@ -2,11 +2,32 @@
 
 이 패키지를 import하면 Isaac Lab gym에 'Velocity-Hylion-v0' 환경이 등록된다.
 train_hylion.py에서 sys.path에 δ3/를 추가한 뒤 import한다.
+
+등록된 task 목록:
+  Velocity-Hylion-v0          : Stage C (현재 메인, env_cfg + ppo_cfg)
+  Velocity-Hylion-BG-Bplus-v0 : Stage B+ (conservative fine-tuning)
+  Velocity-Hylion-BG-C1-v0   : Stage C1 (base_mass ±0.5kg, 외력 없음)
+  Velocity-Hylion-BG-C2-v0   : Stage C2 (base_mass ±0.5kg, 외력 ±3N)
+  Velocity-Hylion-BG-C3-v0   : Stage C3 (base_mass ±1.0kg, 외력 ±5N)
+  Velocity-Hylion-BG-C4-v0   : Stage C4 (base_mass ±1.5kg, 외력 ±10N)
+
+  [Option A — 세밀한 외력 단계 (2026-04-17)]
+  Velocity-Hylion-BG-D1-v0   : Stage D1 (base_mass ±0.5kg, 외력 ±1N)
+  Velocity-Hylion-BG-D2-v0   : Stage D2 (base_mass ±0.5kg, 외력 ±2N)
+  Velocity-Hylion-BG-D3-v0   : Stage D3 (base_mass ±0.5kg, 외력 ±3N)
+  Velocity-Hylion-BG-D4-v0   : Stage D4 (base_mass ±1.0kg, 외력 ±5N)
+  Velocity-Hylion-BG-D5-v0   : Stage D5 (base_mass ±1.5kg, 외력 ±10N)
 """
 
 import gymnasium as gym
 
 from . import agents, env_cfg
+from .agents import (
+    rsl_rl_ppo_cfg,
+    rsl_rl_ppo_cfg_stageBplus,
+    rsl_rl_ppo_cfg_stageC_progressive,
+    rsl_rl_ppo_cfg_stageD_optionA,
+)
 
 gym.register(
     id="Velocity-Hylion-v0",
@@ -14,6 +35,118 @@ gym.register(
     disable_env_checker=True,
     kwargs={
         "env_cfg_entry_point": env_cfg.HylionEnvCfg,
-        "rsl_rl_cfg_entry_point": agents.rsl_rl_ppo_cfg.HylionPPORunnerCfg,
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg.HylionPPORunnerCfg,
+    },
+)
+
+# Stage B+: env_cfg_BG 사용 (env var로 외력/mass 비활성화), 보수적 PPO
+gym.register(
+    id="Velocity-Hylion-BG-Bplus-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageBplus.HylionPPORunnerCfg_StageBplus,
+    },
+)
+
+# Stage C1: base_mass ±0.5kg, 외력 없음
+gym.register(
+    id="Velocity-Hylion-BG-C1-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageC_progressive.HylionPPORunnerCfg_StageC1,
+    },
+)
+
+# Stage C2: base_mass ±0.5kg, 외력 ±3N
+gym.register(
+    id="Velocity-Hylion-BG-C2-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageC_progressive.HylionPPORunnerCfg_StageC2,
+    },
+)
+
+# Stage C3: base_mass ±1.0kg, 외력 ±5N
+gym.register(
+    id="Velocity-Hylion-BG-C3-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageC_progressive.HylionPPORunnerCfg_StageC3,
+    },
+)
+
+# Stage C4: base_mass ±1.5kg, 외력 ±10N (최종 강건성)
+gym.register(
+    id="Velocity-Hylion-BG-C4-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageC_progressive.HylionPPORunnerCfg_StageC4,
+    },
+)
+
+# ── Option A (세밀한 외력 단계, 2026-04-17) ─────────────────────────────────
+
+# Stage D1: base_mass ±0.5kg, 외력 ±1N (최초 외력 경험)
+gym.register(
+    id="Velocity-Hylion-BG-D1-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageD_optionA.HylionPPORunnerCfg_StageD1,
+    },
+)
+
+# Stage D2: base_mass ±0.5kg, 외력 ±2N
+gym.register(
+    id="Velocity-Hylion-BG-D2-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageD_optionA.HylionPPORunnerCfg_StageD2,
+    },
+)
+
+# Stage D3: base_mass ±0.5kg, 외력 ±3N (C2 실패 수준 재도전, 4000iter)
+gym.register(
+    id="Velocity-Hylion-BG-D3-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageD_optionA.HylionPPORunnerCfg_StageD3,
+    },
+)
+
+# Stage D4: base_mass ±1.0kg, 외력 ±5N
+gym.register(
+    id="Velocity-Hylion-BG-D4-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageD_optionA.HylionPPORunnerCfg_StageD4,
+    },
+)
+
+# Stage D5: base_mass ±1.5kg, 외력 ±10N (최종 강건성 목표)
+gym.register(
+    id="Velocity-Hylion-BG-D5-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageD_optionA.HylionPPORunnerCfg_StageD5,
     },
 )
