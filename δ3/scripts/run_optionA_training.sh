@@ -34,10 +34,13 @@ START_STAGE="${START_STAGE:-D1}"
 # ── 각 스테이지 입력 체크포인트 (override 가능) ────────────────────────────────
 # D1은 C1 best.pt에서 시작 (orientation 3.84% — 검증된 최고 수준)
 D1_CKPT="${D1_CKPT:-${CKPT_DIR}/stage_c1_hylion_v6/best.pt}"
-D2_CKPT="${D2_CKPT:-${CKPT_DIR}/stage_d1_hylion_v6/best.pt}"
-D3_CKPT="${D3_CKPT:-${CKPT_DIR}/stage_d2_hylion_v6/best.pt}"
+D1_5_CKPT="${D1_5_CKPT:-${CKPT_DIR}/stage_d1_hylion_v6/best.pt}"
+D2_CKPT="${D2_CKPT:-${CKPT_DIR}/stage_d1_5_hylion_v6/best.pt}"
+D2_5_CKPT="${D2_5_CKPT:-${CKPT_DIR}/stage_d2_hylion_v6/best.pt}"
+D3_CKPT="${D3_CKPT:-${CKPT_DIR}/stage_d2_5_hylion_v6/best.pt}"
 D4_CKPT="${D4_CKPT:-${CKPT_DIR}/stage_d3_hylion_v6/best.pt}"
-D5_CKPT="${D5_CKPT:-${CKPT_DIR}/stage_d4_hylion_v6/best.pt}"
+D4_5_CKPT="${D4_5_CKPT:-${CKPT_DIR}/stage_d4_hylion_v6/best.pt}"
+D5_CKPT="${D5_CKPT:-${CKPT_DIR}/stage_d4_5_hylion_v6/best.pt}"
 
 # ── 성공 판단 기준 ─────────────────────────────────────────────────────────────
 SUCCESS_ORIENTATION_THRESHOLD="0.15"   # C보다 엄격 — 외력 환경에서도 15% 이하
@@ -156,7 +159,7 @@ run_stage() {
 }
 
 # ── 스테이지 순서 정의 ────────────────────────────────────────────────────────
-STAGES=("D1" "D2" "D3" "D4" "D5")
+STAGES=("D1" "D1.5" "D2" "D2.5" "D3" "D4" "D4.5" "D5")
 
 stage_should_run() {
     local stage="$1"
@@ -173,7 +176,7 @@ log "======================================================"
 log "Option A Progressive Training 시작"
 log "  시작 스테이지: ${START_STAGE}"
 log "  베이스: stage_c1_hylion_v6/best.pt (orientation 3.84%)"
-log "  경로: ±1N → ±2N → ±3N → ±5N → ±10N"
+log "  경로: ±1N → ±1.5N → ±2N → ±2.5N → ±3N → ±5N → ±7N → ±10N"
 log "======================================================"
 
 # Stage D1: base_mass ±0.5kg, 외력 ±1N (최초 외력 경험)
@@ -191,6 +194,21 @@ if stage_should_run "D1"; then
         "HYLION_STANDING_RATIO=0.02"
 fi
 
+# Stage D1.5: base_mass ±0.5kg, 외력 ±1.5N (D2 NaN 폭발 대응 — 2026-04-21 추가)
+if stage_should_run "D1.5"; then
+    run_stage "D1.5" \
+        "Velocity-Hylion-BG-D1p5-v0" \
+        "$D1_5_CKPT" \
+        "${LOG_DIR}/hylion_v6_stageD1_5.log" \
+        "${CKPT_DIR}/stage_d1_5_hylion_v6" \
+        "HYLION_ENABLE_PERTURBATION=1" \
+        "HYLION_BASE_MASS_ADD_KG=0.5" \
+        "HYLION_PERTURB_FORCE=1.5" \
+        "HYLION_PERTURB_TORQUE=0.45" \
+        "HYLION_MAX_LIN_VEL_X=0.5" \
+        "HYLION_STANDING_RATIO=0.02"
+fi
+
 # Stage D2: base_mass ±0.5kg, 외력 ±2N
 if stage_should_run "D2"; then
     run_stage "D2" \
@@ -202,6 +220,21 @@ if stage_should_run "D2"; then
         "HYLION_BASE_MASS_ADD_KG=0.5" \
         "HYLION_PERTURB_FORCE=2.0" \
         "HYLION_PERTURB_TORQUE=0.5" \
+        "HYLION_MAX_LIN_VEL_X=0.5" \
+        "HYLION_STANDING_RATIO=0.02"
+fi
+
+# Stage D2.5: base_mass ±0.5kg, 외력 ±2.5N (±2N→±3N 갭 완충 — 2026-04-22 추가)
+if stage_should_run "D2.5"; then
+    run_stage "D2.5" \
+        "Velocity-Hylion-BG-D2p5-v0" \
+        "$D2_5_CKPT" \
+        "${LOG_DIR}/hylion_v6_stageD2_5.log" \
+        "${CKPT_DIR}/stage_d2_5_hylion_v6" \
+        "HYLION_ENABLE_PERTURBATION=1" \
+        "HYLION_BASE_MASS_ADD_KG=0.5" \
+        "HYLION_PERTURB_FORCE=2.5" \
+        "HYLION_PERTURB_TORQUE=0.75" \
         "HYLION_MAX_LIN_VEL_X=0.5" \
         "HYLION_STANDING_RATIO=0.02"
 fi
@@ -234,6 +267,21 @@ if stage_should_run "D4"; then
         "HYLION_PERTURB_TORQUE=1.5" \
         "HYLION_MAX_LIN_VEL_X=0.6" \
         "HYLION_STANDING_RATIO=0.05"
+fi
+
+# Stage D4.5: base_mass ±1.0kg, 외력 ±7N (±5N→±10N 갭 완충 — 2026-04-22 추가)
+if stage_should_run "D4.5"; then
+    run_stage "D4.5" \
+        "Velocity-Hylion-BG-D4p5-v0" \
+        "$D4_5_CKPT" \
+        "${LOG_DIR}/hylion_v6_stageD4_5.log" \
+        "${CKPT_DIR}/stage_d4_5_hylion_v6" \
+        "HYLION_ENABLE_PERTURBATION=1" \
+        "HYLION_BASE_MASS_ADD_KG=1.0" \
+        "HYLION_PERTURB_FORCE=7.0" \
+        "HYLION_PERTURB_TORQUE=2.2" \
+        "HYLION_MAX_LIN_VEL_X=0.65" \
+        "HYLION_STANDING_RATIO=0.07"
 fi
 
 # Stage D5: base_mass ±1.5kg, 외력 ±10N (최종 강건성 목표)

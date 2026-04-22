@@ -83,30 +83,73 @@ Stage-B 체크포인트:
 
 ---
 
-## 자주 쓰는 명령
+## ⚠️ 학습 실행 규칙 — 반드시 tmux 안에서 실행
+
+**모든 학습은 tmux 세션 안에서 실행한다. nohup 단독 사용 금지.**
+이유: VS Code / SSH 연결이 끊겨도 학습이 살아있어야 하고,
+노트북에서 SSH 접속 후 즉시 화면을 볼 수 있어야 하기 때문.
 
 ```bash
-# 학습 시작
-cd /home/laba/Berkeley-Humanoid-Lite/scripts/rsl_rl
-source /home/laba/env_isaaclab/bin/activate
-nohup env PYTHONUNBUFFERED=1 LD_PRELOAD="/lib/aarch64-linux-gnu/libgomp.so.1" \
-  python /home/laba/project_singularity/δ3/scripts/train_hylion_physx_BG.py \
-  --task Velocity-Hylion-BG-v0 --num_envs 1024 --headless \
-  --pretrained_checkpoint [ckpt경로] \
-  > /tmp/hylion_v6_physx_[런이름].log 2>&1 &
+# ── 학습 시작 (표준 방법) ─────────────────────────────────────
+# 세션이 없을 때만 생성 (있으면 그냥 attach)
+tmux new-session -d -s hylion_train -x 220 -y 50 2>/dev/null || true
 
-# 모니터링 (로그 경로는 항상 /tmp 절대경로로)
-bash /home/laba/project_singularity/δ3/scripts/monitor_stageb_realtime.sh \
-  /tmp/hylion_v6_physx_M4.log 2
+# tmux 안에서 Option A 파이프라인 실행
+tmux send-keys -t hylion_train \
+  "cd /home/laba/project_singularity && unset PYTHONPATH && unset PYTHONHOME && \
+  START_STAGE=D2.5 bash δ3/scripts/run_optionA_training.sh 2>&1 | tee /tmp/hylion_optionA_orchestrator.log" \
+  Enter
 
-# 빠른 확인 (watch)
-watch -n 2 "grep -E 'Learning iteration|feet_air_time|Mean action std:|Mean episode length:|nan|Traceback' /tmp/hylion_v6_physx_M4.log | tail -30"
+# ── 개인 노트북에서 확인하는 법 ──────────────────────────────
+# 1. 서버 SSH 접속
+ssh laba@[서버IP]
 
-# 학습 프로세스 확인/종료
-ls /proc/ | xargs -I{} sh -c \
-  'cat /proc/{}/cmdline 2>/dev/null | tr "\0" " " | grep -q "train_hylion" && echo {}' 2>/dev/null
-kill [PID들]
+# 2. 실행 중인 tmux 세션 확인
+tmux ls
+
+# 3. 세션에 붙기 (학습 화면 실시간 확인)
+tmux attach -t hylion_train
+
+# 4. 학습은 그대로 두고 세션에서 나가기 (절대 Ctrl+C 누르지 말 것!)
+Ctrl+B, D
+
+# ── 로그 파일로 확인 (세션 안 들어가지 않고) ─────────────────
+tail -f /tmp/hylion_optionA_orchestrator.log
+
+# ── 현재 어느 스테이지인지 한 줄 확인 ────────────────────────
+ps aux | grep "train_hylion_physx_BG" | grep -v grep | grep -oP "\-\-task \S+"
+
+# ── 학습 강제 중단 (응급 시만) ───────────────────────────────
+tmux send-keys -t hylion_train C-c
 ```
+
+---
+
+## Option A 학습 파이프라인 (현재 진행 중 — 2026-04-22)
+
+```
+stage_d2_hylion_v6/best.pt  (±2N, orient 3.8%)  ← 시작 체크포인트
+  → D2.5  ±2.5N  2000iter   /tmp/hylion_v6_stageD2_5.log
+  → D3    ±3N    4000iter   /tmp/hylion_v6_stageD3.log
+  → D4    ±5N    4000iter   /tmp/hylion_v6_stageD4.log
+  → D4.5  ±7N    4000iter   /tmp/hylion_v6_stageD4_5.log
+  → D5    ±10N   5000iter   /tmp/hylion_v6_stageD5.log
+
+체크포인트 저장 위치:
+  δ3/checkpoints/stage_d2_5_hylion_v6/best.pt
+  δ3/checkpoints/stage_d3_hylion_v6/best.pt
+  δ3/checkpoints/stage_d4_hylion_v6/best.pt
+  δ3/checkpoints/stage_d4_5_hylion_v6/best.pt
+  δ3/checkpoints/stage_d5_hylion_v6/best.pt
+
+스테이지 재시작 (특정 단계부터):
+  START_STAGE=D3 bash δ3/scripts/run_optionA_training.sh ...
+  START_STAGE=D4 bash δ3/scripts/run_optionA_training.sh ...
+```
+
+---
+
+## 자주 쓰는 명령
 
 ---
 
