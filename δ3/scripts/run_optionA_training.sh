@@ -63,7 +63,7 @@ check_ckpt() {
 
 # ── 학습 결과에서 최신 체크포인트 찾기 ───────────────────────────────────────
 find_latest_ckpt() {
-    local bhl_logs="/home/laba/Berkeley-Humanoid-Lite/scripts/rsl_rl/logs/rsl_rl/hylion"
+    local bhl_logs="/home/laba/project_singularity/logs/rsl_rl/hylion"
     local latest_dir
     latest_dir=$(ls -dt "${bhl_logs}"/2026-*/ 2>/dev/null | head -1)
     if [[ -z "$latest_dir" ]]; then

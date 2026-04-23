@@ -19,6 +19,12 @@ train_hylion.py에서 sys.path에 δ3/를 추가한 뒤 import한다.
   Velocity-Hylion-BG-D4-v0   : Stage D4   (base_mass ±1.0kg, 외력 ±5N)
   Velocity-Hylion-BG-D4p5-v0 : Stage D4.5 (base_mass ±1.0kg, 외력 ±7N)
   Velocity-Hylion-BG-D5-v0   : Stage D5   (base_mass ±1.5kg, 외력 ±10N)
+
+  [Stage E — ±30N 최종 목표 (2026-04-22)]
+  Velocity-Hylion-BG-E1-v0   : Stage E1   (base_mass ±1.5kg, 외력 ±15N)
+  Velocity-Hylion-BG-E2-v0   : Stage E2   (base_mass ±2.0kg, 외력 ±20N)
+  Velocity-Hylion-BG-E3-v0   : Stage E3   (base_mass ±2.0kg, 외력 ±25N)
+  Velocity-Hylion-BG-E4-v0   : Stage E4   (base_mass ±2.0kg, 외력 ±30N)
 """
 
 import gymnasium as gym
@@ -28,6 +34,7 @@ from .agents import (
     rsl_rl_ppo_cfg,
     rsl_rl_ppo_cfg_stageBplus,
     rsl_rl_ppo_cfg_stageC_progressive,
+    rsl_rl_ppo_cfg_stageE,
     rsl_rl_ppo_cfg_stageD_optionA,
 )
 
@@ -183,5 +190,51 @@ gym.register(
     kwargs={
         "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
         "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageD_optionA.HylionPPORunnerCfg_StageD5,
+    },
+)
+
+# ── Stage E: ±15N → ±30N 최종 강건성 목표 (2026-04-22) ──────────────────────
+
+# Stage E1: base_mass ±1.5kg, 외력 ±15N
+gym.register(
+    id="Velocity-Hylion-BG-E1-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageE.HylionPPORunnerCfg_StageE1,
+    },
+)
+
+# Stage E2: base_mass ±2.0kg, 외력 ±20N
+gym.register(
+    id="Velocity-Hylion-BG-E2-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageE.HylionPPORunnerCfg_StageE2,
+    },
+)
+
+# Stage E3: base_mass ±2.0kg, 외력 ±25N
+gym.register(
+    id="Velocity-Hylion-BG-E3-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageE.HylionPPORunnerCfg_StageE3,
+    },
+)
+
+# Stage E4: base_mass ±2.0kg, 외력 ±30N (최종 목표 ✨)
+gym.register(
+    id="Velocity-Hylion-BG-E4-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": "hylion.env_cfg_BG:HylionEnvCfg_BG",
+        "rsl_rl_cfg_entry_point": rsl_rl_ppo_cfg_stageE.HylionPPORunnerCfg_StageE4,
     },
 )
